@@ -9,7 +9,7 @@ source "scripts/utils.sh"
 #   - Applies system settings via dconf                                                                                #
 #   - Sets the default web browser to LibreWolf                                                                        #
 #   - Deletes files and folders specified in the array below                                                           #
-#   - Installs udev rules for the Wii U GameCube USB adapter, this enables it for use with Dolphin                     #
+#   - Installs udev rules for the GameCube Controller Adapter for Wii U, this enables it for use with Dolphin          #
 #   - Enables MangoHud globally and applies a default config file for it                                               #
 ########################################################################################################################
 
@@ -127,16 +127,16 @@ for folder_path in ${DELETE_FOLDERS[*]}; do
     fi
 done
 
-# Install udev rules for Dolphin Wii U GameCube controller adapter compatibility
+# Install udev rules for the GameCube Controller Adapter for Wii U
 # Source: https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux
 if [[ ! -f "$GC_ADAPTER_UDEV_FILE" ]]; then
-    print_header "Adding udev rules for GameCube USB adapter"
+    print_header "Adding udev rules for the GameCube Controller Adapter for Wii U"
     echo "$GC_ADAPTER_UDEV_RULES" | sudo tee "$GC_ADAPTER_UDEV_FILE" &>/dev/null
 
     if ! less "$GC_ADAPTER_UDEV_FILE" | grep "$GC_ADAPTER_UDEV_RULES" &>/dev/null; then
-        error_exit "Failed to add udev rules for GameCube USB adapter"
+        error_exit "Failed to add udev rules for the GameCube Controller Adapter for Wii U"
     else
-        echo "Successfully added udev rules for GameCube USB adapter"
+        echo "Successfully added udev rules for the GameCube Controller Adapter for Wii U"
     fi
 fi
 

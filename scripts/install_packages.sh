@@ -10,7 +10,7 @@ source "scripts/utils.sh"
 #   - Adds RPM Fusion repos                                                                                            #
 #   - Installs available updates                                                                                       #
 #   - Installs packages specified in the array below                                                                   #
-#   - Creates a .desktop file for TinyMediaManager if installed                                                        #
+#   - Creates a .desktop file for tinyMediaManager if installed                                                        #
 ########################################################################################################################
 
 INSTALL_PACKAGES=(
@@ -19,7 +19,7 @@ INSTALL_PACKAGES=(
     gnome-tweaks                                # Gnome Tweaks, required to configure some Gnome settings
     goverlay                                    # Configures in game performance monitoring overlays
     file-roller                                 # Gnome Archive Manager
-    libmediainfo                                # Required by TinyMediaManager
+    libmediainfo                                # Required by tinyMediaManager
     mangohud                                    # In game performance monitoring overlay similar to MSI Afterburner
     steam                                       # Steam
     steam-devices                               # Udev rules for HID devices recognized by Steam such as controllers
@@ -102,14 +102,14 @@ for package_name in ${INSTALL_PACKAGES[*]}; do
     fi
 done
 
-# If TinyMediaManager is found, create a .desktop for it
+# If tinyMediaManager is found, create a .desktop for it
 if [[ -f "$TINY_MEDIA_MANAGER_EXEC" ]] && [[ ! -f "$TINY_MEDIA_MANAGER_DESKTOP" ]]; then
-    echo "Creating a .desktop for TinyMediaManager at '$TINY_MEDIA_MANAGER_DESKTOP'"
+    echo "Creating a .desktop for tinyMediaManager at '$TINY_MEDIA_MANAGER_DESKTOP'"
     cat > "$TINY_MEDIA_MANAGER_DESKTOP" <<- EOF
 		[Desktop Entry]
 		Type=Application
 		Terminal=false
-		Name=TinyMediaManager
+		Name=tinyMediaManager
 		Icon=$TINY_MEDIA_MANAGER_ICON
 		Exec=$TINY_MEDIA_MANAGER_EXEC
 	EOF
