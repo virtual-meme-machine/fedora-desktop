@@ -10,10 +10,13 @@ Developed for and verified working on Fedora Workstation 37 (GNOME) as of Januar
 
 1. Clean install [Fedora Workstation](https://getfedora.org/en/workstation) on your host
 2. Preform initial setup (creating an account, etc.)
-3. Once at the desktop copy this package somewhere on the host (eg: `~/Downloads`)
-4. Open a terminal and run `setup.sh`:
-    ```bash
-    cd ~/Downloads/fedora-desktop
+3. Once at the desktop, open a terminal and git clone this package somewhere on the host:
+    ```none
+    git clone https://github.com/virtual-meme-machine/fedora-desktop.git ~/fedora-desktop
+    ```
+5. Enter the package directory and run `setup.sh`:
+    ```none
+    cd ~/fedora-desktop
     ./setup.sh
     ```
 
@@ -26,11 +29,11 @@ Refer to the scripts located in the `scripts` directory of this package for an e
 - Uninstalls 'bloat' packages that come with Fedora Workstation, this is mostly useless apps like Gnome Weather
 - Enables [RPM Fusion](https://rpmfusion.org/) package repos
 - Installs any available updates
-- Installs Nvidia GPU drivers
-- Installs MangoHud and GOverlay, see MangoHud section below for more details
-- Installs Steam
+- Installs [Nvidia GPU drivers](https://rpmfusion.org/Howto/NVIDIA)
+- Installs [MangoHud](https://github.com/flightlessmango/MangoHud) and [GOverlay](https://github.com/benjamimgois/goverlay), see MangoHud section below for more details
+- Installs [Steam](https://store.steampowered.com)
 - Installs useful libraries such as `unrar` and `wireguard-tools`
-- If TinyMediaManager is found installed at `~/.var/app/tinyMediaManager`, creates a .desktop for it
+- If [tinyMediaManager](https://www.tinymediamanager.org) is found installed at `~/.var/app/tinyMediaManager`, creates a .desktop for it
 
 #### Flatpaks
 
@@ -59,9 +62,9 @@ Refer to the scripts located in the `scripts` directory of this package for an e
 
 ## MangoHud
 
-[MangoHud](https://github.com/flightlessmango/MangoHud) is a performance monitoring overlay similar to MSI Afterburner or EVGA Precision X.
+MangoHud is a performance monitoring overlay similar to MSI Afterburner or EVGA Precision X.
 
-You can modify the layout, settings, key bindings, etc. for MangoHud using [GOverlay](https://github.com/benjamimgois/goverlay).
+You can modify the layout, settings, key bindings, etc. for MangoHud using GOverlay.
 
 #### Key Bindings
 
