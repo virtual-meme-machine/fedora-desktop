@@ -8,7 +8,7 @@ Developed for and verified working on Fedora Workstation 37 (GNOME) as of Januar
 
 **!! DO NOT enable third-party repos if asked, this script will set up RPM Fusion and Flathub on its own !!**
 
-1. Clean install [Fedora Workstation](https://getfedora.org/en/workstation/) on your host
+1. Clean install [Fedora Workstation](https://getfedora.org/en/workstation) on your host
 2. Preform initial setup (creating an account, etc.)
 3. Once at the desktop copy this package somewhere on the host (eg: `~/Downloads`)
 4. Open a terminal and run `setup.sh`:
@@ -35,7 +35,7 @@ Refer to the scripts located in the `scripts` directory of this package for an e
 #### Flatpaks
 
 - Removes Fedora's default Flatpak repos, these are very limited and often slow to update
-- Adds Flathub Flatpak repo
+- Adds [Flathub](https://flathub.org) Flatpak repo
 - Installs Flatpaks for a variety of applications, emulators, and games
 
 #### Gnome Shell Extensions
@@ -47,7 +47,7 @@ Refer to the scripts located in the `scripts` directory of this package for an e
 - Applies a set of dconf rules to configure system, extension, and application settings
 - Applies a different background
 - Applies a pre-configured app picker and favorites bar layout
-- Sets default web browser to LibreWolf
+- Sets default web browser to [LibreWolf](https://librewolf.net)
 - Deletes some unused folders
 - Installs udev rules for the [GameCube Controller Adapter for Wii U](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)
 - Enables MangoHud globally for all Vulkan applications
