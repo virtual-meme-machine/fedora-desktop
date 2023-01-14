@@ -61,7 +61,7 @@ Refer to the scripts located in the `scripts` directory of this package for an e
 
 [MangoHud](https://github.com/flightlessmango/MangoHud) is a performance monitoring overlay similar to MSI Afterburner or EVGA Precision X.
 
-You can modify the layout, settings, key bindings, etc. for MangoHud using GOverlay.
+You can modify the layout, settings, key bindings, etc. for MangoHud using [GOverlay](https://github.com/benjamimgois/goverlay).
 
 #### Key Bindings
 
