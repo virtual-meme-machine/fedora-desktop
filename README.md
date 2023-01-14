@@ -55,7 +55,7 @@ Refer to the scripts located in the `scripts` directory of this package for an e
 
 #### VPN Configuration
 
-- Optionally configures and enables a WireGuard connection to Mullvad VPN
+- Optionally configures and enables a WireGuard connection to [Mullvad VPN](https://mullvad.net)
 
 ## MangoHud
 
