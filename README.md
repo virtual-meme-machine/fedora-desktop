@@ -4,6 +4,9 @@ This package contains a set of scripts designed to configure a clean installatio
 
 Developed for and verified working on Fedora Workstation 37 (GNOME) as of January 2023.
 
+![image](https://user-images.githubusercontent.com/46010615/212503873-0b14f37d-39c8-4856-b177-76bc2328b9b2.png)
+
+
 ## Usage
 
 **!! DO NOT enable third-party repos if asked, this script will set up RPM Fusion and Flathub on its own !!**
