@@ -6,7 +6,6 @@ Developed for and verified working on Fedora Workstation 37 (GNOME) as of Januar
 
 ![image](https://user-images.githubusercontent.com/46010615/212503873-0b14f37d-39c8-4856-b177-76bc2328b9b2.png)
 
-
 ## Usage
 
 **!! DO NOT enable third-party repos if asked, this script will set up RPM Fusion and Flathub on its own !!**
@@ -17,7 +16,7 @@ Developed for and verified working on Fedora Workstation 37 (GNOME) as of Januar
     ```none
     git clone https://github.com/virtual-meme-machine/fedora-desktop.git ~/fedora-desktop
     ```
-5. Enter the package directory and run `setup.sh`:
+4. Enter the package directory and run `setup.sh`:
     ```none
     cd ~/fedora-desktop
     ./setup.sh
@@ -30,7 +29,7 @@ Refer to the scripts located in the `scripts` directory of this package for an e
 #### Packages
 
 - Uninstalls 'bloat' packages that come with Fedora Workstation, this is mostly useless apps like Gnome Weather
-- Enables [RPM Fusion](https://rpmfusion.org/) package repos
+- Enables [RPM Fusion](https://rpmfusion.org/) repos
 - Installs any available updates
 - Installs [Nvidia GPU drivers](https://rpmfusion.org/Howto/NVIDIA)
 - Installs [MangoHud](https://github.com/flightlessmango/MangoHud) and [GOverlay](https://github.com/benjamimgois/goverlay), see MangoHud section below for more details
