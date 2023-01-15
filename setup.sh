@@ -17,19 +17,29 @@ echo "Welcome! This script is mostly automated but you will be prompted for auth
 sleep 2
 
 # Install packages
-./scripts/install_packages.sh
+if ! ./scripts/install_packages.sh; then
+    exit 1
+fi
 
 # Install Flatpak applications
-./scripts/install_flatpaks.sh
+if ! ./scripts/install_flatpaks.sh; then
+    exit 1
+fi
 
 # Install Gnome Shell extensions
-./scripts/install_extensions.sh
+if ! ./scripts/install_extensions.sh; then
+    exit 1
+fi
 
 # Configure system
-./scripts/configure_system.sh
+if ! ./scripts/configure_system.sh; then
+    exit 1
+fi
 
 # Configure and enable VPN
-./scripts/configure_vpn.sh
+if ! ./scripts/configure_vpn.sh; then
+    exit 1
+fi
 
 # Print setup complete message
 print_header "Setup Complete"
