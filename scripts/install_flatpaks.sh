@@ -28,7 +28,7 @@ APPLICATION_IDS=(
     org.thentrythis.Samplebrain                 # Samplebrain (Aphex Twin)
     org.signal.Signal                           # Signal Desktop
     com.github.theironrobin.siglo               # Siglo (PineTime Sync)
-    dev.alextren.Spot                           # Spot (Spotify Client)
+    com.spotify.Client                          # Spotify
     com.steamgriddb.SGDBoop                     # SGDBoop
     com.steamgriddb.steam-rom-manager           # Steam ROM Manager
     com.github.Eloston.UngoogledChromium        # UnGoogled Chromium
