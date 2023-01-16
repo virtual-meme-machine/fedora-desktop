@@ -26,6 +26,11 @@ if ! ./scripts/install_flatpaks.sh; then
     exit 1
 fi
 
+# Install JetBrains Toolbox
+if ! ./scripts/install_toolbox.sh; then
+    exit 1
+fi
+
 # Install Gnome Shell extensions
 if ! ./scripts/install_extensions.sh; then
     exit 1

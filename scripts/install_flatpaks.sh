@@ -19,8 +19,6 @@ APPLICATION_IDS=(
     com.mattjakeman.ExtensionManager            # Gnome Extension Manager
     org.gimp.GIMP                               # GNU Image Manipulation Program
     org.inkscape.Inkscape                       # Inkscape
-    com.jetbrains.PyCharm-Professional          # JetBrains PyCharm Professional (Python IDE)
-    com.jetbrains.Rider                         # JetBrains Rider (C# IDE)
     org.jitsi.jitsi-meet                        # Jitsi Meet
     io.gitlab.librewolf-community               # LibreWolf
     org.onlyoffice.desktopeditors               # OnlyOffice Desktop Editors

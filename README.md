@@ -43,6 +43,10 @@ Refer to the scripts located in the `scripts` directory of this package for an e
 - Adds [Flathub](https://flathub.org) Flatpak repo
 - Installs Flatpaks for a variety of applications, emulators, and games
 
+#### JetBrains Toolbox
+
+- Installs [JetBrains Toolbox](https://www.jetbrains.com/toolbox-app), used to manage JetBrains products such as PyCharm or Rider
+
 #### Gnome Shell Extensions
 
 - Installs a set of Gnome Shell extensions that enhance the default Gnome experience
