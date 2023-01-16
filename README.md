@@ -45,7 +45,7 @@ Refer to the scripts located in the `scripts` directory of this package for an e
 
 #### JetBrains Toolbox
 
-- Installs [JetBrains Toolbox](https://www.jetbrains.com/toolbox-app), used to manage JetBrains products such as PyCharm or Rider
+- Installs [JetBrains Toolbox](https://www.jetbrains.com/toolbox-app), used to manage JetBrains products such as Android Studio, Rider, and PyCharm
 
 #### Gnome Shell Extensions
 
