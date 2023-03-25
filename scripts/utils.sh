@@ -44,3 +44,23 @@ function print_header() {
     echo "================================================================================"
     tput sgr0
 }
+
+############################################################
+#  prompt_yes_no()                                         #
+#  Prompts the user to answer yes or no.                   #
+# -------------------------------------------------------- #
+#  [$1] Prompt string, eg: "Would you like do to X?"       #
+############################################################
+function prompt_yes_no() {
+    local answer=""
+    while :; do
+        read -p "$1 (y/n): " -r answer
+        if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+            echo 0
+            return
+        elif [[ "$answer" == "n" || "$answer" == "N" ]]; then
+            echo 1
+            return
+        fi
+    done
+}

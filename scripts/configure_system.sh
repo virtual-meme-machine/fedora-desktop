@@ -26,10 +26,6 @@ declare -A DCONF_VALUES=(
 
 declare -A GSETTINGS_VALUES=(
     # App picker layout settings
-    ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Emulators/ apps"]="['org.DolphinEmu.dolphin-emu.desktop', 'org.duckstation.DuckStation.desktop', 'io.mgba.mGBA.desktop', 'net.pcsx2.PCSX2.desktop', 'org.ppsspp.PPSSPP.desktop', 'app.xemu.xemu.desktop']"
-    ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Emulators/ name"]="Emulators"
-    ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Games/ apps"]="['io.openrct2.OpenRCT2.desktop', 'org.polymc.PolyMC.desktop', 'org.sonic3air.Sonic3AIR.desktop', 'org.srb2.SRB2Kart.desktop', 'com.github.k4zmu2a.spacecadetpinball.desktop']"
-    ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Games/ name"]="Games"
     ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ apps"]="['org.gnome.FileRoller.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Cheese.desktop', 'org.gnome.Connections.desktop', 'ca.desrt.dconf-editor.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.baobab.desktop', 'simple-scan.desktop', 'org.gnome.Evince.desktop', 'org.fedoraproject.MediaWriter.desktop', 'org.gnome.font-viewer.desktop', 'yelp.desktop', 'org.gnome.eog.desktop', 'jetbrains-toolbox.desktop', 'nvidia-settings.desktop', 'org.freedesktop.GnomeAbrt.desktop', 'org.gnome.Settings.desktop', 'gnome-system-monitor.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.tweaks.desktop']"
     ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ name"]="Utilities"
     ["org.gnome.desktop.app-folders folder-children"]="['Games', 'Emulators', 'Utilities']"
@@ -85,6 +81,22 @@ MANGOHUD_CONFIG_DIR="/home/$USER/.config/MangoHud"
 MANGOHUD_CONFIG_FILE="$MANGOHUD_CONFIG_DIR/MangoHud.conf"
 MANGOHUD_ENABLED="MANGOHUD=1"
 SYSTEM_ENVIRONMENT_FILE="/etc/environment"
+
+# Add Emulators folder to app picker if user opted to install emulators
+if [[ "$INSTALL_EMULATORS" == 0 ]]; then
+    GSETTINGS_VALUES+=(
+        ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Emulators/ apps"]="['org.DolphinEmu.dolphin-emu.desktop', 'org.duckstation.DuckStation.desktop', 'io.mgba.mGBA.desktop', 'net.pcsx2.PCSX2.desktop', 'org.ppsspp.PPSSPP.desktop', 'app.xemu.xemu.desktop']"
+        ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Emulators/ name"]="Emulators"
+    )
+fi
+
+# Add Games folder to app picker if user opted to install games
+if [[ "$INSTALL_GAMES" == 0 ]]; then
+    GSETTINGS_VALUES+=(
+        ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Games/ apps"]="['io.openrct2.OpenRCT2.desktop', 'org.polymc.PolyMC.desktop', 'org.sonic3air.Sonic3AIR.desktop', 'org.srb2.SRB2Kart.desktop', 'com.github.k4zmu2a.spacecadetpinball.desktop']"
+        ["org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Games/ name"]="Games"
+    )
+fi
 
 # Set dconf values
 print_header "Updating dconf values"

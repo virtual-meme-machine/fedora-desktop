@@ -14,7 +14,6 @@ source "scripts/utils.sh"
 ########################################################################################################################
 
 INSTALL_PACKAGES=(
-    akmod-nvidia                                # Drivers for modern Nvidia GPUs
     dconf-editor                                # GUI for viewing and modifying dconf
     gnome-tweaks                                # Gnome Tweaks, required to configure some Gnome settings
     goverlay                                    # Configures in game performance monitoring overlays
@@ -25,7 +24,6 @@ INSTALL_PACKAGES=(
     steam-devices                               # Udev rules for HID devices recognized by Steam such as controllers
     unrar                                       # Allows the system to extract .rar archives
     wireguard-tools                             # Wireguard configuration utilities, used by most modern VPNs
-    xorg-x11-drv-nvidia-cuda                    # Libraries for Nvidia CUDA
 )
 
 REMOVE_PACKAGES=(
@@ -48,13 +46,20 @@ TINY_MEDIA_MANAGER_DESKTOP="/home/$USER/.local/share/applications/tiny-media-man
 TINY_MEDIA_MANAGER_EXEC="/home/$USER/.var/app/tinyMediaManager/tinyMediaManager"
 TINY_MEDIA_MANAGER_ICON="/home/$USER/.var/app/tinyMediaManager/tmm.png"
 
+# Add Nvidia packages if user has opted to install Nvidia drivers
+if [[ "$INSTALL_NVIDIA_DRIVERS" == 0 ]]; then
+    INSTALL_PACKAGES+=(
+        "akmod-nvidia"                          # Drivers for modern Nvidia GPUs
+        "xorg-x11-drv-nvidia-cuda"              # Libraries for Nvidia CUDA
+    )
+fi
+
 # Remove unwanted default packages
 print_header "Removing unwanted default packages"
 for package_name in ${REMOVE_PACKAGES[*]}; do
     tput setaf 2
     echo "Removing package: $package_name"
     tput sgr0
-
     if ! sudo dnf -y remove "$package_name"; then
         error_exit "Failed to remove package: $package_name"
     fi
@@ -64,7 +69,6 @@ done
 tput setaf 2
 echo "Removing LibreOffice"
 tput sgr0
-
 if ! sudo dnf -y remove libreoffice*; then
     error_exit "Failed to remove LibreOffice"
 fi

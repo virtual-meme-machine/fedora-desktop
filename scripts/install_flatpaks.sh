@@ -13,7 +13,6 @@ source "scripts/utils.sh"
 ########################################################################################################################
 
 APPLICATION_IDS=(
-    # Applications
     org.filezillaproject.Filezilla              # FileZilla
     io.freetubeapp.FreeTube                     # FreeTube
     com.mattjakeman.ExtensionManager            # Gnome Extension Manager
@@ -34,22 +33,30 @@ APPLICATION_IDS=(
     com.github.Eloston.UngoogledChromium        # UnGoogled Chromium
     org.videolan.VLC                            # VLC Media Player
     com.vscodium.codium                         # VSCodium
-
-    # Emulators
-    org.DolphinEmu.dolphin-emu                  # Dolphin Emulator, Gamecube and Wii emulator
-    org.duckstation.DuckStation                 # DuckStation, PS1 emulator
-    io.mgba.mGBA                                # mGBA, GameBoy Advance emulator
-    net.pcsx2.PCSX2                             # PCSX2, PS2 emulator
-    org.ppsspp.PPSSPP                           # PPSSPP, PSP emulator
-    app.xemu.xemu                               # Xemu, Xbox Emulator
-
-    # Games
-    io.openrct2.OpenRCT2                        # OpenRCT2
-    org.polymc.PolyMC                           # PolyMC Minecraft Launcher
-    org.sonic3air.Sonic3AIR                     # Sonic 3: Angel Island Revisited
-    org.srb2.SRB2Kart                           # Sonic Robo Blast 2 Kart
-    com.github.k4zmu2a.spacecadetpinball        # Space Cadet Pinball
 )
+
+# Add emulator flatpak IDs if user opted to install emulators
+if [[ "$INSTALL_EMULATORS" == 0 ]]; then
+    APPLICATION_IDS+=(
+        org.DolphinEmu.dolphin-emu              # Dolphin Emulator, Gamecube and Wii emulator
+        org.duckstation.DuckStation             # DuckStation, PS1 emulator
+        io.mgba.mGBA                            # mGBA, GameBoy Advance emulator
+        net.pcsx2.PCSX2                         # PCSX2, PS2 emulator
+        org.ppsspp.PPSSPP                       # PPSSPP, PSP emulator
+        app.xemu.xemu                           # Xemu, Xbox Emulator
+    )
+fi
+
+# Add game flatpak IDs if user opted to install games
+if [[ "$INSTALL_GAMES" == 0 ]]; then
+    APPLICATION_IDS+=(
+        io.openrct2.OpenRCT2                    # OpenRCT2
+        org.polymc.PolyMC                       # PolyMC Minecraft Launcher
+        org.sonic3air.Sonic3AIR                 # Sonic 3: Angel Island Revisited
+        org.srb2.SRB2Kart                       # Sonic Robo Blast 2 Kart
+        com.github.k4zmu2a.spacecadetpinball    # Space Cadet Pinball
+    )
+fi
 
 # Verify Flatpak is installed and available
 exec_exists "flatpak"

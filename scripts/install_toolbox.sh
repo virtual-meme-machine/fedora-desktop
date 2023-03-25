@@ -24,6 +24,11 @@ TOOLBOX_DIR="/opt/jetbrains-toolbox"
 TOOLBOX_EXEC="$TOOLBOX_DIR/jetbrains-toolbox"
 USER_AGENT="User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 
+# Exit now if user has opted to not install JetBrains Toolbox
+if [[ "$INSTALL_TOOLBOX" -ne 0 ]]; then
+    exit 0
+fi
+
 # Check if JetBrains Toolbox is installed, if so exit now
 print_header "Installing JetBrains Toolbox"
 if [[ -f "$BIN_EXEC" ]] && [[ -f "$TOOLBOX_EXEC" ]]; then

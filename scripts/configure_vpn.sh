@@ -28,8 +28,10 @@ declare -A SERVER_ENDPOINTS
 declare -A SERVER_PUBLIC_KEYS
 declare -a SERVER_CODES
 
-# Set pipe fail
-set -e
+# Exit now if user has opted to not install the VPN
+if [[ "$INSTALL_VPN" -ne 0 ]]; then
+    exit 0
+fi
 
 # Verify curl and jQuery are installed
 exec_exists "curl"
