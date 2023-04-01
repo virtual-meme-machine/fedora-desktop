@@ -30,6 +30,7 @@ APPLICATION_IDS=(
     com.spotify.Client                          # Spotify
     com.steamgriddb.SGDBoop                     # SGDBoop
     com.steamgriddb.steam-rom-manager           # Steam ROM Manager
+    org.nickvision.tubeconverter                # Tube Converter
     com.github.Eloston.UngoogledChromium        # UnGoogled Chromium
     org.videolan.VLC                            # VLC Media Player
     com.vscodium.codium                         # VSCodium
