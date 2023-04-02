@@ -26,7 +26,6 @@ APPLICATION_IDS=(
     org.qbittorrent.qBittorrent                 # qBittorrent
     org.thentrythis.Samplebrain                 # Samplebrain (Aphex Twin)
     org.signal.Signal                           # Signal Desktop
-    com.github.theironrobin.siglo               # Siglo (PineTime Sync)
     com.spotify.Client                          # Spotify
     com.steamgriddb.SGDBoop                     # SGDBoop
     com.steamgriddb.steam-rom-manager           # Steam ROM Manager
@@ -34,6 +33,7 @@ APPLICATION_IDS=(
     com.github.Eloston.UngoogledChromium        # UnGoogled Chromium
     org.videolan.VLC                            # VLC Media Player
     com.vscodium.codium                         # VSCodium
+    io.gitlab.azymohliad.WatchMate              # WatchMate (PineTime Sync)
 )
 
 # Add emulator flatpak IDs if user opted to install emulators
