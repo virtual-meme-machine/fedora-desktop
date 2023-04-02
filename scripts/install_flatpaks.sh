@@ -15,6 +15,7 @@ source "scripts/utils.sh"
 APPLICATION_IDS=(
     org.filezillaproject.Filezilla              # FileZilla
     io.freetubeapp.FreeTube                     # FreeTube
+    org.gnome.Boxes                             # Gnome Boxes
     com.mattjakeman.ExtensionManager            # Gnome Extension Manager
     org.gimp.GIMP                               # GNU Image Manipulation Program
     org.inkscape.Inkscape                       # Inkscape

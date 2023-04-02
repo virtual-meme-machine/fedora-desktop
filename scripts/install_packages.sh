@@ -28,6 +28,7 @@ INSTALL_PACKAGES=(
 
 REMOVE_PACKAGES=(
     firefox                                     # Firefox
+    gnome-boxes                                 # Gnome Boxes
     gnome-calendar                              # Gnome Calendar
     gnome-characters                            # Gnome Characters
     gnome-clocks                                # Gnome Clocks
