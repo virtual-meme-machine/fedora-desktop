@@ -14,6 +14,7 @@ source "scripts/utils.sh"
 
 APPLICATION_IDS=(
     org.filezillaproject.Filezilla              # FileZilla
+    org.freecadweb.FreeCAD                      # FreeCAD
     io.freetubeapp.FreeTube                     # FreeTube
     org.gnome.Boxes                             # Gnome Boxes
     com.mattjakeman.ExtensionManager            # Gnome Extension Manager
@@ -21,6 +22,7 @@ APPLICATION_IDS=(
     org.inkscape.Inkscape                       # Inkscape
     org.jitsi.jitsi-meet                        # Jitsi Meet
     io.gitlab.librewolf-community               # LibreWolf
+    com.obsproject.Studio                       # OBS Studio
     org.onlyoffice.desktopeditors               # OnlyOffice Desktop Editors
     net.davidotek.pupgui2                       # ProtonUp-Qt (Proton Updater)
     com.prusa3d.PrusaSlicer                     # PrusaSlicer
