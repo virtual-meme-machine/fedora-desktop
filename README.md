@@ -4,7 +4,8 @@ This package contains a set of scripts designed to configure a clean installatio
 
 Supports Fedora Workstation 38 (GNOME) as of April 2023, older versions of this script support Fedora 37.
 
-![image](https://user-images.githubusercontent.com/46010615/212503873-0b14f37d-39c8-4856-b177-76bc2328b9b2.png)
+![image](https://user-images.githubusercontent.com/46010615/235053773-0e3e8187-b2a6-4347-a583-d0f6c4ec0603.png)
+
 
 ## Usage
 
