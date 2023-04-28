@@ -37,10 +37,10 @@ REMOVE_PACKAGES=(
     gnome-maps                                  # Gnome Maps
     gnome-music                                 # Gnome Music
     gnome-photos                                # Gnome Photos
+    gnome-tour                                  # Gnome Tour
     gnome-weather                               # Gnome Weather
     totem                                       # Gnome Videos
     rhythmbox                                   # Rhythmbox, music manager similar to iTunes
-    gnome-tour                                  # Gnome Tour
 )
 
 TINY_MEDIA_MANAGER_DESKTOP="/home/$USER/.local/share/applications/tiny-media-manager.desktop"
@@ -75,6 +75,7 @@ if ! sudo dnf -y remove libreoffice*; then
 fi
 
 # Auto remove unneeded dependencies
+print_header "Removing unused dependencies"
 if ! sudo dnf -y autoremove; then
     error_exit "Failed to remove unused dependencies"
 fi

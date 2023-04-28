@@ -16,12 +16,6 @@ source "scripts/utils.sh"
 declare -A DCONF_VALUES=(
     ["/org/gnome/shell/extensions/ding/show-home"]="false"
     ["/org/gnome/shell/extensions/ding/show-trash"]="false"
-    ["/org/gnome/shell/extensions/quick-settings-tweaks/add-dnd-quick-toggle-enabled"]="false"
-    ["/org/gnome/shell/extensions/quick-settings-tweaks/datemenu-remove-notifications"]="false"
-    ["/org/gnome/shell/extensions/quick-settings-tweaks/input-always-show"]="true"
-    ["/org/gnome/shell/extensions/quick-settings-tweaks/notifications-enabled"]="false"
-    ["/org/gnome/shell/extensions/quick-settings-tweaks/notifications-integrated"]="false"
-    ["/org/gnome/shell/extensions/quick-settings-tweaks/user-removed-buttons"]="['DarkModeToggle', 'PowerProfilesToggle']"
 )
 
 declare -A GSETTINGS_VALUES=(
@@ -37,7 +31,7 @@ declare -A GSETTINGS_VALUES=(
     ["org.gnome.eog.view interpolate"]="false"
 
     # Gnome Shell extension settings
-    ["org.gnome.shell enabled-extensions"]="['appindicatorsupport@rgcjonas.gmail.com', 'blur-my-shell@aunetx', 'background-logo@fedorahosted.org', 'caffeine@patapon.info', 'ding@rastersoft.com', 'quick-settings-tweaks@qwreey']"
+    ["org.gnome.shell enabled-extensions"]="['appindicatorsupport@rgcjonas.gmail.com', 'blur-my-shell@aunetx', 'background-logo@fedorahosted.org', 'caffeine@patapon.info', 'ding@rastersoft.com', 'quick-settings-audio-panel@rayzeq.github.io']"
     ["org.fedorahosted.background-logo-extension logo-always-visible"]="true"
     ["org.fedorahosted.background-logo-extension logo-border"]="25"
     ["org.fedorahosted.background-logo-extension logo-opacity"]="20"
@@ -48,6 +42,7 @@ declare -A GSETTINGS_VALUES=(
     ["org.gnome.nautilus.preferences default-folder-viewer"]="list-view"
     ["org.gnome.nautilus.list-view default-zoom-level"]="small"
     ["org.gtk.gtk4.Settings.FileChooser sort-directories-first"]="true"
+    ["org.gnome.nautilus.list-view use-tree-view"]="true"
 
     # System settings
     ["org.gnome.desktop.calendar show-weekdate"]="true"

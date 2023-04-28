@@ -12,12 +12,12 @@ source "scripts/utils.sh"
 ########################################################################################################################
 
 EXTENSION_IDS=(
-    appindicatorsupport@rgcjonas.gmail.com      # AppIndicator and KStatusNotifierItem Support
-    background-logo@fedorahosted.org            # Fedora Background Logo
-    blur-my-shell@aunetx                        # Blur my Shell
-    caffeine@patapon.info                       # Caffeine
-    ding@rastersoft.com                         # Desktop Icons NG (DING)
-    quick-settings-tweaks@qwreey                # Quick Settings Tweaker
+    appindicatorsupport@rgcjonas.gmail.com              # AppIndicator and KStatusNotifierItem Support
+    background-logo@fedorahosted.org                    # Fedora Background Logo
+    blur-my-shell@aunetx                                # Blur my Shell
+    caffeine@patapon.info                               # Caffeine
+    ding@rastersoft.com                                 # Desktop Icons NG (DING)
+    quick-settings-audio-panel@rayzeq.github.io         # Quick Settings Audio Panel
 )
 
 EXTENSION_DOWNLOAD_URL="https://extensions.gnome.org/extension-data"
