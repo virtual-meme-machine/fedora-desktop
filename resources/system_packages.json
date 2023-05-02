@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Install Nvidia Drivers",
+        "description": "Drivers for modern Nvidia GPUs",
+        "category": "system",
+        "operation_type": "package_install_rpmfusion",
+        "operation_args": [
+            "akmod-nvidia",
+            "xorg-x11-drv-nvidia-cuda"
+        ]
+    },
+    {
+        "name": "Install Unrar",
+        "description": "Enables extracting .rar archives",
+        "category": "system",
+        "operation_type": "package_install_rpmfusion",
+        "operation_args": [
+            "unrar"
+        ]
+    }
+]

@@ -1,0 +1,216 @@
+[
+    {
+        "name": "Calendar Widget - Show Week Numbers",
+        "description": "Makes week numbers visible in the top bar's calendar widget",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.desktop.calendar",
+                "key": "show-weekdate",
+                "value": "true"
+            }
+        ]
+    },
+    {
+        "name": "Clock - Apply AM/PM Format",
+        "description": "Sets the clock format to AM/PM (12 hour)",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.desktop.interface",
+                "key": "clock-format",
+                "value": "'12h'"
+            },
+            {
+                "schema": "org.gtk.Settings.FileChooser",
+                "key": "clock-format",
+                "value": "'12h'"
+            }
+        ]
+    },
+    {
+        "name": "Clock - Show Week Day",
+        "description": "Makes the week day visible in the top bar's clock",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.desktop.interface",
+                "key": "clock-show-weekday",
+                "value": "true"
+            }
+        ]
+    },
+    {
+        "name": "Files - Default to List View",
+        "description": "Sets Files' default view to 'List View'",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.nautilus.preferences",
+                "key": "default-folder-viewer",
+                "value": "'list-view'"
+            },
+            {
+                "schema": "org.gnome.nautilus.list-view",
+                "key": "default-zoom-level",
+                "value": "'small'"
+            },
+            {
+                "schema": "org.gnome.nautilus.list-view",
+                "key": "use-tree-view",
+                "value": "true"
+            }
+        ]
+    },
+    {
+        "name": "Files - Sort Folders Before Files",
+        "description": "Sorts folders before files in Files",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gtk.gtk4.Settings.FileChooser",
+                "key": "sort-directories-first",
+                "value": "true"
+            }
+        ]
+    },
+    {
+        "name": "Image Viewer - Disable Filtering",
+        "description": "Disables filtering (blurring) in the Gnome Image Viewer",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.eog.view",
+                "key": "extrapolate",
+                "value": "false"
+            },
+            {
+                "schema": "org.gnome.eog.view",
+                "key": "interpolate",
+                "value": "false"
+            }
+        ]
+    },
+    {
+        "name": "Shell - Apply Blobs Wallpaper",
+        "description": "Applies the 'Blobs' wallpaper",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.desktop.background",
+                "key": "picture-uri",
+                "value": "'file:///usr/share/backgrounds/gnome/blobs-l.svg'"
+            },
+            {
+                "schema": "org.gnome.desktop.background",
+                "key": "picture-uri-dark",
+                "value": "'file:///usr/share/backgrounds/gnome/blobs-d.svg'"
+            },
+            {
+                "schema": "org.gnome.desktop.background",
+                "key": "primary-color",
+                "value": "'#241f31'"
+            },
+            {
+                "schema": "org.gnome.desktop.screensaver",
+                "key": "picture-uri",
+                "value": "'file:///usr/share/backgrounds/gnome/blobs-l.svg'"
+            },
+            {
+                "schema": "org.gnome.desktop.screensaver",
+                "key": "primary-color",
+                "value": "'#241f31'"
+            }
+        ]
+    },
+    {
+        "name": "Shell - Apply Dark Mode",
+        "description": "Applies the system dark theme",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.desktop.interface",
+                "key": "color-scheme",
+                "value": "'prefer-dark'"
+            },
+            {
+                "schema": "org.gnome.desktop.interface",
+                "key": "gtk-theme",
+                "value": "'Adwaita-dark'"
+            }
+        ]
+    },
+    {
+        "name": "Shell - Disable Autorun",
+        "description": "Disables automatic opening of connected devices",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.desktop.media-handling",
+                "key": "autorun-never",
+                "value": "true"
+            }
+        ]
+    },
+    {
+        "name": "Shell - Disable Hot Corners",
+        "description": "Disables hot corners",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.desktop.interface",
+                "key": "enable-hot-corners",
+                "value": "false"
+            }
+        ]
+    },
+    {
+        "name": "Shell - Enable Minimize and Maximize Buttons",
+        "description": "Enables window titlebar minimize and maximize buttons",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.desktop.wm.preferences",
+                "key": "button-layout",
+                "value": "'appmenu:minimize,maximize,close'"
+            }
+        ]
+    },
+    {
+        "name": "System - Disable Location Services",
+        "description": "Disables location services",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.system.location",
+                "key": "enabled",
+                "value": "false"
+            }
+        ]
+    },
+    {
+        "name": "System - Disable Automatic Problem Reporting",
+        "description": "Disables automatically reporting crashes and other problems",
+        "category": "setting",
+        "operation_type": "gsettings_value",
+        "operation_args": [
+            {
+                "schema": "org.gnome.desktop.privacy",
+                "key": "report-technical-problems",
+                "value": "false"
+            }
+        ]
+    }
+]

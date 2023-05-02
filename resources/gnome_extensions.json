@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Blur my Shell",
+        "description": "Blurs some elements of the Gnome Shell",
+        "category": "gnome_extension",
+        "operation_type": "gnome_extension",
+        "operation_args": [
+            "blur-my-shell@aunetx"
+        ]
+    },
+    {
+        "name": "Caffeine",
+        "description": "Quick settings toggle that prevents the system from sleeping",
+        "category": "gnome_extension",
+        "operation_type": "gnome_extension",
+        "operation_args": [
+            "caffeine@patapon.info"
+        ]
+    },
+    {
+        "name": "Desktop Icons NG (DING)",
+        "description": "Adds icons to the desktop",
+        "category": "gnome_extension",
+        "operation_type": "gnome_extension",
+        "operation_args": [
+            "ding@rastersoft.com"
+        ]
+    }
+]

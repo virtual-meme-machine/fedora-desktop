@@ -1,0 +1,92 @@
+[
+    {
+        "name": "Configure MangoHud",
+        "description": "Configures MangoHud and enables it for all Vulkan applications",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "configure_mangohud"
+        ]
+    },
+    {
+        "name": "Configure Mullvad VPN",
+        "description": "Configures and enables a WireGuard connection to Mullvad VPN",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "configure_mullvad_vpn"
+        ]
+    },
+    {
+        "name": "Enable Background Logo",
+        "description": "Adds a Fedora logo watermark to the wallpaper",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "enable_background_logo"
+        ]
+    },
+    {
+        "name": "Enable GameCube Controller Adapter for Wii U",
+        "description": "Installs udev rules for the GameCube Controller Adapter for Wii U",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "enable_gc_adapter"
+        ]
+    },
+    {
+        "name": "Enable Tray Icons",
+        "description": "Enables support for tray icons",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "enable_tray_icons"
+        ]
+    },
+    {
+        "name": "Install Updates",
+        "description": "Installs available updates",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "install_updates"
+        ]
+    },
+    {
+        "name": "Remove Firefox",
+        "description": "Uninstalls Mozilla Firefox",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "remove_firefox"
+        ]
+    },
+    {
+        "name": "Set App Picker Layout",
+        "description": "Arranges the app picker to a preconfigured layout",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "set_app_picker_layout"
+        ]
+    },
+    {
+        "name": "Set Favorite Apps",
+        "description": "Sets the applications pinned to the dash to a preconfigured layout",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "set_favorite_apps"
+        ]
+    },
+    {
+        "name": "Set Default Web Browser to LibreWolf",
+        "description": "Sets the default web browser to LibreWolf",
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "set_default_browser"
+        ]
+    }
+]

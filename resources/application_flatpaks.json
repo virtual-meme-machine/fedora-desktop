@@ -1,0 +1,218 @@
+[
+    {
+        "name": "FileZilla",
+        "description": "FTP client",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.filezillaproject.Filezilla"
+        ]
+    },
+    {
+        "name": "FreeCAD",
+        "description": "Parametric 3D modeling software",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.freecadweb.FreeCAD"
+        ]
+    },
+    {
+        "name": "FreeTube",
+        "description": "Privacy focused YouTube client",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "io.freetubeapp.FreeTube"
+        ]
+    },
+    {
+        "name": "Gnome Boxes",
+        "description": "Simple QEMU virtualization frontend",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.gnome.Boxes"
+        ]
+    },
+    {
+        "name": "Gnome Extension Manager",
+        "description": "Utility for browsing and installing GNOME Shell Extensions",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.mattjakeman.ExtensionManager"
+        ]
+    },
+    {
+        "name": "GNU Image Manipulation Program (GIMP)",
+        "description": "Photo editor with a variety of features, similar to Adobe Photoshop",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.gimp.GIMP"
+        ]
+    },
+    {
+        "name": "Inkscape",
+        "description": "SVG editor",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.inkscape.Inkscape"
+        ]
+    },
+    {
+        "name": "Jitsi Meet",
+        "description": "Encrypted video conferencing application, similar to Skype or Zoom",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.jitsi.jitsi-meet"
+        ]
+    },
+    {
+        "name": "LibreWolf",
+        "description": "Firefox fork with enhanced privacy and security",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "io.gitlab.librewolf-community"
+        ]
+    },
+    {
+        "name": "OBS Studio",
+        "description": "Recording and streaming workstation",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.obsproject.Studio"
+        ]
+    },
+    {
+        "name": "OnlyOffice Desktop Editors",
+        "description": "Office productivity suite, similar to Microsoft Office",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.onlyoffice.desktopeditors"
+        ]
+    },
+    {
+        "name": "ProtonUp-Qt",
+        "description": "Proton (Windows application compatibility layer) version manager",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "net.davidotek.pupgui2"
+        ]
+    },
+    {
+        "name": "PrusaSlicer",
+        "description": "3D model slicer for use with 3D printers",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.prusa3d.PrusaSlicer"
+        ]
+    },
+    {
+        "name": "qBittorrent",
+        "description": "Modern BitTorrent client",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.qbittorrent.qBittorrent"
+        ]
+    },
+    {
+        "name": "Samplebrain",
+        "description": "Sample mashing application designed by Aphex Twin",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.thentrythis.Samplebrain"
+        ]
+    },
+    {
+        "name": "Signal Desktop",
+        "description": "Encrypted communication platform, similar to WhatsApp",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.signal.Signal"
+        ]
+    },
+    {
+        "name": "Spotify",
+        "description": "Official client for the Spotify music streaming platform",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.spotify.Client"
+        ]
+    },
+    {
+        "name": "SGDBoop",
+        "description": "Helps apply custom assets from SteamGridDB",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.steamgriddb.SGDBoop"
+        ]
+    },
+    {
+        "name": "Steam ROM Manager",
+        "description": "Utility for adding custom emulator shortcuts to Steam",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.steamgriddb.steam-rom-manager"
+        ]
+    },
+    {
+        "name": "Tube Converter",
+        "description": "Simple video downloader that supports multiple services such as YouTube",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.nickvision.tubeconverter"
+        ]
+    },
+    {
+        "name": "UnGoogled Chromium",
+        "description": "Chromium fork with Google dependencies removed",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.github.Eloston.UngoogledChromium"
+        ]
+    },
+    {
+        "name": "VLC Media Player",
+        "description": "Popular open-source media player that supports most formats",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.videolan.VLC"
+        ]
+    },
+    {
+        "name": "VSCodium",
+        "description": "Feature rich text editor based on Visual Studio Code",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.vscodium.codium"
+        ]
+    },
+    {
+        "name": "WatchMate",
+        "description": "Manager for the Pine64 PineTime smart watch",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "io.gitlab.azymohliad.WatchMate"
+        ]
+    }
+]

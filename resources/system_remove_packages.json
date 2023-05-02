@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Remove Gnome Bloat",
+        "description": "Uninstalls useless Gnome applications such as Gnome Clocks",
+        "category": "system",
+        "operation_type": "package_remove",
+        "operation_args": [
+            "gnome-boxes",
+            "gnome-calendar",
+            "gnome-characters",
+            "gnome-clocks",
+            "gnome-contacts",
+            "gnome-logs",
+            "gnome-maps",
+            "gnome-music",
+            "gnome-photos",
+            "gnome-tour",
+            "gnome-weather",
+            "rhythmbox",
+            "totem"
+        ]
+    },
+    {
+        "name": "Remove LibreOffice",
+        "description": "Uninstalls LibreOffice",
+        "category": "system",
+        "operation_type": "package_remove",
+        "operation_args": [
+            "libreoffice*"
+        ]
+    }
+]

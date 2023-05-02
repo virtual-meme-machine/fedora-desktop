@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Dolphin Emulator",
+        "description": "Nintendo GameCube and Nintendo Wii emulator",
+        "category": "emulator",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.DolphinEmu.dolphin-emu"
+        ]
+    },
+    {
+        "name": "DuckStation",
+        "description": "Sony PlayStation (PS1) emulator",
+        "category": "emulator",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.duckstation.DuckStation"
+        ]
+    },
+    {
+        "name": "mGBA",
+        "description": "Nintendo GameBoy Advance emulator",
+        "category": "emulator",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "io.mgba.mGBA"
+        ]
+    },
+    {
+        "name": "PCSX2",
+        "description": "Sony PlayStation 2 emulator",
+        "category": "emulator",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "net.pcsx2.PCSX2"
+        ]
+    },
+    {
+        "name": "PPSSPP",
+        "description": "Sony PlayStation Portable (PSP) emulator",
+        "category": "emulator",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.ppsspp.PPSSPP"
+        ]
+    },
+    {
+        "name": "Xemu",
+        "description": "Microsoft Xbox emulator",
+        "category": "emulator",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "app.xemu.xemu"
+        ]
+    }
+]

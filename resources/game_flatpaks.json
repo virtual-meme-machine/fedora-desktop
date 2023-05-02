@@ -1,0 +1,47 @@
+[
+    {
+        "name": "OpenRCT2",
+        "description": "Open-source re-implementation of Roller Coaster Tycoon 2",
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "io.openrct2.OpenRCT2"
+        ]
+    },
+    {
+        "name": "PolyMC",
+        "description": "Configurable Java Minecraft launcher",
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.polymc.PolyMC"
+        ]
+    },
+    {
+        "name": "Sonic 3: Angel Island Revisited",
+        "description": "Enhanced version of Sonic 3 & Knuckles",
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.sonic3air.Sonic3AIR"
+        ]
+    },
+    {
+        "name": "Sonic Robo Blast 2 Kart",
+        "description": "Genesis era Sonic themed kart racer with online multiplayer",
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.srb2.SRB2Kart"
+        ]
+    },
+    {
+        "name": "Space Cadet Pinball",
+        "description": "Native port of 3D Pinball for Windows - Space Cadet",
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.github.k4zmu2a.spacecadetpinball"
+        ]
+    }
+]

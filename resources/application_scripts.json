@@ -1,0 +1,20 @@
+[
+    {
+        "name": "JetBrains Toolbox",
+        "description": "Manager for JetBrains products such as Android Studio, Rider, and PyCharm",
+        "category": "application",
+        "operation_type": "script",
+        "operation_args": [
+            "install_toolbox"
+        ]
+    },
+    {
+        "name": "tinyMediaManager",
+        "description": "Media library management tool",
+        "category": "application",
+        "operation_type": "script",
+        "operation_args": [
+            "install_tiny_media_manager"
+        ]
+    }
+]
