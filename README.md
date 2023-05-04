@@ -4,12 +4,14 @@ Automated post-installation configuration tool for Fedora Linux (Workstation Edi
 
 Supports Fedora Linux 37 as of April 2023. Fedora Linux 38 is mostly supported, your milage may vary.
 
+![image](https://user-images.githubusercontent.com/46010615/236113742-8d907986-5c00-4795-8d66-93cbc3a41602.png)
+
 ## Usage
 
 **!! DO NOT enable third-party repos if asked, this script will set up RPM Fusion and Flathub on its own !!**
 
 1. Clean install [Fedora Linux](https://getfedora.org/en/workstation) on your host
-2. Preform initial setup (creating an account, etc.)
+2. Preform initial setup (create an account, etc.)
 3. Once at the desktop, open a terminal and git clone this package somewhere on the host:
     ```none
     git clone https://github.com/virtual-meme-machine/fedora-desktop.git ~/fedora-desktop
