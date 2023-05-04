@@ -78,7 +78,7 @@ def __create_folder(name: str, contents: list[str]):
             installed_applications.append(app)
 
     if not installed_applications:
-        print("Nothing to do")
+        print(f"No specified applications are installed, unable to create folder '{name}'")
         return
 
     schema = f"org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/{name}/"
@@ -121,7 +121,7 @@ def execute():
             app_picker_list.append(app)
 
     if not app_picker_list:
-        print("Nothing to do")
+        print("No specified applications are installed, unable to set app picker layout")
         return
 
     position_counter = 0

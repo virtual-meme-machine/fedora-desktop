@@ -1,5 +1,5 @@
 from utils.dnf_utils import install_packages
-from utils.gnome_extension_utils import enable_extensions
+from utils.gnome_extension_utils import enable_extension
 from utils.platform_utils import set_gsettings_values
 
 LOGO_SETTINGS: list[dict] = [
@@ -37,5 +37,5 @@ def execute():
     :return: None
     """
     install_packages(["gnome-shell-extension-background-logo"])
-    enable_extensions(["background-logo@fedorahosted.org"])
+    enable_extension("background-logo@fedorahosted.org")
     set_gsettings_values(LOGO_SETTINGS)

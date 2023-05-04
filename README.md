@@ -23,6 +23,16 @@ Supports Fedora Linux 37 as of April 2023. Fedora Linux 38 is mostly supported, 
     ```
 5. Select the configuration actions you want the tool to preform, then click 'Begin Setup'
 
+## Steam
+
+Steam for Linux can run most Windows games via a compatibility layer called Proton.
+
+Proton is included with Steam but disabled by default,
+[this tutorial](https://steamcommunity.com/sharedfiles/filedetails/?id=1974055703)
+details how to enable Proton as well as some advanced options.
+
+[ProtonDB](https://www.protondb.com) is a great resource for checking how well a game will run via Proton.
+
 ## MangoHud
 
 MangoHud is a performance monitoring overlay similar to MSI Afterburner or EVGA Precision X.

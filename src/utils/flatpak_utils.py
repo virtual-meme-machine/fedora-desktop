@@ -88,13 +88,13 @@ def install_flatpaks(flatpak_list: list[str]):
             flatpak_list.remove(flatpak)
 
     if not flatpak_list:
-        print("Nothing to install")
+        print("All selected flatpaks are already installed")
         return
 
     __remove_fedora_repos()
     __enable_flathub_repo()
 
-    print(f"Installing Flatpaks: {flatpak_list}")
+    print(f"Installing flatpaks: {flatpak_list}")
     command = [FLATPAK_EXEC, "install", "flathub", "--noninteractive"] + flatpak_list
     subprocess.check_call(command)
 

@@ -45,7 +45,8 @@ def execute():
     """
     install_packages(["wireguard-tools"])
 
-    if "wg-quick@" in subprocess.check_output(["/usr/bin/systemctl", "list-units", "--type=service"], text=True):
+    if "wg-quick@" in subprocess.check_output(["/usr/bin/systemctl", "list-units", "--type=service", "--state=active"],
+                                              text=True):
         print("WireGuard VPN connection is already configured")
         return
 

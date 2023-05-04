@@ -29,7 +29,7 @@ def execute():
             installed_applications.append(app)
 
     if not installed_applications:
-        print("Nothing to do")
+        print("No specified applications are installed, unable to set favorite applications")
         return
 
     if get_gsettings_json(schema="org.gnome.shell", key="favorite-apps") == installed_applications:

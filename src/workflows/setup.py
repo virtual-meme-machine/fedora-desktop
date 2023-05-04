@@ -1,3 +1,5 @@
+from subprocess import CalledProcessError
+
 import utils.dnf_utils as dnf_utils
 import utils.flatpak_utils as flatpak_utils
 import utils.gnome_extension_utils as gnome_extension_utils
@@ -51,7 +53,11 @@ def setup(option_list: list[OptionToggle]):
     # Remove packages
     if package_remove_list:
         print_header("Removing Packages")
-        dnf_utils.remove_packages(sorted(package_remove_list))
+        try:
+            dnf_utils.remove_packages(sorted(package_remove_list))
+        except CalledProcessError as err:
+            print(f"Package removal failed, {err}")
+            exit(1)
 
     # Check if any packages from RPMFusion are marked for install
     enable_rpmfusion = False
@@ -62,28 +68,49 @@ def setup(option_list: list[OptionToggle]):
     # Install packages
     if package_install_list:
         print_header("Installing Packages")
-        dnf_utils.install_packages(sorted(package_install_list), rpmfusion=enable_rpmfusion)
+        try:
+            dnf_utils.install_packages(sorted(package_install_list), rpmfusion=enable_rpmfusion)
+        except CalledProcessError as err:
+            print(f"Package installation failed, {err}")
+            exit(1)
 
     # Install flatpaks
     if flatpak_list:
         print_header("Installing Flatpaks")
-        flatpak_utils.install_flatpaks(flatpak_list)
+        try:
+            flatpak_utils.install_flatpaks(flatpak_list)
+        except CalledProcessError as err:
+            print(f"Flatpak installation failed, {err}")
+            exit(1)
 
     # Install Gnome Shell extensions
     if gnome_extension_list:
         print_header("Installing Gnome Shell Extensions")
-        gnome_extension_utils.install_extensions(gnome_extension_list)
-        gnome_extension_utils.enable_extensions(gnome_extension_list)
+        for extension_id in gnome_extension_list:
+            try:
+                gnome_extension_utils.install_extension(extension_id)
+                gnome_extension_utils.enable_extension(extension_id)
+            except (ValueError, CalledProcessError) as err:
+                print(f"Gnome Shell extension '{extension_id}' installation failed, {err}")
+                exit(1)
 
     # Execute scripts
     for script in sorted(script_list):
         print_header(f"Executing Script: '{script}'")
-        load_script(script).execute()
+        try:
+            load_script(script).execute()
+        except (ConnectionError, FileNotFoundError, NotADirectoryError, ValueError, CalledProcessError) as err:
+            print(f"Script '{script}' failed, {err}")
+            exit(1)
 
     # Apply Gsettings values
     if gsettings_value_list:
         print_header("Applying Settings")
-        set_gsettings_values(sorted(gsettings_value_list, key=lambda i: i.get("schema").lower()))
+        try:
+            set_gsettings_values(sorted(gsettings_value_list, key=lambda i: i.get("schema").lower()))
+        except CalledProcessError as err:
+            print(f"Failed to apply settings, {err}")
+            exit(1)
 
     # Print finished message
     print_header("Setup Complete")

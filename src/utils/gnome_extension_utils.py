@@ -27,48 +27,38 @@ def __get_extension_list() -> list[str]:
     return extension_list
 
 
-def enable_extensions(extension_list: list[str]):
+def enable_extension(extension_id: str):
     """
-    Enables the provided list of Gnome Shell extensions
-    :param extension_list: List of IDs for Gnome Shell extensions that we want to enable
+    Enables a Gnome Shell extension
+    :param extension_id: ID for Gnome Shell extension that we want to enable
     :return: None
     """
     enabled_extensions = get_gsettings_json(schema="org.gnome.shell", key="enabled-extensions")
-    enable_list = extension_list.copy()
 
-    for extension in enable_list.copy():
-        if extension in enabled_extensions:
-            enable_list.remove(extension)
-
-    if not enable_list:
-        print("Nothing to enable")
+    if extension_id in enabled_extensions:
+        print(f"Gnome Shell extension '{extension_id}' is already enabled")
         return
 
-    print(f"Enabling Gnome Shell extensions: {enable_list}")
+    print(f"Enabling Gnome Shell extension: {extension_id}")
     set_gsettings_json(schema="org.gnome.shell",
                        key="enabled-extensions",
-                       value=sorted(enabled_extensions + enable_list))
+                       value=sorted(enabled_extensions + [extension_id]))
 
 
-def install_extensions(extension_list: list[str]):
+def install_extension(extension_id: str):
     """
-    Installs the provided list of Gnome Shell extensions
-    :param extension_list: List of IDs for Gnome Shell extensions that we want to install
+    Installs a Gnome Shell extension
+    :param extension_id: ID for Gnome Shell extension that we want to install
     :return: None
     """
     gnome_shell_version = str(get_gnome_version())
     installed_extensions = __get_extension_list()
-    install_list = extension_list.copy()
 
-    for extension in install_list.copy():
-        if extension in installed_extensions:
-            install_list.remove(extension)
-
-    if not install_list:
-        print("Nothing to install")
+    if extension_id in installed_extensions:
+        print(f"Gnome Shell extension '{extension_id}' is already installed")
         return
 
-    print(f"Installing Gnome Shell extensions: {install_list}")
+    print(f"Installing Gnome Shell extension: {extension_id}")
     shell_dbus = Gio.DBusProxy.new_for_bus_sync(
         bus_type=Gio.BusType.SESSION,
         flags=Gio.DBusProxyFlags.NONE,
@@ -78,21 +68,20 @@ def install_extensions(extension_list: list[str]):
         interface_name="org.gnome.Shell.Extensions",
         cancellable=None)
 
-    for extension in install_list:
-        info = json.loads(subprocess.check_output(["/usr/bin/curl", "-LsS", f"{EXTENSION_INFO_URL}?uuid={extension}"]))
+    info = json.loads(subprocess.check_output(["/usr/bin/curl", "-LsS", f"{EXTENSION_INFO_URL}?uuid={extension_id}"]))
 
-        if gnome_shell_version not in info.get("shell_version_map").keys():
-            raise ValueError(f"Extension '{extension}' does not support Gnome Shell version {gnome_shell_version}")
+    if gnome_shell_version not in info.get("shell_version_map").keys():
+        raise ValueError(f"Extension '{extension_id}' does not support Gnome Shell version {gnome_shell_version}")
 
-        extension_version = info.get("shell_version_map").get(gnome_shell_version).get("version")
-        extension_zip = f"{extension.replace('@', '')}.v{extension_version}.shell-extension.zip"
-        extension_output = os.path.join(tempfile.mkdtemp(), extension_zip)
+    extension_version = info.get("shell_version_map").get(gnome_shell_version).get("version")
+    extension_zip = f"{extension_id.replace('@', '')}.v{extension_version}.shell-extension.zip"
+    extension_output = os.path.join(tempfile.mkdtemp(), extension_zip)
 
-        download_file(url=f"{EXTENSION_DOWNLOAD_URL}/{extension_zip}", output=extension_output)
-        subprocess.check_call([GNOME_EXTENSIONS_EXEC, "install", extension_output, "--force"])
+    download_file(url=f"{EXTENSION_DOWNLOAD_URL}/{extension_zip}", output=extension_output)
+    subprocess.check_call([GNOME_EXTENSIONS_EXEC, "install", extension_output, "--force"])
 
-        shell_dbus.call_sync("InstallRemoteExtension",
-                             GLib.Variant.new_tuple(GLib.Variant.new_string(extension)),
-                             Gio.DBusCallFlags.NONE,
-                             -1,
-                             None)
+    shell_dbus.call_sync("InstallRemoteExtension",
+                         GLib.Variant.new_tuple(GLib.Variant.new_string(extension_id)),
+                         Gio.DBusCallFlags.NONE,
+                         -1,
+                         None)

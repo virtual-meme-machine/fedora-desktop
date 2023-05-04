@@ -84,7 +84,7 @@ def auto_remove_packages():
     check = subprocess.check_output([DNF_EXEC, "list", "autoremove"], text=True)
 
     if "Autoremove Packages" not in check:
-        print("Nothing to remove")
+        print("No unused dependencies to remove")
         return
 
     subprocess.check_call([PKEXEC_EXEC, DNF_EXEC, "-y", "autoremove"])
@@ -103,7 +103,7 @@ def install_packages(package_list: list[str], rpmfusion: bool = False):
             package_list.remove(package)
 
     if not package_list:
-        print("Nothing to install")
+        print("Selected packages are already installed")
         return
 
     if rpmfusion:
@@ -123,7 +123,7 @@ def install_updates():
     check = subprocess.run([DNF_EXEC, "check-update", "--refresh"], stdout=subprocess.DEVNULL)
 
     if check.returncode == 0:
-        print("Nothing to install")
+        print("No updates available")
         return
 
     subprocess.check_call([PKEXEC_EXEC, DNF_EXEC, "-y", "update", "--refresh"])
@@ -146,7 +146,7 @@ def remove_packages(package_list: list[str]):
             package_list.remove(package)
 
     if not package_list:
-        print("Nothing to remove")
+        print("Selected packages have already been removed")
         return
 
     print(f"Removing RPM packages: {package_list}")
