@@ -1,4 +1,4 @@
-name: Generate Documentation (WIP)
+name: Generate Documentation
 
 on:
   push:
