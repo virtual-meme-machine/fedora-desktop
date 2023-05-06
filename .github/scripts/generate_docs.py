@@ -80,7 +80,9 @@ def main(package_root: str):
                 value_list.append(get_option_string(option))
                 CATEGORY_LISTS.update({key: value_list})
 
+    print(f"Generating documentation...")
     with open(output_file, "w") as file:
+        print(f"Writing file: '{output_file}'")
         file.write("# Fedora Desktop Configurator - Options\n\n")
         for key in CATEGORY_LISTS:
             file.write(f"## {key}\n\n")
