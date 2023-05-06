@@ -9,7 +9,8 @@ from gi.repository import Gtk
 import data.OperationType as OperationType
 import data.Category as Category
 
-RESOURCES_DIR = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..", "resources"))
+RESOURCES_DIR: str = os.path.realpath(
+    os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..", "resources"))
 
 
 class OptionToggle:
