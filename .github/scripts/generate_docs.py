@@ -84,7 +84,7 @@ def main(package_root: str):
     with open(output_file, "w") as file:
         print(f"Writing file: '{output_file}'")
         file.write("# Fedora Desktop Configurator - Options\n\n")
-        for key in CATEGORY_LISTS:
+        for key in sorted(CATEGORY_LISTS):
             file.write(f"## {key}\n\n")
             for line in sorted(CATEGORY_LISTS.get(key), key=lambda o: o.replace("[", "").lower()):
                 file.write(f"- {line}\n")
