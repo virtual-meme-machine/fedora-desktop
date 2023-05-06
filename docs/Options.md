@@ -1,12 +1,20 @@
 # Fedora Desktop Configurator - Options
 
-## Install Games
+## Configure Settings
 
-- [OpenRCT2](https://flathub.org/apps/io.openrct2.OpenRCT2)
-- [PolyMC](https://flathub.org/apps/org.polymc.PolyMC)
-- [Sonic 3: Angel Island Revisited](https://flathub.org/apps/org.sonic3air.Sonic3AIR)
-- [Sonic Robo Blast 2 Kart](https://flathub.org/apps/org.srb2.SRB2Kart)
-- [Space Cadet Pinball](https://flathub.org/apps/com.github.k4zmu2a.spacecadetpinball)
+- Calendar Widget - Show Week Numbers
+- Clock - Apply AM/PM Format
+- Clock - Show Week Day
+- Files - Default to List View
+- Files - Sort Folders Before Files
+- Image Viewer - Disable Filtering
+- Shell - Apply Blobs Wallpaper
+- Shell - Apply Dark Mode
+- Shell - Disable Autorun
+- Shell - Disable Hot Corners
+- Shell - Enable Minimize and Maximize Buttons
+- System - Disable Automatic Problem Reporting
+- System - Disable Location Services
 
 ## Configure System
 
@@ -59,12 +67,6 @@
 - [VSCodium](https://flathub.org/apps/com.vscodium.codium)
 - [WatchMate](https://flathub.org/apps/io.gitlab.azymohliad.WatchMate)
 
-## Install Gnome Shell Extensions
-
-- [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell)
-- [Caffeine](https://extensions.gnome.org/extension/517/caffeine)
-- [Desktop Icons NG (DING)](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)
-
 ## Install Emulators
 
 - [Dolphin Emulator](https://flathub.org/apps/org.DolphinEmu.dolphin-emu)
@@ -74,19 +76,17 @@
 - [PPSSPP](https://flathub.org/apps/org.ppsspp.PPSSPP)
 - [Xemu](https://flathub.org/apps/app.xemu.xemu)
 
-## Configure Settings
+## Install Games
 
-- Calendar Widget - Show Week Numbers
-- Clock - Apply AM/PM Format
-- Clock - Show Week Day
-- Files - Default to List View
-- Files - Sort Folders Before Files
-- Image Viewer - Disable Filtering
-- Shell - Apply Blobs Wallpaper
-- Shell - Apply Dark Mode
-- Shell - Disable Autorun
-- Shell - Disable Hot Corners
-- Shell - Enable Minimize and Maximize Buttons
-- System - Disable Automatic Problem Reporting
-- System - Disable Location Services
+- [OpenRCT2](https://flathub.org/apps/io.openrct2.OpenRCT2)
+- [PolyMC](https://flathub.org/apps/org.polymc.PolyMC)
+- [Sonic 3: Angel Island Revisited](https://flathub.org/apps/org.sonic3air.Sonic3AIR)
+- [Sonic Robo Blast 2 Kart](https://flathub.org/apps/org.srb2.SRB2Kart)
+- [Space Cadet Pinball](https://flathub.org/apps/com.github.k4zmu2a.spacecadetpinball)
+
+## Install Gnome Shell Extensions
+
+- [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell)
+- [Caffeine](https://extensions.gnome.org/extension/517/caffeine)
+- [Desktop Icons NG (DING)](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)
 
