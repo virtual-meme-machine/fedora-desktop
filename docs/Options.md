@@ -75,7 +75,7 @@
 
 ## Configure System
 
-- Configure MangoHud
+- [Configure MangoHud](https://github.com/virtual-meme-machine/fedora-desktop#mangohud)
 - [Configure Mullvad VPN](https://mullvad.net)
 - Enable Background Logo
 - [Enable GameCube Controller Adapter for Wii U](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)

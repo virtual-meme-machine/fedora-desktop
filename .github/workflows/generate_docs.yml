@@ -1,5 +1,4 @@
 name: Generate Documentation (WIP)
-description: Generates documentation for this pacakge
 
 on:
   push:

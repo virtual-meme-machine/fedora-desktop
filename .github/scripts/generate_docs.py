@@ -16,6 +16,7 @@ HEADER_CATEGORIES: dict[str, str] = {
 OPTION_URLS: dict[str, str] = {
     "blur-my-shell@aunetx": "https://extensions.gnome.org/extension/3193/blur-my-shell",
     "caffeine@patapon.info": "https://extensions.gnome.org/extension/517/caffeine",
+    "configure_mangohud": "https://github.com/virtual-meme-machine/fedora-desktop#mangohud",
     "configure_mullvad_vpn": "https://mullvad.net",
     "ding@rastersoft.com": "https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding",
     "enable_gc_adapter": "https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux",
