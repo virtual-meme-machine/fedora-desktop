@@ -14,14 +14,17 @@ HEADER_CATEGORIES: dict[str, str] = {
     "system": "Configure System"
 }
 OPTION_URLS: dict[str, str] = {
-    "blur-my-shell@aunetx": "https://extensions.gnome.org/extension/3193/blur-my-shell",
-    "caffeine@patapon.info": "https://extensions.gnome.org/extension/517/caffeine",
-    "configure_mangohud": "https://github.com/virtual-meme-machine/fedora-desktop#mangohud",
-    "configure_mullvad_vpn": "https://mullvad.net",
-    "ding@rastersoft.com": "https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding",
-    "enable_gc_adapter": "https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux",
-    "install_tiny_media_manager": "https://www.tinymediamanager.org",
-    "install_toolbox": "https://www.jetbrains.com/toolbox-app"
+    "blur-my-shell@aunetx": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3193/blur-my-shell)",
+    "caffeine@patapon.info": "[View on Gnome Extensions](https://extensions.gnome.org/extension/517/caffeine)",
+    "ding@rastersoft.com": "[View on Gnome Extensions]"
+                           "(https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)",
+    "configure_mangohud": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud)",
+    "configure_mullvad_vpn": "[View Mullvad Site](https://mullvad.net)",
+    "enable_gc_adapter": "[View on Dolphin Wiki]"
+                         "(https://wiki.dolphin-emu.org/index.php?title="
+                         "How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)",
+    "install_tiny_media_manager": "[View tinyMediaManager Site](https://www.tinymediamanager.org)",
+    "install_toolbox": "[View JetBrains Site](https://www.jetbrains.com/toolbox-app)"
 }
 
 
@@ -32,19 +35,23 @@ def get_option_string(option: dict[str, str]) -> str:
     :return: Nicely formatted string for an option, may contain a link
     """
     name = option.get("name")
+    description = option.get("description")
+    link = "N/A"
     operation_type = option.get("operation_type")
     operation_args = option.get("operation_args")
+
     if operation_type == "flatpak":
-        return f"[{name}](https://flathub.org/apps/{operation_args[0]})"
+        link = f"[View on Flathub](https://flathub.org/apps/{operation_args[0]})"
     elif operation_type == "package_install":
-        return f"[{name}](https://packages.fedoraproject.org/pkgs/{operation_args[0]}/{operation_args[0]})"
+        link = f"[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/" \
+               f"{operation_args[0]}/{operation_args[0]})"
     elif operation_type == "package_install_rpmfusion":
-        return f"[{name}](https://admin.rpmfusion.org/pkgdb/package/nonfree/{operation_args[0]})"
+        link = f"[View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/{operation_args[0]})"
     elif type(operation_args[0]) is str:
         if operation_args[0] in OPTION_URLS.keys():
-            return f"[{name}]({OPTION_URLS.get(operation_args[0])})"
+            link = OPTION_URLS.get(operation_args[0])
 
-    return name
+    return f"| `{name}` | {description} | {link} |"
 
 
 def main(package_root: str):
@@ -84,10 +91,12 @@ def main(package_root: str):
     with open(output_file, "w") as file:
         print(f"Writing file: '{output_file}'")
         file.write("# Fedora Desktop Configurator - Options\n\n")
-        for key in sorted(CATEGORY_LISTS):
+        for key in sorted(CATEGORY_LISTS, key=lambda c: c.replace("Install ", "").replace("Configure ", "").lower()):
             file.write(f"## {key}\n\n")
+            file.write(f"| Option | Description | Link |\n")
+            file.write(f"| ------ | ----------- | ---- |\n")
             for line in sorted(CATEGORY_LISTS.get(key), key=lambda o: o.replace("[", "").lower()):
-                file.write(f"- {line}\n")
+                file.write(f"{line}\n")
 
             file.write("\n")
 
