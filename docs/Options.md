@@ -61,9 +61,12 @@
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
+| `AppIndicator and KStatusNotifierItem Support` | Enables support for tray icons | [View on Gnome Extensions](https://extensions.gnome.org/extension/615/appindicator-support) |
+| `Background Logo` | Adds a Fedora logo watermark to the wallpaper | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/gnome-shell-extension-background-logo/gnome-shell-extension-background-logo) |
 | `Blur my Shell` | Blurs some elements of the Gnome Shell | [View on Gnome Extensions](https://extensions.gnome.org/extension/3193/blur-my-shell) |
 | `Caffeine` | Quick settings toggle that prevents the system from sleeping | [View on Gnome Extensions](https://extensions.gnome.org/extension/517/caffeine) |
 | `Desktop Icons NG (DING)` | Adds icons to the desktop | [View on Gnome Extensions](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding) |
+| `Quick Settings Audio Panel` | Adds extra volume controls to the quick settings menu | [View on Gnome Extensions](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel/) |
 
 ## Configure Settings
 
@@ -89,15 +92,13 @@
 | ------ | ----------- | ---- |
 | `Configure MangoHud` | Configures MangoHud and enables it for all Vulkan applications | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud) |
 | `Configure Mullvad VPN` | Configures and enables a WireGuard connection to Mullvad VPN | [View Mullvad Site](https://mullvad.net) |
-| `Enable Background Logo` | Adds a Fedora logo watermark to the wallpaper | N/A |
 | `Enable GameCube Controller Adapter for Wii U` | Installs udev rules for the GameCube Controller Adapter for Wii U | [View on Dolphin Wiki](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux) |
-| `Enable Tray Icons` | Enables support for tray icons | N/A |
 | `Install Nvidia Drivers` | Drivers for modern Nvidia GPUs | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/akmod-nvidia) |
 | `Install Unrar` | Enables extracting .rar archives | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/unrar) |
 | `Install Updates` | Installs available updates | N/A |
-| `Remove Firefox` | Uninstalls Mozilla Firefox | N/A |
+| `Remove Firefox` | Uninstalls Mozilla Firefox | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/firefox/firefox) |
 | `Remove Gnome Bloat` | Uninstalls useless Gnome applications such as Gnome Clocks | N/A |
-| `Remove LibreOffice` | Uninstalls LibreOffice | N/A |
+| `Remove LibreOffice` | Uninstalls LibreOffice | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/libreoffice/libreoffice) |
 | `Set App Picker Layout` | Arranges the app picker to a preconfigured layout | N/A |
 | `Set Default Web Browser to LibreWolf` | Sets the default web browser to LibreWolf | N/A |
 | `Set Favorite Apps` | Sets the applications pinned to the dash to a preconfigured layout | N/A |
