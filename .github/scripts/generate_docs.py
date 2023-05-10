@@ -14,17 +14,28 @@ HEADER_CATEGORIES: dict[str, str] = {
     "system": "Configure System"
 }
 OPTION_URLS: dict[str, str] = {
-    "blur-my-shell@aunetx": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3193/blur-my-shell)",
-    "caffeine@patapon.info": "[View on Gnome Extensions](https://extensions.gnome.org/extension/517/caffeine)",
-    "ding@rastersoft.com": "[View on Gnome Extensions]"
-                           "(https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)",
+    "gnome_extension/audio_panel": "[View on Gnome Extensions]"
+                                   "(https://extensions.gnome.org/extension/5940/quick-settings-audio-panel/)",
+    "gnome_extension/background_logo": "[View on Fedora Packages]"
+                                       "(https://packages.fedoraproject.org/pkgs/"
+                                       "gnome-shell-extension-background-logo/gnome-shell-extension-background-logo)",
+    "gnome_extension/blur_my_shell": "[View on Gnome Extensions]"
+                                     "(https://extensions.gnome.org/extension/3193/blur-my-shell)",
+    "gnome_extension/caffeine": "[View on Gnome Extensions]"
+                                "(https://extensions.gnome.org/extension/517/caffeine)",
+    "gnome_extension/ding": "[View on Gnome Extensions]"
+                            "(https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)",
+    "gnome_extension/tray_icons": "[View on Gnome Extensions]"
+                                  "(https://extensions.gnome.org/extension/615/appindicator-support)",
     "configure_mangohud": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud)",
     "configure_mullvad_vpn": "[View Mullvad Site](https://mullvad.net)",
     "enable_gc_adapter": "[View on Dolphin Wiki]"
                          "(https://wiki.dolphin-emu.org/index.php?title="
                          "How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)",
     "install_tiny_media_manager": "[View tinyMediaManager Site](https://www.tinymediamanager.org)",
-    "install_toolbox": "[View JetBrains Site](https://www.jetbrains.com/toolbox-app)"
+    "install_toolbox": "[View JetBrains Site](https://www.jetbrains.com/toolbox-app)",
+    "libreoffice*": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/libreoffice/libreoffice)",
+    "remove_firefox": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/firefox/firefox)"
 }
 
 

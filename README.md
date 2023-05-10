@@ -4,7 +4,7 @@ Automated post-installation configuration tool for Fedora Linux (Workstation Edi
 
 Supports Fedora Linux 37 as of April 2023. Fedora Linux 38 is mostly supported, your milage may vary.
 
-![image](https://user-images.githubusercontent.com/46010615/236113742-8d907986-5c00-4795-8d66-93cbc3a41602.png)
+![preview](docs/images/preview.png)
 
 ## Usage
 

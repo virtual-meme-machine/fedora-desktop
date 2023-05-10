@@ -5,12 +5,12 @@ class Category(Enum):
     """
     Option category, used to group options in the GUI
     """
-    APPLICATION: str = "application", "Applications"
-    EMULATOR: str = "emulator", "Emulators"
-    GAME: str = "game", "Games"
-    GNOME_EXTENSION: str = "gnome_extension", "Gnome Shell Extensions"
-    SETTING: str = "setting", "Settings"
-    SYSTEM: str = "system", "System"
+    APPLICATION: str = "application", "Install Applications"
+    EMULATOR: str = "emulator", "Install Emulators"
+    GAME: str = "game", "Install Games"
+    GNOME_EXTENSION: str = "gnome_extension", "Install Gnome Shell Extensions"
+    SETTING: str = "setting", "Configure Settings"
+    SYSTEM: str = "system", "Configure System"
 
 
 def from_string(string: str) -> Category:

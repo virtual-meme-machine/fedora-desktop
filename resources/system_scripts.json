@@ -18,30 +18,12 @@
         ]
     },
     {
-        "name": "Enable Background Logo",
-        "description": "Adds a Fedora logo watermark to the wallpaper",
-        "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "enable_background_logo"
-        ]
-    },
-    {
         "name": "Enable GameCube Controller Adapter for Wii U",
         "description": "Installs udev rules for the GameCube Controller Adapter for Wii U",
         "category": "system",
         "operation_type": "script",
         "operation_args": [
             "enable_gc_adapter"
-        ]
-    },
-    {
-        "name": "Enable Tray Icons",
-        "description": "Enables support for tray icons",
-        "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "enable_tray_icons"
         ]
     },
     {

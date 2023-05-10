@@ -43,8 +43,6 @@ def execute():
     Based on: https://mullvad.net/media/files/mullvad-wg.sh
     :return: None
     """
-    install_packages(["wireguard-tools"])
-
     if "wg-quick@" in subprocess.check_output(["/usr/bin/systemctl", "list-units", "--type=service", "--state=active"],
                                               text=True):
         print("WireGuard VPN connection is already configured")
@@ -53,6 +51,8 @@ def execute():
     account_id = __get_account_id()
     if account_id is False:
         return
+
+    install_packages(["wireguard-tools"])
 
     private_key = subprocess.check_output(["/usr/bin/wg", "genkey"], text=True).strip()
     public_key = subprocess.check_output(["/usr/bin/wg", "pubkey"], input=private_key, text=True).strip()

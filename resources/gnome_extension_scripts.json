@@ -1,0 +1,56 @@
+[
+    {
+        "name": "AppIndicator and KStatusNotifierItem Support",
+        "description": "Enables support for tray icons",
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/tray_icons"
+        ]
+    },
+    {
+        "name": "Background Logo",
+        "description": "Adds a Fedora logo watermark to the wallpaper",
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/background_logo"
+        ]
+    },
+    {
+        "name": "Blur my Shell",
+        "description": "Blurs some elements of the Gnome Shell",
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/blur_my_shell"
+        ]
+    },
+    {
+        "name": "Caffeine",
+        "description": "Quick settings toggle that prevents the system from sleeping",
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/caffeine"
+        ]
+    },
+    {
+        "name": "Desktop Icons NG (DING)",
+        "description": "Adds icons to the desktop",
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/ding"
+        ]
+    },
+    {
+        "name": "Quick Settings Audio Panel",
+        "description": "Adds extra volume controls to the quick settings menu",
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/audio_panel"
+        ]
+    }
+]

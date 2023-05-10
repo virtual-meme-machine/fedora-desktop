@@ -1,3 +1,5 @@
+import time
+
 from utils.platform_utils import get_gsettings_json, get_gsettings_value, is_application_installed, set_gsettings_json, \
     set_gsettings_value
 
@@ -115,7 +117,7 @@ def execute():
     for folder_name in FOLDERS.keys():
         __create_folder(name=folder_name, contents=FOLDERS.get(folder_name))
 
-    app_picker_list = __get_folder_list()
+    app_picker_list = sorted(__get_folder_list())
     for app in LAYOUT:
         if is_application_installed(app):
             app_picker_list.append(app)
@@ -135,6 +137,9 @@ def execute():
         print("App picker layout already set")
         return
 
-    set_gsettings_value(schema="org.gnome.shell",
-                        key="app-picker-layout",
-                        value=app_picker_string)
+    # We apply this 3 times because it doesn't always stick on the first try
+    for i in range(4):
+        set_gsettings_value(schema="org.gnome.shell",
+                            key="app-picker-layout",
+                            value=app_picker_string)
+        time.sleep(1)

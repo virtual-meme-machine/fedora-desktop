@@ -3,10 +3,26 @@ import os
 import platform
 import subprocess
 
+DCONF_EXEC: str = "/usr/bin/dconf"
 GSETTINGS_EXEC: str = "/usr/bin/gsettings"
-GSETTINGS_GET_REMOVE_VALUES: list[str] = ["@as", "uint32"]
 LOCAL_BIN: str = os.path.expanduser("~/.local/bin")
-SCRIPT_MAIN_VERSION: str = "3.0"
+REMOVE_VALUES: list[str] = ["@as", "uint32"]
+SCRIPT_MAIN_VERSION: str = "3.1"
+
+
+def get_dconf_value(key: str) -> str:
+    """
+    Gets a dconf value
+    :param key: Key for the specific dconf value in the schema
+    :return: Retrieved dconf value
+    """
+    output = subprocess.check_output([DCONF_EXEC, "read", key], text=True).strip()
+
+    for value in REMOVE_VALUES:
+        if value in output:
+            output = output.replace(value, "")
+
+    return output.strip()
 
 
 def get_fedora_version() -> int:
@@ -34,7 +50,7 @@ def get_gsettings_json(schema: str, key: str) -> list or dict:
     """
     output = subprocess.check_output([GSETTINGS_EXEC, "get", schema, key], text=True).strip().replace("'", "\"")
 
-    for value in GSETTINGS_GET_REMOVE_VALUES:
+    for value in REMOVE_VALUES:
         if value in output:
             output = output.replace(value, "")
 
@@ -50,7 +66,7 @@ def get_gsettings_value(schema: str, key: str) -> str:
     """
     output = subprocess.check_output([GSETTINGS_EXEC, "get", schema, key], text=True).strip()
 
-    for value in GSETTINGS_GET_REMOVE_VALUES:
+    for value in REMOVE_VALUES:
         if value in output:
             output = output.replace(value, "")
 
@@ -116,6 +132,39 @@ def is_exec_in_path(exec_name: str) -> bool:
             return True
 
     return False
+
+
+def set_dconf_value(key: str, value: str):
+    """
+    Sets a dconf value
+    :param key: Key for the specific dconf value in the schema
+    :param value: Value that should be stored in dconf
+    :return: None
+    """
+    if get_dconf_value(key=key) == value:
+        return
+
+    print(f"Applying dconf value: [Key: '{key}', Value: '{value}']")
+    subprocess.check_call([DCONF_EXEC, "write", key, value])
+
+
+def set_dconf_values(setting_list: list[dict]):
+    """
+    Applies a list of dconf values
+    :param setting_list: List of dictionaries each containing a dconf key and value
+    :return: None
+    """
+    for setting in setting_list.copy():
+        if get_dconf_value(key=setting.get("key")) == setting.get("value"):
+            setting_list.remove(setting)
+
+    if not setting_list:
+        print("No changes to apply")
+        return
+
+    for setting in setting_list:
+        set_dconf_value(key=setting.get("key"),
+                        value=setting.get("value"))
 
 
 def set_gsettings_json(schema: str, key: str, value: list or dict):

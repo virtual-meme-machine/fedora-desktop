@@ -2,7 +2,7 @@ from utils.dnf_utils import install_packages
 from utils.gnome_extension_utils import enable_extension
 from utils.platform_utils import set_gsettings_values
 
-LOGO_SETTINGS: list[dict] = [
+SETTINGS: list[dict] = [
     {
         "schema": "org.fedorahosted.background-logo-extension",
         "key": "logo-always-visible",
@@ -37,5 +37,5 @@ def execute():
     :return: None
     """
     install_packages(["gnome-shell-extension-background-logo"])
+    set_gsettings_values(SETTINGS)
     enable_extension("background-logo@fedorahosted.org")
-    set_gsettings_values(LOGO_SETTINGS)
