@@ -28,12 +28,12 @@ OPTION_URLS: dict[str, str] = {
     "gnome_extension/tray_icons": "[View on Gnome Extensions]"
                                   "(https://extensions.gnome.org/extension/615/appindicator-support)",
     "configure_mangohud": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud)",
-    "configure_mullvad_vpn": "[View Mullvad Site](https://mullvad.net)",
+    "configure_mullvad_vpn": "[View on Mullvad Website](https://mullvad.net)",
     "enable_gc_adapter": "[View on Dolphin Wiki]"
                          "(https://wiki.dolphin-emu.org/index.php?title="
                          "How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)",
-    "install_tiny_media_manager": "[View tinyMediaManager Site](https://www.tinymediamanager.org)",
-    "install_toolbox": "[View JetBrains Site](https://www.jetbrains.com/toolbox-app)",
+    "install_tiny_media_manager": "[View on tinyMediaManager Website](https://www.tinymediamanager.org)",
+    "install_toolbox": "[View on JetBrains Website](https://www.jetbrains.com/toolbox-app)",
     "libreoffice*": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/libreoffice/libreoffice)",
     "remove_firefox": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/firefox/firefox)"
 }

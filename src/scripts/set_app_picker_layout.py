@@ -138,7 +138,7 @@ def execute():
         return
 
     # We apply this 3 times because it doesn't always stick on the first try
-    for i in range(4):
+    for i in range(3):
         set_gsettings_value(schema="org.gnome.shell",
                             key="app-picker-layout",
                             value=app_picker_string)
