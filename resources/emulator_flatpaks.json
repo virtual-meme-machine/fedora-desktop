@@ -45,6 +45,15 @@
         ]
     },
     {
+        "name": "Ryujinx",
+        "description": "Nintendo Switch emulator",
+        "category": "emulator",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.ryujinx.Ryujinx"
+        ]
+    },
+    {
         "name": "Xemu",
         "description": "Microsoft Xbox emulator",
         "category": "emulator",

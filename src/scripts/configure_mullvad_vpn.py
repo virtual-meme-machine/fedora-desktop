@@ -3,15 +3,14 @@ import os.path
 import random
 import re
 import subprocess
+import tempfile
 
 from utils.dnf_utils import install_packages
-from utils.file_utils import write_system_file
 
 DNS_SERVER: str = "193.138.218.74"
 PREFERRED_COUNTRY: str = "USA"
 PROMPT_TEXT: str = "Please input your Mullvad VPN account ID"
 PROMPT_TITLE: str = "Mullvad VPN Setup"
-WIREGUARD_CONFIG_DIR: str = "/etc/wireguard"
 
 
 def __get_account_id() -> str or False:
@@ -43,7 +42,7 @@ def execute():
     Based on: https://mullvad.net/media/files/mullvad-wg.sh
     :return: None
     """
-    if "wg-quick@" in subprocess.check_output(["/usr/bin/systemctl", "list-units", "--type=service", "--state=active"],
+    if "wireguard" in subprocess.check_output(["/usr/bin/nmcli", "connection", "show", "--active"],
                                               text=True):
         print("WireGuard VPN connection is already configured")
         return
@@ -76,28 +75,26 @@ def execute():
 
     city_data: list = country_data.get("cities")
     random_city: dict = city_data[random.randint(0, len(city_data) - 1)]
+    city_code: str = random_city.get("code")
     city_relays: list = random_city.get("relays")
     random_relay: dict = city_relays[random.randint(0, len(city_relays) - 1)]
-    hostname: str = random_relay.get("hostname")
-
-    if not os.path.isdir(WIREGUARD_CONFIG_DIR):
-        subprocess.check_call(["/usr/bin/pkexec", "/usr/bin/mkdir", "-p", WIREGUARD_CONFIG_DIR])
-    if not os.path.isdir(WIREGUARD_CONFIG_DIR):
-        raise NotADirectoryError(f"Unable to create Wireguard config folder '{WIREGUARD_CONFIG_DIR}'")
 
     print("Writing config file")
-    write_system_file(file_path=os.path.join(WIREGUARD_CONFIG_DIR, f"{hostname}.conf"),
-                      lines=[
-                          f"[Interface]\n",
-                          f"PrivateKey = {private_key}\n",
-                          f"Address = {server_address}\n",
-                          f"DNS = {DNS_SERVER}\n",
-                          f"\n",
-                          f"[Peer]\n",
-                          f"PublicKey = {random_relay.get('public_key')}\n",
-                          f"Endpoint = {random_relay.get('ipv4_addr_in')}:51820\n",
-                          f"AllowedIPs = 0.0.0.0/0, ::/0"
-                      ])
+    config_file = os.path.join(tempfile.mkdtemp(), f"mullvad_{city_code}_wg0.conf")
+    with open(config_file, "w") as config:
+        config.writelines([
+            f"[Interface]\n",
+            f"PrivateKey = {private_key}\n",
+            f"Address = {server_address}\n",
+            f"DNS = {DNS_SERVER}\n",
+            f"\n",
+            f"[Peer]\n",
+            f"PublicKey = {random_relay.get('public_key')}\n",
+            f"Endpoint = {random_relay.get('ipv4_addr_in')}:51820\n",
+            f"AllowedIPs = 0.0.0.0/0, ::/0"
+        ])
+        config.write("\n")
 
-    print("Enabling WireGuard service")
-    subprocess.check_call(["/usr/bin/pkexec", "/usr/bin/systemctl", "--now", "enable", f"wg-quick@{hostname}"])
+    print("Enabling WireGuard connection")
+    subprocess.check_call(["/usr/bin/nmcli", "connection", "import", "type", "wireguard", "file", config_file])
+    os.remove(config_file)

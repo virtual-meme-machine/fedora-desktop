@@ -2,7 +2,7 @@
 
 Automated post-installation configuration tool for Fedora Linux (Workstation Edition).
 
-Supports Fedora Linux 37 as of April 2023. Fedora Linux 38 is mostly supported, your milage may vary.
+Supports Fedora Linux 37 and 38 as of May 2023.
 
 ![preview](docs/images/preview.png)
 

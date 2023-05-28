@@ -10,6 +10,7 @@ FOLDERS: dict[str, list[str]] = {
         "io.mgba.mGBA.desktop",
         "net.pcsx2.PCSX2.desktop",
         "org.ppsspp.PPSSPP.desktop",
+        "org.ryujinx.Ryujinx.desktop",
         "app.xemu.xemu.desktop"
     ],
     "Games": [
