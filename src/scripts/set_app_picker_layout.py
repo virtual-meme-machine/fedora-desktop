@@ -13,6 +13,7 @@ FOLDERS: dict[str, list[str]] = {
         "app.xemu.xemu.desktop"
     ],
     "Games": [
+        "com.github.Anuken.Mindustry.desktop",
         "io.openrct2.OpenRCT2.desktop",
         "org.polymc.PolyMC.desktop",
         "org.sonic3air.Sonic3AIR.desktop",
@@ -36,6 +37,7 @@ FOLDERS: dict[str, list[str]] = {
         "yelp.desktop",
         "org.gnome.eog.desktop",
         "jetbrains-toolbox.desktop",
+        "fr.romainvigier.MetadataCleaner.desktop",
         "nvidia-settings.desktop",
         "org.freedesktop.GnomeAbrt.desktop",
         "net.davidotek.pupgui2.desktop",
@@ -47,6 +49,7 @@ FOLDERS: dict[str, list[str]] = {
     ]
 }
 LAYOUT: list[str] = [
+    "com.usebottles.bottles.desktop",
     "org.gnome.Boxes.desktop",
     "org.filezillaproject.Filezilla.desktop",
     "org.freecadweb.FreeCAD.desktop",

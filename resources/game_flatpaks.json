@@ -1,5 +1,14 @@
 [
     {
+        "name": "Mindustry",
+        "description": "Sandbox tower-defense game",
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.github.Anuken.Mindustry"
+        ]
+    },
+    {
         "name": "OpenRCT2",
         "description": "Open-source re-implementation of Roller Coaster Tycoon 2",
         "category": "game",

@@ -129,6 +129,15 @@ def install_updates():
     subprocess.check_call([PKEXEC_EXEC, DNF_EXEC, "-y", "update", "--refresh"])
 
 
+def is_package_installed(package_name: str) -> bool:
+    """
+    Checks if the given package is installed
+    :param package_name: Name of the package we are checking for
+    :return: True if installed, false if not
+    """
+    return package_name in __get_package_list()
+
+
 def remove_packages(package_list: list[str]):
     """
     Removes the provided list of packages

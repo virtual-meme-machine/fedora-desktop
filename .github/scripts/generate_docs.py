@@ -62,7 +62,7 @@ def get_option_string(option: dict[str, str]) -> str:
         if operation_args[0] in OPTION_URLS.keys():
             link = OPTION_URLS.get(operation_args[0])
 
-    return f"| `{name}` | {description} | {link} |"
+    return f"| {name} | {description} | {link} |"
 
 
 def main(package_root: str):

@@ -119,7 +119,7 @@ class MainWindow(Gtk.ApplicationWindow):
         button_select_all = Gtk.Button(label="Select All")
         button_select_all.connect("clicked", self.button_action_select_all)
         select_buttons_box.append(button_select_all)
-        button_deselect_all = Gtk.Button(label="Deselect All")
+        button_deselect_all = Gtk.Button(label="Unselect All")
         button_deselect_all.connect("clicked", self.button_action_deselect_all)
         select_buttons_box.append(button_deselect_all)
         main_box.append(select_buttons_box)

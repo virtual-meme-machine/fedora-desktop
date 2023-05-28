@@ -106,3 +106,12 @@ def install_updates():
     """
     print("Checking for flatpak updates...")
     subprocess.check_call([FLATPAK_EXEC, "update", "--noninteractive"])
+
+
+def is_flatpak_installed(flatpak_id: str) -> bool:
+    """
+    Checks if the given flatpak is installed
+    :param flatpak_id: ID for the flatpak we are checking for
+    :return: True if installed, false if not
+    """
+    return flatpak_id in __get_flatpak_list()

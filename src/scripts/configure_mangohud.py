@@ -1,6 +1,12 @@
 import os
 
+from utils.dnf_utils import is_package_installed
 from utils.file_utils import write_system_file
+from utils.flatpak_utils import is_flatpak_installed
+
+BOTTLES_CONFIG_DIR: str = os.path.expanduser("~/.var/app/com.usebottles.bottles/config/MangoHud")
+SYSTEM_CONFIG_DIR: str = os.path.expanduser("~/.config/MangoHud")
+SYSTEM_ENVIRONMENT_FILE: str = "/etc/environment"
 
 CONFIG: str = """
 # Overlay layout
@@ -45,27 +51,27 @@ upload_log=Shift_R+F10
 toggle_logging=Shift_R+F11
 toggle_hud=Shift_R+F12
 """
-CONFIG_DIR: str = os.path.expanduser("~/.config/MangoHud")
-CONFIG_FILE: str = os.path.join(CONFIG_DIR, "MangoHud.conf")
-SYSTEM_ENVIRONMENT_FILE: str = "/etc/environment"
 
 
-def __create_config():
+def __create_config(config_dir: str):
     """
     Generates a MangoHud config file
+    :param config_dir: Directory the config file should be created in
     :return: None
     """
-    if os.path.isfile(CONFIG_FILE):
-        print(f"MangoHud config file already exists")
+    config_file = os.path.join(config_dir, "MangoHud.conf")
+
+    if os.path.isfile(config_file):
+        print(f"MangoHud config file '{config_file}' already exists")
         return
 
-    if not os.path.exists(CONFIG_DIR):
-        os.makedirs(CONFIG_DIR)
+    if not os.path.exists(config_dir):
+        os.makedirs(config_dir)
 
-    print("Generating MangoHud config file")
-    with open(CONFIG_FILE, "w") as config_file:
-        config_file.write(CONFIG)
-        config_file.write("\n")
+    print(f"Generating MangoHud config file at '{config_file}'")
+    with open(config_file, "w") as config:
+        config.write(CONFIG)
+        config.write("\n")
 
 
 def __enable_globally():
@@ -92,5 +98,9 @@ def execute():
     Configures MangoHud and enables it for all Vulkan applications
     :return: None
     """
-    __create_config()
+    if is_package_installed("mangohud"):
+        __create_config(SYSTEM_CONFIG_DIR)
+    if is_flatpak_installed("com.usebottles.bottles"):
+        __create_config(BOTTLES_CONFIG_DIR)
+
     __enable_globally()

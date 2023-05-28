@@ -1,5 +1,15 @@
 [
     {
+        "name": "Bottles",
+        "description": "Easy to use launcher for running Windows applications",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.usebottles.bottles",
+            "org.freedesktop.Platform.VulkanLayer.MangoHud//22.08"
+        ]
+    },
+    {
         "name": "FileZilla",
         "description": "FTP client",
         "category": "application",
@@ -78,6 +88,15 @@
         "operation_type": "flatpak",
         "operation_args": [
             "io.gitlab.librewolf-community"
+        ]
+    },
+    {
+        "name": "Metadata Cleaner",
+        "description": "Scrubs metadata from files",
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "fr.romainvigier.MetadataCleaner"
         ]
     },
     {
