@@ -47,6 +47,7 @@
 | mGBA | Nintendo GameBoy Advance emulator | [View on Flathub](https://flathub.org/apps/io.mgba.mGBA) |
 | PCSX2 | Sony PlayStation 2 emulator | [View on Flathub](https://flathub.org/apps/net.pcsx2.PCSX2) |
 | PPSSPP | Sony PlayStation Portable (PSP) emulator | [View on Flathub](https://flathub.org/apps/org.ppsspp.PPSSPP) |
+| Ryujinx | Nintendo Switch emulator | [View on Flathub](https://flathub.org/apps/org.ryujinx.Ryujinx) |
 | Xemu | Microsoft Xbox emulator | [View on Flathub](https://flathub.org/apps/app.xemu.xemu) |
 
 ## Install Games
