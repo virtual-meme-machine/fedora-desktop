@@ -14,7 +14,7 @@
 | `Gnome Tweaks` | GUI for configuring advanced Gnome settings | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/gnome-tweaks/gnome-tweaks) |
 | `GNU Image Manipulation Program (GIMP)` | Photo editor with a variety of features, similar to Adobe Photoshop | [View on Flathub](https://flathub.org/apps/org.gimp.GIMP) |
 | `Inkscape` | SVG editor | [View on Flathub](https://flathub.org/apps/org.inkscape.Inkscape) |
-| `JetBrains Toolbox` | Manager for JetBrains products such as Android Studio, Rider, and PyCharm | [View JetBrains Site](https://www.jetbrains.com/toolbox-app) |
+| `JetBrains Toolbox` | Manager for JetBrains products such as Android Studio, Rider, and PyCharm | [View on JetBrains Website](https://www.jetbrains.com/toolbox-app) |
 | `Jitsi Meet` | Encrypted video conferencing application, similar to Skype or Zoom | [View on Flathub](https://flathub.org/apps/org.jitsi.jitsi-meet) |
 | `LibreWolf` | Firefox fork with enhanced privacy and security | [View on Flathub](https://flathub.org/apps/io.gitlab.librewolf-community) |
 | `MangoHud` | In game performance monitoring overlay, similar to MSI Afterburner | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/goverlay/goverlay) |
@@ -29,7 +29,7 @@
 | `Spotify` | Official client for the Spotify music streaming platform | [View on Flathub](https://flathub.org/apps/com.spotify.Client) |
 | `Steam ROM Manager` | Utility for adding custom emulator shortcuts to Steam | [View on Flathub](https://flathub.org/apps/com.steamgriddb.steam-rom-manager) |
 | `Steam` | Ubiquitous PC gaming platform | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/steam) |
-| `tinyMediaManager` | Media library management tool | [View tinyMediaManager Site](https://www.tinymediamanager.org) |
+| `tinyMediaManager` | Media library management tool | [View on tinyMediaManager Website](https://www.tinymediamanager.org) |
 | `Tube Converter` | Simple video downloader that supports multiple services such as YouTube | [View on Flathub](https://flathub.org/apps/org.nickvision.tubeconverter) |
 | `UnGoogled Chromium` | Chromium fork with Google dependencies removed | [View on Flathub](https://flathub.org/apps/com.github.Eloston.UngoogledChromium) |
 | `VLC Media Player` | Popular open-source media player that supports most formats | [View on Flathub](https://flathub.org/apps/org.videolan.VLC) |
@@ -91,7 +91,7 @@
 | Option | Description | Link |
 | ------ | ----------- | ---- |
 | `Configure MangoHud` | Configures MangoHud and enables it for all Vulkan applications | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud) |
-| `Configure Mullvad VPN` | Configures and enables a WireGuard connection to Mullvad VPN | [View Mullvad Site](https://mullvad.net) |
+| `Configure Mullvad VPN` | Configures and enables a WireGuard connection to Mullvad VPN | [View on Mullvad Website](https://mullvad.net) |
 | `Enable GameCube Controller Adapter for Wii U` | Installs udev rules for the GameCube Controller Adapter for Wii U | [View on Dolphin Wiki](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux) |
 | `Install Nvidia Drivers` | Drivers for modern Nvidia GPUs | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/akmod-nvidia) |
 | `Install Unrar` | Enables extracting .rar archives | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/unrar) |
