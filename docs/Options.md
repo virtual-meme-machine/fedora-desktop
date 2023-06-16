@@ -22,6 +22,7 @@
 | Metadata Cleaner | Scrubs metadata from files | [View on Flathub](https://flathub.org/apps/fr.romainvigier.MetadataCleaner) |
 | OBS Studio | Recording and streaming workstation | [View on Flathub](https://flathub.org/apps/com.obsproject.Studio) |
 | OnlyOffice Desktop Editors | Office productivity suite, similar to Microsoft Office | [View on Flathub](https://flathub.org/apps/org.onlyoffice.desktopeditors) |
+| OpenRGB | Unified interface for managing RGB hardware and peripherals | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#openrgb) |
 | ProtonUp-Qt | Proton (Windows application compatibility layer) version manager | [View on Flathub](https://flathub.org/apps/net.davidotek.pupgui2) |
 | PrusaSlicer | 3D model slicer for use with 3D printers | [View on Flathub](https://flathub.org/apps/com.prusa3d.PrusaSlicer) |
 | qBittorrent | Modern BitTorrent client | [View on Flathub](https://flathub.org/apps/org.qbittorrent.qBittorrent) |
