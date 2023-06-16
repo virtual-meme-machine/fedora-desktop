@@ -32,6 +32,7 @@ OPTION_URLS: dict[str, str] = {
     "enable_gc_adapter": "[View on Dolphin Wiki]"
                          "(https://wiki.dolphin-emu.org/index.php?title="
                          "How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)",
+    "install_openrgb": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#openrgb)",
     "install_tiny_media_manager": "[View on tinyMediaManager Website](https://www.tinymediamanager.org)",
     "install_toolbox": "[View on JetBrains Website](https://www.jetbrains.com/toolbox-app)",
     "libreoffice*": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/libreoffice/libreoffice)",

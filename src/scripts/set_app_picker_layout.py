@@ -50,7 +50,6 @@ FOLDERS: dict[str, list[str]] = {
     ]
 }
 LAYOUT: list[str] = [
-    "com.usebottles.bottles.desktop",
     "org.gnome.Boxes.desktop",
     "org.filezillaproject.Filezilla.desktop",
     "org.freecadweb.FreeCAD.desktop",
@@ -58,6 +57,7 @@ LAYOUT: list[str] = [
     "org.inkscape.Inkscape.desktop",
     "com.obsproject.Studio.desktop",
     "org.onlyoffice.desktopeditors.desktop",
+    "org.openrgb.OpenRGB.desktop",
     "com.prusa3d.PrusaSlicer.desktop",
     "com.prusa3d.PrusaSlicer.GCodeViewer.desktop",
     "org.qbittorrent.qBittorrent.desktop",

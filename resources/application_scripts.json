@@ -9,6 +9,15 @@
         ]
     },
     {
+        "name": "OpenRGB",
+        "description": "Unified interface for managing RGB hardware and peripherals",
+        "category": "application",
+        "operation_type": "script",
+        "operation_args": [
+            "install_openrgb"
+        ]
+    },
+    {
         "name": "tinyMediaManager",
         "description": "Media library management tool",
         "category": "application",

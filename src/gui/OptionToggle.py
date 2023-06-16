@@ -26,7 +26,7 @@ class OptionToggle:
                  operation_args: list):
         """
         Stores data for a single operation that the user can choose to preform or not
-        :param name: Readable name for the option, eg: "- Remove Firefox"
+        :param name: Readable name for the option, eg: "Remove Firefox"
         :param description: Description for the option, eg: "Uninstalls Mozilla Firefox"
         :param category: Category the option should be grouped with, eg: Category.APPLICATION
         :param operation_type: Type of operation that will be preformed, eg: OperationType.PACKAGE_REMOVE

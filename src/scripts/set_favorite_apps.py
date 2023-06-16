@@ -8,6 +8,7 @@ FAVORITE_APPS: list[str] = [
     "com.vscodium.codium.desktop",
     "jetbrains-pycharm.desktop",
     "jetbrains-rider.desktop",
+    "com.usebottles.bottles.desktop",
     "steam.desktop",
     "com.spotify.Client.desktop",
     "io.freetubeapp.FreeTube.desktop",
