@@ -1,19 +1,17 @@
 import json
-import os.path
 import random
 import re
 import subprocess
-import tempfile
 
 from utils.dnf_utils import install_packages
+from utils.vpn_utils import generate_wireguard_private_key, generate_wireguard_public_key, import_wireguard_config, \
+    is_wireguard_connection_active
 
 DNS_SERVER: str = "193.138.218.74"
 PREFERRED_COUNTRY: str = "USA"
-PROMPT_TEXT: str = "Please input your Mullvad VPN account ID"
-PROMPT_TITLE: str = "Mullvad VPN Setup"
 
 
-def __get_account_id() -> str or False:
+def __get_account_id() -> str or None:
     """
     Prompts the user to provide their Mullvad VPN account ID via a GUI pop up
     :return: Account ID as a string, or False if user cancelled input
@@ -22,13 +20,13 @@ def __get_account_id() -> str or False:
         print("Prompting for Mullvad VPN account ID")
         try:
             account_id = subprocess.check_output(["/usr/bin/zenity", "--entry", "--hide-text",
-                                                  f"--title={PROMPT_TITLE}",
-                                                  f"--text={PROMPT_TEXT}",
-                                                  f"--ok-label=Submit"], text=True).strip()
+                                                  "--title=Mullvad VPN Setup",
+                                                  "--text=Please input your Mullvad VPN account ID",
+                                                  "--ok-label=Submit"], text=True).strip()
         except subprocess.CalledProcessError as err:
             if err.returncode == 1:
                 print("VPN configuration cancelled")
-                return False
+                return None
 
         if re.match(r"\d{16}", account_id):
             return account_id
@@ -42,19 +40,17 @@ def execute():
     Based on: https://mullvad.net/media/files/mullvad-wg.sh
     :return: None
     """
-    if "wireguard" in subprocess.check_output(["/usr/bin/nmcli", "connection", "show", "--active"],
-                                              text=True):
-        print("WireGuard VPN connection is already configured")
+    if is_wireguard_connection_active():
+        print("A WireGuard VPN connection is already configured, skipping")
         return
 
     account_id = __get_account_id()
-    if account_id is False:
+    if account_id is None:
         return
 
     install_packages(["wireguard-tools"])
-
-    private_key = subprocess.check_output(["/usr/bin/wg", "genkey"], text=True).strip()
-    public_key = subprocess.check_output(["/usr/bin/wg", "pubkey"], input=private_key, text=True).strip()
+    private_key = generate_wireguard_private_key()
+    public_key = generate_wireguard_public_key(private_key)
 
     print("Submitting keys to Mullvad API")
     server_address = subprocess.check_output(["/usr/bin/curl", "-LsS", "https://api.mullvad.net/wg/",
@@ -79,22 +75,15 @@ def execute():
     city_relays: list = random_city.get("relays")
     random_relay: dict = city_relays[random.randint(0, len(city_relays) - 1)]
 
-    print("Writing config file")
-    config_file = os.path.join(tempfile.mkdtemp(), f"mullvad_{city_code}_wg0.conf")
-    with open(config_file, "w") as config:
-        config.writelines([
-            f"[Interface]\n",
-            f"PrivateKey = {private_key}\n",
-            f"Address = {server_address}\n",
-            f"DNS = {DNS_SERVER}\n",
-            f"\n",
-            f"[Peer]\n",
-            f"PublicKey = {random_relay.get('public_key')}\n",
-            f"Endpoint = {random_relay.get('ipv4_addr_in')}:51820\n",
-            f"AllowedIPs = 0.0.0.0/0, ::/0"
-        ])
-        config.write("\n")
-
-    print("Enabling WireGuard connection")
-    subprocess.check_call(["/usr/bin/nmcli", "connection", "import", "type", "wireguard", "file", config_file])
-    os.remove(config_file)
+    import_wireguard_config(connection_name=f"mv_{city_code}_wg0",
+                            config_data=[
+                                f"[Interface]",
+                                f"PrivateKey = {private_key}",
+                                f"Address = {server_address}",
+                                f"DNS = {DNS_SERVER}",
+                                f"",
+                                f"[Peer]",
+                                f"PublicKey = {random_relay.get('public_key')}",
+                                f"Endpoint = {random_relay.get('ipv4_addr_in')}:51820",
+                                f"AllowedIPs = 0.0.0.0/0, ::/0"
+                            ])

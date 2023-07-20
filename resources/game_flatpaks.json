@@ -2,6 +2,7 @@
     {
         "name": "Mindustry",
         "description": "Sandbox tower-defense game",
+        "default_state": true,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -11,6 +12,7 @@
     {
         "name": "OpenRCT2",
         "description": "Open-source re-implementation of Roller Coaster Tycoon 2",
+        "default_state": true,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -20,6 +22,7 @@
     {
         "name": "PolyMC",
         "description": "Configurable Java Minecraft launcher",
+        "default_state": true,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -29,6 +32,7 @@
     {
         "name": "Sonic 3: Angel Island Revisited",
         "description": "Enhanced version of Sonic 3 & Knuckles",
+        "default_state": true,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -38,6 +42,7 @@
     {
         "name": "Sonic Robo Blast 2 Kart",
         "description": "Genesis era Sonic themed kart racer with online multiplayer",
+        "default_state": true,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -47,6 +52,7 @@
     {
         "name": "Space Cadet Pinball",
         "description": "Native port of 3D Pinball for Windows - Space Cadet",
+        "default_state": true,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [

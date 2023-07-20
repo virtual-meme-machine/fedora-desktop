@@ -2,6 +2,7 @@
     {
         "name": "Configure MangoHud",
         "description": "Configures MangoHud and enables it for all Vulkan applications",
+        "default_state": true,
         "category": "system",
         "operation_type": "script",
         "operation_args": [
@@ -9,17 +10,9 @@
         ]
     },
     {
-        "name": "Configure Mullvad VPN",
-        "description": "Configures and enables a WireGuard connection to Mullvad VPN",
-        "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "configure_mullvad_vpn"
-        ]
-    },
-    {
         "name": "Enable GameCube Controller Adapter for Wii U",
         "description": "Installs udev rules for the GameCube Controller Adapter for Wii U",
+        "default_state": true,
         "category": "system",
         "operation_type": "script",
         "operation_args": [
@@ -29,6 +22,7 @@
     {
         "name": "Install Updates",
         "description": "Installs available updates",
+        "default_state": true,
         "category": "system",
         "operation_type": "script",
         "operation_args": [
@@ -38,6 +32,7 @@
     {
         "name": "Remove Firefox",
         "description": "Uninstalls Mozilla Firefox",
+        "default_state": true,
         "category": "system",
         "operation_type": "script",
         "operation_args": [
@@ -47,6 +42,7 @@
     {
         "name": "Set App Picker Layout",
         "description": "Arranges the app picker to a preconfigured layout",
+        "default_state": true,
         "category": "system",
         "operation_type": "script",
         "operation_args": [
@@ -56,6 +52,7 @@
     {
         "name": "Set Favorite Apps",
         "description": "Sets the applications pinned to the dash to a preconfigured layout",
+        "default_state": true,
         "category": "system",
         "operation_type": "script",
         "operation_args": [
@@ -65,6 +62,7 @@
     {
         "name": "Set Default Web Browser to LibreWolf",
         "description": "Sets the default web browser to LibreWolf",
+        "default_state": true,
         "category": "system",
         "operation_type": "script",
         "operation_args": [

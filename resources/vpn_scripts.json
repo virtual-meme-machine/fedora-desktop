@@ -1,0 +1,22 @@
+[
+    {
+        "name": "CryptoStorm",
+        "description": "Configures and enables a WireGuard connection to CryptoStorm",
+        "default_state": false,
+        "category": "vpn",
+        "operation_type": "script",
+        "operation_args": [
+            "vpn/cryptostorm"
+        ]
+    },
+    {
+        "name": "Mullvad VPN",
+        "description": "Configures and enables a WireGuard connection to Mullvad VPN",
+        "default_state": false,
+        "category": "vpn",
+        "operation_type": "script",
+        "operation_args": [
+            "vpn/mullvad"
+        ]
+    }
+]

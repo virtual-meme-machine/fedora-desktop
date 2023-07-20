@@ -58,13 +58,13 @@ LAYOUT: list[str] = [
     "com.obsproject.Studio.desktop",
     "org.onlyoffice.desktopeditors.desktop",
     "org.openrgb.OpenRGB.desktop",
+    "org.nickvision.tubeconverter.desktop",
     "com.prusa3d.PrusaSlicer.desktop",
     "com.prusa3d.PrusaSlicer.GCodeViewer.desktop",
     "org.qbittorrent.qBittorrent.desktop",
     "org.thentrythis.Samplebrain.desktop",
     "com.steamgriddb.steam-rom-manager.desktop",
     "tiny-media-manager.desktop",
-    "org.nickvision.tubeconverter.desktop",
     "com.github.Eloston.UngoogledChromium.desktop",
     "io.gitlab.azymohliad.WatchMate.desktop"
 ]

@@ -2,6 +2,7 @@
     {
         "name": "Dolphin Emulator",
         "description": "Nintendo GameCube and Nintendo Wii emulator",
+        "default_state": true,
         "category": "emulator",
         "operation_type": "flatpak",
         "operation_args": [
@@ -11,6 +12,7 @@
     {
         "name": "DuckStation",
         "description": "Sony PlayStation (PS1) emulator",
+        "default_state": true,
         "category": "emulator",
         "operation_type": "flatpak",
         "operation_args": [
@@ -20,6 +22,7 @@
     {
         "name": "mGBA",
         "description": "Nintendo GameBoy Advance emulator",
+        "default_state": true,
         "category": "emulator",
         "operation_type": "flatpak",
         "operation_args": [
@@ -29,6 +32,7 @@
     {
         "name": "PCSX2",
         "description": "Sony PlayStation 2 emulator",
+        "default_state": true,
         "category": "emulator",
         "operation_type": "flatpak",
         "operation_args": [
@@ -38,6 +42,7 @@
     {
         "name": "PPSSPP",
         "description": "Sony PlayStation Portable (PSP) emulator",
+        "default_state": true,
         "category": "emulator",
         "operation_type": "flatpak",
         "operation_args": [
@@ -47,6 +52,7 @@
     {
         "name": "Ryujinx",
         "description": "Nintendo Switch emulator",
+        "default_state": true,
         "category": "emulator",
         "operation_type": "flatpak",
         "operation_args": [
@@ -56,6 +62,7 @@
     {
         "name": "Xemu",
         "description": "Microsoft Xbox emulator",
+        "default_state": true,
         "category": "emulator",
         "operation_type": "flatpak",
         "operation_args": [

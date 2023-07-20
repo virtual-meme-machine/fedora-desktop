@@ -2,6 +2,7 @@
     {
         "name": "Install Nvidia Drivers",
         "description": "Drivers for modern Nvidia GPUs",
+        "default_state": false,
         "category": "system",
         "operation_type": "package_install_rpmfusion",
         "operation_args": [
@@ -12,6 +13,7 @@
     {
         "name": "Install Unrar",
         "description": "Enables extracting .rar archives",
+        "default_state": true,
         "category": "system",
         "operation_type": "package_install_rpmfusion",
         "operation_args": [

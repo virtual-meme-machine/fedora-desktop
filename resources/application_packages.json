@@ -2,6 +2,7 @@
     {
         "name": "Archive Manager",
         "description": "Advanced archive manager",
+        "default_state": true,
         "category": "application",
         "operation_type": "package_install",
         "operation_args": [
@@ -11,6 +12,7 @@
     {
         "name": "dconf Editor",
         "description": "GUI for viewing and modifying dconf, similar to Windows' regedit",
+        "default_state": true,
         "category": "application",
         "operation_type": "package_install",
         "operation_args": [
@@ -20,6 +22,7 @@
     {
         "name": "Gnome Tweaks",
         "description": "GUI for configuring advanced Gnome settings",
+        "default_state": true,
         "category": "application",
         "operation_type": "package_install",
         "operation_args": [
@@ -29,6 +32,7 @@
     {
         "name": "MangoHud",
         "description": "In game performance monitoring overlay, similar to MSI Afterburner",
+        "default_state": true,
         "category": "application",
         "operation_type": "package_install",
         "operation_args": [
@@ -39,6 +43,7 @@
     {
         "name": "Steam",
         "description": "Ubiquitous PC gaming platform",
+        "default_state": true,
         "category": "application",
         "operation_type": "package_install_rpmfusion",
         "operation_args": [

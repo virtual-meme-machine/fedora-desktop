@@ -9,4 +9,3 @@ def execute():
     """
     install_packages(["openrgb-udev-rules"])
     install_flatpaks(["org.openrgb.OpenRGB"])
-    

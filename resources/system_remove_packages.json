@@ -2,6 +2,7 @@
     {
         "name": "Remove Gnome Bloat",
         "description": "Uninstalls useless Gnome applications such as Gnome Clocks",
+        "default_state": true,
         "category": "system",
         "operation_type": "package_remove",
         "operation_args": [
@@ -24,6 +25,7 @@
     {
         "name": "Remove LibreOffice",
         "description": "Uninstalls LibreOffice",
+        "default_state": true,
         "category": "system",
         "operation_type": "package_remove",
         "operation_args": [

@@ -11,6 +11,7 @@ class Category(Enum):
     GNOME_EXTENSION: str = "gnome_extension", "Install Gnome Shell Extensions"
     SETTING: str = "setting", "Configure Settings"
     SYSTEM: str = "system", "Configure System"
+    VPN: str = "vpn", "Configure VPN"
 
 
 def from_string(string: str) -> Category:

@@ -88,7 +88,7 @@ def install_flatpaks(flatpak_list: list[str]):
             flatpak_list.remove(flatpak)
 
     if not flatpak_list:
-        print("All selected flatpaks are already installed")
+        print("Selected flatpaks are already installed")
         return
 
     __remove_fedora_repos()

@@ -2,6 +2,7 @@
     {
         "name": "JetBrains Toolbox",
         "description": "Manager for JetBrains products such as Android Studio, Rider, and PyCharm",
+        "default_state": true,
         "category": "application",
         "operation_type": "script",
         "operation_args": [
@@ -11,6 +12,7 @@
     {
         "name": "OpenRGB",
         "description": "Unified interface for managing RGB hardware and peripherals",
+        "default_state": true,
         "category": "application",
         "operation_type": "script",
         "operation_args": [
@@ -20,6 +22,7 @@
     {
         "name": "tinyMediaManager",
         "description": "Media library management tool",
+        "default_state": true,
         "category": "application",
         "operation_type": "script",
         "operation_args": [
