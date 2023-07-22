@@ -96,7 +96,6 @@
 | Option | Description | Link |
 | ------ | ----------- | ---- |
 | Configure MangoHud | Configures MangoHud and enables it for all Vulkan applications | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud) |
-| Configure Mullvad VPN | Configures and enables a WireGuard connection to Mullvad VPN | [View on Mullvad Website](https://mullvad.net) |
 | Enable GameCube Controller Adapter for Wii U | Installs udev rules for the GameCube Controller Adapter for Wii U | [View on Dolphin Wiki](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux) |
 | Install Nvidia Drivers | Drivers for modern Nvidia GPUs | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/akmod-nvidia) |
 | Install Unrar | Enables extracting .rar archives | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/unrar) |
@@ -107,4 +106,11 @@
 | Set App Picker Layout | Arranges the app picker to a preconfigured layout | N/A |
 | Set Default Web Browser to LibreWolf | Sets the default web browser to LibreWolf | N/A |
 | Set Favorite Apps | Sets the applications pinned to the dash to a preconfigured layout | N/A |
+
+## Configure VPN
+
+| Option | Description | Link |
+| ------ | ----------- | ---- |
+| CryptoStorm | Configures and enables a WireGuard connection to CryptoStorm | [View on CryptoStorm Website](https://cryptostorm.is) |
+| Mullvad VPN | Configures and enables a WireGuard connection to Mullvad VPN | [View on Mullvad Website](https://mullvad.net) |
 
