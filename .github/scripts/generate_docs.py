@@ -11,7 +11,8 @@ HEADER_CATEGORIES: dict[str, str] = {
     "game": "Install Games",
     "gnome_extension": "Install Gnome Shell Extensions",
     "setting": "Configure Settings",
-    "system": "Configure System"
+    "system": "Configure System",
+    "vpn": "Configure VPN"
 }
 OPTION_URLS: dict[str, str] = {
     "gnome_extension/audio_panel": "[View on Gnome Extensions]"
@@ -28,7 +29,6 @@ OPTION_URLS: dict[str, str] = {
     "gnome_extension/tray_icons": "[View on Gnome Extensions]"
                                   "(https://extensions.gnome.org/extension/615/appindicator-support)",
     "configure_mangohud": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud)",
-    "configure_mullvad_vpn": "[View on Mullvad Website](https://mullvad.net)",
     "enable_gc_adapter": "[View on Dolphin Wiki]"
                          "(https://wiki.dolphin-emu.org/index.php?title="
                          "How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)",
@@ -36,7 +36,9 @@ OPTION_URLS: dict[str, str] = {
     "install_tiny_media_manager": "[View on tinyMediaManager Website](https://www.tinymediamanager.org)",
     "install_toolbox": "[View on JetBrains Website](https://www.jetbrains.com/toolbox-app)",
     "libreoffice*": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/libreoffice/libreoffice)",
-    "remove_firefox": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/firefox/firefox)"
+    "remove_firefox": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/firefox/firefox)",
+    "vpn/cryptostorm": "[View on CryptoStorm Website](https://cryptostorm.is)",
+    "vpn/mullvad": "[View on Mullvad Website](https://mullvad.net)"
 }
 
 

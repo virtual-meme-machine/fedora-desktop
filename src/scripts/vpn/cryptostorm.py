@@ -28,14 +28,16 @@ def __get_connection_info(public_key: str) -> (str, str) or None:
     """
     Prompts the user to provide their CryptoStorm connection info, this would be an IP address and a pre-shared key
     :param public_key: Generated public key that needs to be registered with CryptoStorm
-    :return: Provided server IP address and pre-shared key
+    :return: Provided server IP address and preshared key
     """
     try:
         subprocess.check_call(["/usr/bin/zenity", "--info",
                                "--title=CryptoStorm Setup",
-                               "--text=Please register your WireGuard public key at: https://cryptostorm.is/wireguard\n"
-                               "You will input the provided IP address and pre-shared key in the next dialog."
+                               "--text=Your public key needs to be registered with your CryptoStorm account.\n"
+                               "You will input the your CryptoStorm IP address and preshared key on the next dialog."
                                "\n\n\n"
+                               "Register your key here         : https://cryptostorm.is/wireguard"
+                               "\n\n"
                                f"Your public key: <b>{public_key}</b>",
                                "--ok-label=Next"])
     except subprocess.CalledProcessError as err:
@@ -48,7 +50,7 @@ def __get_connection_info(public_key: str) -> (str, str) or None:
                                                     "--title=CryptoStorm Setup",
                                                     "--text=Connection Info",
                                                     "--add-entry=IP Address",
-                                                    "--add-entry=Pre-Shared Key",
+                                                    "--add-entry=Preshared Key",
                                                     "--ok-label=Submit"], text=True).strip()
         except subprocess.CalledProcessError as err:
             if err.returncode == 1:
@@ -75,8 +77,8 @@ def execute():
     install_packages(["wireguard-tools"])
     private_key = generate_wireguard_private_key()
     public_key = generate_wireguard_public_key(private_key)
-    server_ip, pre_shared_key = __get_connection_info(public_key)
-    if server_ip is None or pre_shared_key is None:
+    server_ip, preshared_key = __get_connection_info(public_key)
+    if server_ip is None or preshared_key is None:
         print("VPN configuration cancelled")
         return
 
@@ -91,7 +93,7 @@ def execute():
                                 f"DNS = {DNS_SERVER}",
                                 f"",
                                 f"[Peer]",
-                                f"Presharedkey = {pre_shared_key}",
+                                f"Presharedkey = {preshared_key}",
                                 f"PublicKey = {server_public_key}",
                                 f"Endpoint = {server_name}.cstorm.is:443",
                                 f"AllowedIPs = 0.0.0.0/0",
