@@ -1,3 +1,4 @@
+import configparser
 import json
 import os
 import platform
@@ -8,6 +9,52 @@ GSETTINGS_EXEC: str = "/usr/bin/gsettings"
 LOCAL_BIN: str = os.path.expanduser("~/.local/bin")
 REMOVE_VALUES: list[str] = ["@as", "uint32"]
 SCRIPT_MAIN_VERSION: str = "3.1"
+
+XDG_DATA_DIRS = os.environ.get("XDG_DATA_DIRS").split(":")
+if os.path.expanduser("~/.local/share") not in XDG_DATA_DIRS:
+    XDG_DATA_DIRS.append(os.path.expanduser("~/.local/share"))
+
+
+def __get_desktop_file(application_desktop: str) -> str or None:
+    """
+    Gets the path to an application's .desktop file
+    :param application_desktop: Name of the application's .desktop file
+    :return: Path to the .desktop file if it could be found, None if not
+    """
+    for path in XDG_DATA_DIRS:
+        applications_path = os.path.join(path, "applications")
+        if not os.path.isdir(applications_path):
+            continue
+
+        desktop_file = os.path.join(applications_path, application_desktop)
+        if os.path.isfile(desktop_file):
+            return desktop_file
+
+    print(f"Unable to locate application: '{application_desktop}'")
+    return None
+
+
+def get_application_name(application_desktop: str) -> str or None:
+    """
+    Gets the readable name for an application by parsing its .desktop file
+    :param application_desktop: Name of the application's .desktop file
+    :return: Name of the application if it is installed, None if not
+    """
+    config_path = __get_desktop_file(application_desktop)
+    if config_path is None:
+        return None
+
+    config = configparser.ConfigParser()
+    config.read(config_path)
+    return config.get(section="Desktop Entry", option="Name")
+
+
+def get_distro_full_name() -> str:
+    """
+    Gets the distro's full name
+    :return: String containing the full name of the system's distro, eg: "Fedora Linux 38 (Workstation Edition)"
+    """
+    return platform.freedesktop_os_release().get("PRETTY_NAME")
 
 
 def get_dconf_value(key: str) -> str:
@@ -73,12 +120,23 @@ def get_gsettings_value(schema: str, key: str) -> str:
     return output.strip()
 
 
-def get_distro_full_name() -> str:
+def get_installed_applications() -> list[str]:
     """
-    Gets the distro's full name
-    :return: String containing the full name of the system's distro, eg: "Fedora Linux 38 (Workstation Edition)"
+    Gets a list of .desktop files for installed applications
+    :return: List of application .desktop files
     """
-    return platform.freedesktop_os_release().get("PRETTY_NAME")
+    application_list = []
+
+    for path in XDG_DATA_DIRS:
+        applications_path = os.path.join(path, "applications")
+        if not os.path.isdir(applications_path):
+            continue
+
+        for file in os.listdir(applications_path):
+            if os.path.splitext(file)[1] == ".desktop":
+                application_list.append(file)
+
+    return application_list
 
 
 def get_script_version() -> str:
@@ -101,19 +159,7 @@ def is_application_installed(application_desktop: str) -> bool:
     :param application_desktop: Name of the applications .desktop file
     :return: True if found, False if not
     """
-    xdg_data_dirs = os.environ.get("XDG_DATA_DIRS").split(":")
-    if os.path.expanduser("~/.local/share") not in xdg_data_dirs:
-        xdg_data_dirs.append(os.path.expanduser("~/.local/share"))
-
-    for path in xdg_data_dirs:
-        applications_path = os.path.join(path, "applications")
-        if not os.path.isdir(applications_path):
-            continue
-
-        if application_desktop in os.listdir(applications_path):
-            return True
-
-    return False
+    return __get_desktop_file(application_desktop) is not None
 
 
 def is_exec_in_path(exec_name: str) -> bool:

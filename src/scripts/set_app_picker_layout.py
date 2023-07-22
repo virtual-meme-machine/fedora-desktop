@@ -1,87 +1,79 @@
 import time
 
-from utils.platform_utils import get_gsettings_json, get_gsettings_value, is_application_installed, set_gsettings_json, \
-    set_gsettings_value
+from utils.platform_utils import get_application_name, get_gsettings_json, get_gsettings_value, \
+    get_installed_applications, set_gsettings_json, set_gsettings_value
 
 FOLDERS: dict[str, list[str]] = {
     "Emulators": [
-        "org.DolphinEmu.dolphin-emu.desktop",
-        "org.duckstation.DuckStation.desktop",
+        "app.xemu.xemu.desktop",
         "io.mgba.mGBA.desktop",
         "net.pcsx2.PCSX2.desktop",
+        "org.DolphinEmu.dolphin-emu.desktop",
+        "org.duckstation.DuckStation.desktop",
         "org.ppsspp.PPSSPP.desktop",
-        "org.ryujinx.Ryujinx.desktop",
-        "app.xemu.xemu.desktop"
+        "org.ryujinx.Ryujinx.desktop"
     ],
     "Games": [
         "com.github.Anuken.Mindustry.desktop",
+        "com.github.k4zmu2a.spacecadetpinball.desktop",
         "io.openrct2.OpenRCT2.desktop",
         "org.polymc.PolyMC.desktop",
         "org.sonic3air.Sonic3AIR.desktop",
         "org.srb2.SRB2Kart.desktop",
-        "com.github.k4zmu2a.spacecadetpinball.desktop"
     ],
     "Utilities": [
-        "org.gnome.FileRoller.desktop",
+        "ca.desrt.dconf-editor.desktop",
+        "com.mattjakeman.ExtensionManager.desktop",
+        "com.steamgriddb.SGDBoop.desktop",
+        "fr.romainvigier.MetadataCleaner.desktop",
+        "gnome-system-monitor.desktop",
+        "io.github.benjamimgois.goverlay.desktop",
+        "jetbrains-toolbox.desktop",
+        "net.davidotek.pupgui2.desktop",
+        "nvidia-settings.desktop",
+        "org.fedoraproject.MediaWriter.desktop",
+        "org.freedesktop.GnomeAbrt.desktop",
+        "org.gnome.baobab.desktop",
         "org.gnome.Calculator.desktop",
         "org.gnome.Cheese.desktop",
         "org.gnome.Connections.desktop",
-        "ca.desrt.dconf-editor.desktop",
         "org.gnome.DiskUtility.desktop",
-        "org.gnome.baobab.desktop",
-        "simple-scan.desktop",
-        "org.gnome.Evince.desktop",
-        "com.mattjakeman.ExtensionManager.desktop",
-        "org.fedoraproject.MediaWriter.desktop",
-        "org.gnome.font-viewer.desktop",
-        "io.github.benjamimgois.goverlay.desktop",
-        "yelp.desktop",
         "org.gnome.eog.desktop",
-        "jetbrains-toolbox.desktop",
-        "fr.romainvigier.MetadataCleaner.desktop",
-        "nvidia-settings.desktop",
-        "org.freedesktop.GnomeAbrt.desktop",
-        "net.davidotek.pupgui2.desktop",
+        "org.gnome.Evince.desktop",
+        "org.gnome.FileRoller.desktop",
+        "org.gnome.font-viewer.desktop",
         "org.gnome.Settings.desktop",
-        "com.steamgriddb.SGDBoop.desktop",
-        "gnome-system-monitor.desktop",
         "org.gnome.TextEditor.desktop",
-        "org.gnome.tweaks.desktop"
+        "org.gnome.tweaks.desktop",
+        "simple-scan.desktop",
+        "yelp.desktop"
     ]
 }
-LAYOUT: list[str] = [
-    "org.gnome.Boxes.desktop",
-    "org.filezillaproject.Filezilla.desktop",
-    "org.freecadweb.FreeCAD.desktop",
-    "org.gimp.GIMP.desktop",
-    "org.inkscape.Inkscape.desktop",
-    "com.obsproject.Studio.desktop",
-    "org.onlyoffice.desktopeditors.desktop",
-    "org.openrgb.OpenRGB.desktop",
-    "org.nickvision.tubeconverter.desktop",
-    "com.prusa3d.PrusaSlicer.desktop",
-    "com.prusa3d.PrusaSlicer.GCodeViewer.desktop",
-    "org.qbittorrent.qBittorrent.desktop",
-    "org.thentrythis.Samplebrain.desktop",
-    "com.steamgriddb.steam-rom-manager.desktop",
-    "tiny-media-manager.desktop",
-    "com.github.Eloston.UngoogledChromium.desktop",
-    "io.gitlab.azymohliad.WatchMate.desktop"
-]
 
 
-def __create_folder(name: str, contents: list[str]):
+def __alphabetize_applications(application_list: list[str]) -> list[str]:
+    """
+    Sorts a list of application .desktop files alphabetically by the application name
+    :param application_list: List of application .desktop files that we want to sort
+    :return: List of application .desktop files sorted alphabetically, applications that could not be found are skipped
+    """
+    application_dict = {}
+    for app_id in application_list:
+        app_name = get_application_name(app_id)
+        if app_name is not None:
+            application_dict.update({app_name.lower(): app_id})
+
+    return list(dict(sorted(application_dict.items())).values())
+
+
+def __create_folder(name: str, application_list: list[str]):
     """
     Creates a new folder in the app picker
     :param name: Name of the folder we want to create
-    :param contents: List of application .desktops to be added to the folder
+    :param application_list: List of application .desktops to be added to the folder
     :return: None
     """
-    installed_applications = []
-
-    for app in contents:
-        if is_application_installed(app):
-            installed_applications.append(app)
+    installed_applications = __alphabetize_applications(application_list)
 
     if not installed_applications:
         print(f"No specified applications are installed, unable to create folder '{name}'")
@@ -119,13 +111,15 @@ def execute():
     :return: None
     """
     for folder_name in FOLDERS.keys():
-        __create_folder(name=folder_name, contents=FOLDERS.get(folder_name))
+        __create_folder(name=folder_name, application_list=FOLDERS.get(folder_name))
 
-    app_picker_list = sorted(__get_folder_list())
-    for app in LAYOUT:
-        if is_application_installed(app):
-            app_picker_list.append(app)
+    application_list = get_installed_applications()
+    for folder in FOLDERS.keys():
+        for app in FOLDERS[folder]:
+            if app in application_list:
+                application_list.remove(app)
 
+    app_picker_list = sorted(__get_folder_list()) + __alphabetize_applications(application_list)
     if not app_picker_list:
         print("No specified applications are installed, unable to set app picker layout")
         return
