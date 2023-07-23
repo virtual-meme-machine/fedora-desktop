@@ -1,5 +1,15 @@
 [
     {
+        "name": "AM2RLauncher",
+        "description": "Fan remake of Metroid II: Return of Samus",
+        "default_state": true,
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "io.github.am2r_community_developers.AM2RLauncher"
+        ]
+    },
+    {
         "name": "DevilutionX",
         "description": "Enhanced source port of Diablo 1",
         "default_state": true,
@@ -20,6 +30,16 @@
         ]
     },
     {
+        "name": "OpenMW",
+        "description": "Open-source re-implementation of The Elder Scrolls III: Morrowind",
+        "default_state": true,
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.openmw.OpenMW"
+        ]
+    },
+    {
         "name": "OpenRCT2",
         "description": "Open-source re-implementation of Roller Coaster Tycoon 2",
         "default_state": true,
@@ -30,6 +50,16 @@
         ]
     },
     {
+        "name": "OpenSpades",
+        "description": "Open-source re-implementation of Ace of Spades 0.75",
+        "default_state": true,
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "jp.yvt.OpenSpades"
+        ]
+    },
+    {
         "name": "PolyMC",
         "description": "Configurable Java Minecraft launcher",
         "default_state": true,
@@ -37,6 +67,16 @@
         "operation_type": "flatpak",
         "operation_args": [
             "org.polymc.PolyMC"
+        ]
+    },
+    {
+        "name": "Quadrapassel",
+        "description": "Basic Tetris clone",
+        "default_state": true,
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.gnome.Quadrapassel"
         ]
     },
     {
@@ -61,12 +101,32 @@
     },
     {
         "name": "Space Cadet Pinball",
-        "description": "Native port of 3D Pinball for Windows - Space Cadet",
+        "description": "Source port of 3D Pinball for Windows - Space Cadet",
         "default_state": true,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
             "com.github.k4zmu2a.spacecadetpinball"
+        ]
+    },
+    {
+        "name": "Unciv",
+        "description": "Open-source remake of Civilization V",
+        "default_state": true,
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "io.github.yairm210.unciv"
+        ]
+    },
+    {
+        "name": "Vintage Story",
+        "description": "Wilderness survival sandbox game inspired by lovecraftian horror themes",
+        "default_state": true,
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "at.vintagestory.VintageStory"
         ]
     }
 ]
