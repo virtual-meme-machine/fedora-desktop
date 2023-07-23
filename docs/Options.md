@@ -56,13 +56,19 @@
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
+| AM2RLauncher | Fan remake of Metroid II: Return of Samus | [View on Flathub](https://flathub.org/apps/io.github.am2r_community_developers.AM2RLauncher) |
 | DevilutionX | Enhanced source port of Diablo 1 | [View on Flathub](https://flathub.org/apps/org.diasurgical.DevilutionX) |
 | Mindustry | Sandbox tower-defense game | [View on Flathub](https://flathub.org/apps/com.github.Anuken.Mindustry) |
+| OpenMW | Open-source re-implementation of The Elder Scrolls III: Morrowind | [View on Flathub](https://flathub.org/apps/org.openmw.OpenMW) |
 | OpenRCT2 | Open-source re-implementation of Roller Coaster Tycoon 2 | [View on Flathub](https://flathub.org/apps/io.openrct2.OpenRCT2) |
+| OpenSpades | Open-source re-implementation of Ace of Spades 0.75 | [View on Flathub](https://flathub.org/apps/jp.yvt.OpenSpades) |
 | PolyMC | Configurable Java Minecraft launcher | [View on Flathub](https://flathub.org/apps/org.polymc.PolyMC) |
+| Quadrapassel | Basic Tetris clone | [View on Flathub](https://flathub.org/apps/org.gnome.Quadrapassel) |
 | Sonic 3: Angel Island Revisited | Enhanced version of Sonic 3 & Knuckles | [View on Flathub](https://flathub.org/apps/org.sonic3air.Sonic3AIR) |
 | Sonic Robo Blast 2 Kart | Genesis era Sonic themed kart racer with online multiplayer | [View on Flathub](https://flathub.org/apps/org.srb2.SRB2Kart) |
-| Space Cadet Pinball | Native port of 3D Pinball for Windows - Space Cadet | [View on Flathub](https://flathub.org/apps/com.github.k4zmu2a.spacecadetpinball) |
+| Space Cadet Pinball | Source port of 3D Pinball for Windows - Space Cadet | [View on Flathub](https://flathub.org/apps/com.github.k4zmu2a.spacecadetpinball) |
+| Unciv | Open-source remake of Civilization V | [View on Flathub](https://flathub.org/apps/io.github.yairm210.unciv) |
+| Vintage Story | Wilderness survival sandbox game inspired by lovecraftian horror themes | [View on Flathub](https://flathub.org/apps/at.vintagestory.VintageStory) |
 
 ## Install Gnome Shell Extensions
 
