@@ -46,7 +46,30 @@ def get_application_name(application_desktop: str) -> str or None:
 
     config = configparser.ConfigParser()
     config.read(config_path)
-    return config.get(section="Desktop Entry", option="Name")
+
+    if "name" not in config["Desktop Entry"].keys():
+        return None
+
+    return config.get(section="Desktop Entry", option="name")
+
+
+def get_application_categories(application_desktop: str) -> list[str] or None:
+    """
+    Gets the readable name for an application by parsing its .desktop file
+    :param application_desktop: Name of the application's .desktop file
+    :return: Name of the application if it is installed, None if not
+    """
+    config_path = __get_desktop_file(application_desktop)
+    if config_path is None:
+        return None
+
+    config = configparser.ConfigParser()
+    config.read(config_path)
+
+    if "categories" not in config["Desktop Entry"].keys():
+        return None
+
+    return config.get(section="Desktop Entry", option="categories").split(";")
 
 
 def get_distro_full_name() -> str:

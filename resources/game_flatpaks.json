@@ -1,5 +1,15 @@
 [
     {
+        "name": "DevilutionX",
+        "description": "Enhanced source port of Diablo 1",
+        "default_state": true,
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.diasurgical.DevilutionX"
+        ]
+    },
+    {
         "name": "Mindustry",
         "description": "Sandbox tower-defense game",
         "default_state": true,

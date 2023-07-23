@@ -91,6 +91,16 @@
         ]
     },
     {
+        "name": "Kdenlive",
+        "description": "Non linear video editor, similar to Adobe Premier or Sony Vegas",
+        "default_state": true,
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.kde.kdenlive"
+        ]
+    },
+    {
         "name": "LibreWolf",
         "description": "Firefox fork with enhanced privacy and security",
         "default_state": true,

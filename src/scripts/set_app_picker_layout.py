@@ -1,54 +1,35 @@
 import time
 
-from utils.platform_utils import get_application_name, get_gsettings_json, get_gsettings_value, \
-    get_installed_applications, set_gsettings_json, set_gsettings_value
+from utils.platform_utils import get_application_name, get_application_categories, get_gsettings_json, \
+    get_gsettings_value, get_installed_applications, set_gsettings_json, set_gsettings_value
 
-FOLDERS: dict[str, list[str]] = {
-    "Emulators": [
-        "app.xemu.xemu.desktop",
-        "io.mgba.mGBA.desktop",
-        "net.pcsx2.PCSX2.desktop",
-        "org.DolphinEmu.dolphin-emu.desktop",
-        "org.duckstation.DuckStation.desktop",
-        "org.ppsspp.PPSSPP.desktop",
-        "org.ryujinx.Ryujinx.desktop"
-    ],
-    "Games": [
-        "com.github.Anuken.Mindustry.desktop",
-        "com.github.k4zmu2a.spacecadetpinball.desktop",
-        "io.openrct2.OpenRCT2.desktop",
-        "org.polymc.PolyMC.desktop",
-        "org.sonic3air.Sonic3AIR.desktop",
-        "org.srb2.SRB2Kart.desktop",
-    ],
-    "Utilities": [
-        "ca.desrt.dconf-editor.desktop",
-        "com.mattjakeman.ExtensionManager.desktop",
-        "com.steamgriddb.SGDBoop.desktop",
-        "fr.romainvigier.MetadataCleaner.desktop",
-        "gnome-system-monitor.desktop",
-        "io.github.benjamimgois.goverlay.desktop",
-        "jetbrains-toolbox.desktop",
-        "net.davidotek.pupgui2.desktop",
-        "nvidia-settings.desktop",
-        "org.fedoraproject.MediaWriter.desktop",
-        "org.freedesktop.GnomeAbrt.desktop",
-        "org.gnome.baobab.desktop",
-        "org.gnome.Calculator.desktop",
-        "org.gnome.Cheese.desktop",
-        "org.gnome.Connections.desktop",
-        "org.gnome.DiskUtility.desktop",
-        "org.gnome.eog.desktop",
-        "org.gnome.Evince.desktop",
-        "org.gnome.FileRoller.desktop",
-        "org.gnome.font-viewer.desktop",
-        "org.gnome.Settings.desktop",
-        "org.gnome.TextEditor.desktop",
-        "org.gnome.tweaks.desktop",
-        "simple-scan.desktop",
-        "yelp.desktop"
-    ]
-}
+UTILITIES_FOLDER: list[str] = [
+    "ca.desrt.dconf-editor.desktop",
+    "com.mattjakeman.ExtensionManager.desktop",
+    "com.steamgriddb.SGDBoop.desktop",
+    "fr.romainvigier.MetadataCleaner.desktop",
+    "gnome-system-monitor.desktop",
+    "io.github.benjamimgois.goverlay.desktop",
+    "jetbrains-toolbox.desktop",
+    "net.davidotek.pupgui2.desktop",
+    "nvidia-settings.desktop",
+    "org.fedoraproject.MediaWriter.desktop",
+    "org.freedesktop.GnomeAbrt.desktop",
+    "org.gnome.baobab.desktop",
+    "org.gnome.Calculator.desktop",
+    "org.gnome.Cheese.desktop",
+    "org.gnome.Connections.desktop",
+    "org.gnome.DiskUtility.desktop",
+    "org.gnome.eog.desktop",
+    "org.gnome.Evince.desktop",
+    "org.gnome.FileRoller.desktop",
+    "org.gnome.font-viewer.desktop",
+    "org.gnome.Settings.desktop",
+    "org.gnome.TextEditor.desktop",
+    "org.gnome.tweaks.desktop",
+    "simple-scan.desktop",
+    "yelp.desktop"
+]
 
 
 def __alphabetize_applications(application_list: list[str]) -> list[str]:
@@ -110,16 +91,30 @@ def execute():
     Arranges the app picker to a preconfigured layout
     :return: None
     """
-    for folder_name in FOLDERS.keys():
-        __create_folder(name=folder_name, application_list=FOLDERS.get(folder_name))
+    applications = []
+    emulators = []
+    games = []
 
     application_list = get_installed_applications()
-    for folder in FOLDERS.keys():
-        for app in FOLDERS[folder]:
-            if app in application_list:
-                application_list.remove(app)
+    for app in application_list:
+        if app in UTILITIES_FOLDER:
+            continue
 
-    app_picker_list = sorted(__get_folder_list()) + __alphabetize_applications(application_list)
+        app_categories = get_application_categories(app)
+        if app_categories is None:
+            continue
+        elif "Game" in app_categories and "Emulator" in app_categories:
+            emulators.append(app)
+        elif "Game" in app_categories:
+            games.append(app)
+        else:
+            applications.append(app)
+
+    __create_folder("Emulators", emulators)
+    __create_folder("Games", games)
+    __create_folder("Utilities", UTILITIES_FOLDER)
+
+    app_picker_list = sorted(__get_folder_list()) + __alphabetize_applications(applications)
     if not app_picker_list:
         print("No specified applications are installed, unable to set app picker layout")
         return
