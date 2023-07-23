@@ -17,6 +17,7 @@
 | Inkscape | SVG editor | [View on Flathub](https://flathub.org/apps/org.inkscape.Inkscape) |
 | JetBrains Toolbox | Manager for JetBrains products such as Android Studio, Rider, and PyCharm | [View on JetBrains Website](https://www.jetbrains.com/toolbox-app) |
 | Jitsi Meet | Encrypted video conferencing application, similar to Skype or Zoom | [View on Flathub](https://flathub.org/apps/org.jitsi.jitsi-meet) |
+| Kdenlive | Non linear video editor, similar to Adobe Premier or Sony Vegas | [View on Flathub](https://flathub.org/apps/org.kde.kdenlive) |
 | LibreWolf | Firefox fork with enhanced privacy and security | [View on Flathub](https://flathub.org/apps/io.gitlab.librewolf-community) |
 | MangoHud | In game performance monitoring overlay, similar to MSI Afterburner | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/goverlay/goverlay) |
 | Metadata Cleaner | Scrubs metadata from files | [View on Flathub](https://flathub.org/apps/fr.romainvigier.MetadataCleaner) |
@@ -55,6 +56,7 @@
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
+| DevilutionX | Enhanced source port of Diablo 1 | [View on Flathub](https://flathub.org/apps/org.diasurgical.DevilutionX) |
 | Mindustry | Sandbox tower-defense game | [View on Flathub](https://flathub.org/apps/com.github.Anuken.Mindustry) |
 | OpenRCT2 | Open-source re-implementation of Roller Coaster Tycoon 2 | [View on Flathub](https://flathub.org/apps/io.openrct2.OpenRCT2) |
 | PolyMC | Configurable Java Minecraft launcher | [View on Flathub](https://flathub.org/apps/org.polymc.PolyMC) |
