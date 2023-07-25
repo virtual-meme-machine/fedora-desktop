@@ -79,6 +79,7 @@
 | Blur my Shell | Blurs some elements of the Gnome Shell | [View on Gnome Extensions](https://extensions.gnome.org/extension/3193/blur-my-shell) |
 | Caffeine | Quick settings toggle that prevents the system from sleeping | [View on Gnome Extensions](https://extensions.gnome.org/extension/517/caffeine) |
 | Desktop Icons NG (DING) | Adds icons to the desktop | [View on Gnome Extensions](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding) |
+| GSConnect | Mobile device bridge that integrates device notifications, messages, and more into Gnome Shell | [View on Gnome Extensions](https://extensions.gnome.org/extension/1319/gsconnect) |
 | Quick Settings Audio Panel | Adds extra volume controls to the quick settings menu | [View on Gnome Extensions](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel/) |
 
 ## Configure Settings
