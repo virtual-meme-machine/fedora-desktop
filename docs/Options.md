@@ -33,7 +33,7 @@
 | Spotify | Official client for the Spotify music streaming platform | [View on Flathub](https://flathub.org/apps/com.spotify.Client) |
 | Steam ROM Manager | Utility for adding custom emulator shortcuts to Steam | [View on Flathub](https://flathub.org/apps/com.steamgriddb.steam-rom-manager) |
 | Steam | Ubiquitous PC gaming platform | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/steam) |
-| tinyMediaManager | Media library management tool | [View on tinyMediaManager Website](https://www.tinymediamanager.org) |
+| tinyMediaManager | Media library management tool | [tinyMediaManager Website](https://www.tinymediamanager.org) |
 | Tube Converter | Simple video downloader that supports multiple services such as YouTube | [View on Flathub](https://flathub.org/apps/org.nickvision.tubeconverter) |
 | UnGoogled Chromium | Chromium fork with Google dependencies removed | [View on Flathub](https://flathub.org/apps/com.github.Eloston.UngoogledChromium) |
 | VLC Media Player | Popular open-source media player that supports most formats | [View on Flathub](https://flathub.org/apps/org.videolan.VLC) |
@@ -80,7 +80,7 @@
 | Caffeine | Quick settings toggle that prevents the system from sleeping | [View on Gnome Extensions](https://extensions.gnome.org/extension/517/caffeine) |
 | Desktop Icons NG (DING) | Adds icons to the desktop | [View on Gnome Extensions](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding) |
 | GSConnect | Mobile device bridge that integrates device notifications, messages, and more into Gnome Shell | [View on Gnome Extensions](https://extensions.gnome.org/extension/1319/gsconnect) |
-| Quick Settings Audio Panel | Adds extra volume controls to the quick settings menu | [View on Gnome Extensions](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel/) |
+| Quick Settings Audio Panel | Adds extra volume controls to the quick settings menu | [View on Gnome Extensions](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel) |
 
 ## Configure Settings
 
@@ -120,6 +120,6 @@
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
-| CryptoStorm | Configures and enables a WireGuard connection to CryptoStorm | [View on CryptoStorm Website](https://cryptostorm.is) |
-| Mullvad VPN | Configures and enables a WireGuard connection to Mullvad VPN | [View on Mullvad Website](https://mullvad.net) |
+| CryptoStorm | Configures and enables a WireGuard connection to CryptoStorm | [CryptoStorm Website](https://cryptostorm.is) |
+| Mullvad VPN | Configures and enables a WireGuard connection to Mullvad VPN | [Mullvad Website](https://mullvad.net) |
 
