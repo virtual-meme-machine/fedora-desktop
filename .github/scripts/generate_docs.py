@@ -14,34 +14,6 @@ HEADER_CATEGORIES: dict[str, str] = {
     "system": "Configure System",
     "vpn": "Configure VPN"
 }
-OPTION_URLS: dict[str, str] = {
-    "gnome_extension/audio_panel": "[View on Gnome Extensions]"
-                                   "(https://extensions.gnome.org/extension/5940/quick-settings-audio-panel/)",
-    "gnome_extension/background_logo": "[View on Fedora Packages]"
-                                       "(https://packages.fedoraproject.org/pkgs/"
-                                       "gnome-shell-extension-background-logo/gnome-shell-extension-background-logo)",
-    "gnome_extension/blur_my_shell": "[View on Gnome Extensions]"
-                                     "(https://extensions.gnome.org/extension/3193/blur-my-shell)",
-    "gnome_extension/caffeine": "[View on Gnome Extensions]"
-                                "(https://extensions.gnome.org/extension/517/caffeine)",
-    "gnome_extension/ding": "[View on Gnome Extensions]"
-                            "(https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)",
-    "gnome_extension/gsconnect": "[View on Gnome Extensions]"
-                                 "(https://extensions.gnome.org/extension/1319/gsconnect)",
-    "gnome_extension/tray_icons": "[View on Gnome Extensions]"
-                                  "(https://extensions.gnome.org/extension/615/appindicator-support)",
-    "configure_mangohud": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud)",
-    "enable_gc_adapter": "[View on Dolphin Wiki]"
-                         "(https://wiki.dolphin-emu.org/index.php?title="
-                         "How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)",
-    "install_openrgb": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#openrgb)",
-    "install_tiny_media_manager": "[View on tinyMediaManager Website](https://www.tinymediamanager.org)",
-    "install_toolbox": "[View on JetBrains Website](https://www.jetbrains.com/toolbox-app)",
-    "libreoffice*": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/libreoffice/libreoffice)",
-    "remove_firefox": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/firefox/firefox)",
-    "vpn/cryptostorm": "[View on CryptoStorm Website](https://cryptostorm.is)",
-    "vpn/mullvad": "[View on Mullvad Website](https://mullvad.net)"
-}
 
 
 def get_option_string(option: dict[str, str]) -> str:
@@ -52,20 +24,20 @@ def get_option_string(option: dict[str, str]) -> str:
     """
     name = option.get("name")
     description = option.get("description")
-    link = "N/A"
+    link = option.get("documentation_link")
     operation_type = option.get("operation_type")
     operation_args = option.get("operation_args")
 
-    if operation_type == "flatpak":
-        link = f"[View on Flathub](https://flathub.org/apps/{operation_args[0]})"
-    elif operation_type == "package_install":
-        link = f"[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/" \
-               f"{operation_args[0]}/{operation_args[0]})"
-    elif operation_type == "package_install_rpmfusion":
-        link = f"[View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/{operation_args[0]})"
-    elif type(operation_args[0]) is str:
-        if operation_args[0] in OPTION_URLS.keys():
-            link = OPTION_URLS.get(operation_args[0])
+    if link is None:
+        if operation_type == "flatpak":
+            link = f"[View on Flathub](https://flathub.org/apps/{operation_args[0]})"
+        elif operation_type == "package_install":
+            link = f"[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/" \
+                   f"{operation_args[0]}/{operation_args[0]})"
+        elif operation_type == "package_install_rpmfusion":
+            link = f"[View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/{operation_args[0]})"
+        else:
+            link = "N/A"
 
     return f"| {name} | {description} | {link} |"
 

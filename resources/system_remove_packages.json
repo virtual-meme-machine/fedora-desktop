@@ -25,6 +25,7 @@
     {
         "name": "Remove LibreOffice",
         "description": "Uninstalls LibreOffice",
+        "documentation_link": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/libreoffice/libreoffice)",
         "default_state": true,
         "category": "system",
         "operation_type": "package_remove",
