@@ -26,6 +26,8 @@ OPTION_URLS: dict[str, str] = {
                                 "(https://extensions.gnome.org/extension/517/caffeine)",
     "gnome_extension/ding": "[View on Gnome Extensions]"
                             "(https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)",
+    "gnome_extension/gsconnect": "[View on Gnome Extensions]"
+                                 "(https://extensions.gnome.org/extension/1319/gsconnect)",
     "gnome_extension/tray_icons": "[View on Gnome Extensions]"
                                   "(https://extensions.gnome.org/extension/615/appindicator-support)",
     "configure_mangohud": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud)",

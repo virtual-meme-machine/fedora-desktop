@@ -50,6 +50,16 @@
         ]
     },
     {
+        "name": "GSConnect",
+        "description": "Mobile device bridge that integrates device notifications, messages, and more into Gnome Shell",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/gsconnect"
+        ]
+    },
+    {
         "name": "Quick Settings Audio Panel",
         "description": "Adds extra volume controls to the quick settings menu",
         "default_state": true,

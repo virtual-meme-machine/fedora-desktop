@@ -34,9 +34,9 @@ def __get_connection_info(public_key: str) -> (str, str) or None:
         subprocess.check_call(["/usr/bin/zenity", "--info",
                                "--title=CryptoStorm Setup",
                                "--text=Your public key needs to be registered with your CryptoStorm account.\n"
-                               "You will input the your CryptoStorm IP address and preshared key on the next dialog."
+                               "You will input the your CryptoStorm IP address and preshared key in the next dialog."
                                "\n\n\n"
-                               "Register your key here         : https://cryptostorm.is/wireguard"
+                               "Register your key here: https://cryptostorm.is/wireguard"
                                "\n\n"
                                f"Your public key: <b>{public_key}</b>",
                                "--ok-label=Next"])
