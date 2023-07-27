@@ -141,6 +141,16 @@
         ]
     },
     {
+        "name": "Parabolic",
+        "description": "Simple video downloader that supports multiple services such as YouTube",
+        "default_state": true,
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.nickvision.tubeconverter"
+        ]
+    },
+    {
         "name": "ProtonUp-Qt",
         "description": "Proton (Windows application compatibility layer) version manager",
         "default_state": true,
@@ -218,16 +228,6 @@
         "operation_type": "flatpak",
         "operation_args": [
             "com.steamgriddb.steam-rom-manager"
-        ]
-    },
-    {
-        "name": "Tube Converter",
-        "description": "Simple video downloader that supports multiple services such as YouTube",
-        "default_state": true,
-        "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.nickvision.tubeconverter"
         ]
     },
     {
