@@ -24,6 +24,7 @@
 | OBS Studio | Recording and streaming workstation | [View on Flathub](https://flathub.org/apps/com.obsproject.Studio) |
 | OnlyOffice Desktop Editors | Office productivity suite, similar to Microsoft Office | [View on Flathub](https://flathub.org/apps/org.onlyoffice.desktopeditors) |
 | OpenRGB | Unified interface for managing RGB hardware and peripherals | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#openrgb) |
+| Parabolic | Simple video downloader that supports multiple services such as YouTube | [View on Flathub](https://flathub.org/apps/org.nickvision.tubeconverter) |
 | ProtonUp-Qt | Proton (Windows application compatibility layer) version manager | [View on Flathub](https://flathub.org/apps/net.davidotek.pupgui2) |
 | PrusaSlicer | 3D model slicer for use with 3D printers | [View on Flathub](https://flathub.org/apps/com.prusa3d.PrusaSlicer) |
 | qBittorrent | Modern BitTorrent client | [View on Flathub](https://flathub.org/apps/org.qbittorrent.qBittorrent) |
@@ -34,7 +35,6 @@
 | Steam ROM Manager | Utility for adding custom emulator shortcuts to Steam | [View on Flathub](https://flathub.org/apps/com.steamgriddb.steam-rom-manager) |
 | Steam | Ubiquitous PC gaming platform | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/steam) |
 | tinyMediaManager | Media library management tool | [tinyMediaManager Website](https://www.tinymediamanager.org) |
-| Tube Converter | Simple video downloader that supports multiple services such as YouTube | [View on Flathub](https://flathub.org/apps/org.nickvision.tubeconverter) |
 | UnGoogled Chromium | Chromium fork with Google dependencies removed | [View on Flathub](https://flathub.org/apps/com.github.Eloston.UngoogledChromium) |
 | VLC Media Player | Popular open-source media player that supports most formats | [View on Flathub](https://flathub.org/apps/org.videolan.VLC) |
 | VSCodium | Feature rich text editor based on Visual Studio Code | [View on Flathub](https://flathub.org/apps/com.vscodium.codium) |
