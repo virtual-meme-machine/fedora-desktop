@@ -108,16 +108,5 @@
         "operation_args": [
             "gnome_extension/audio_panel"
         ]
-    },
-    {
-        "name": "Tray Icons Reloaded",
-        "description": "Enables support for tray icons",
-        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/2890/tray-icons-reloaded)",
-        "default_state": false,
-        "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/tray_icons"
-        ]
     }
 ]
