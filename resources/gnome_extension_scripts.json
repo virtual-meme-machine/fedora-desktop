@@ -11,6 +11,17 @@
         ]
     },
     {
+        "name": "Another Drop Down Terminal Extension (ddterm)",
+        "description": "Provides a drop-down terminal on a hotkey press",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3780/ddterm)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/ddterm"
+        ]
+    },
+    {
         "name": "Background Logo",
         "description": "Adds a Fedora logo watermark to the wallpaper",
         "documentation_link": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/gnome-shell-extension-background-logo/gnome-shell-extension-background-logo)",
@@ -44,6 +55,17 @@
         ]
     },
     {
+        "name": "Dash to dock",
+        "description": "This extension moves the dash out of the overview transforming it in a dock",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/307/dash-to-dock)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/dash_to_dock"
+        ]
+    },
+    {
         "name": "Desktop Icons NG (DING)",
         "description": "Adds icons to the desktop",
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)",
@@ -66,6 +88,17 @@
         ]
     },
     {
+        "name": "NoAnnoyance",
+        "description": "Removes the 'Window is ready' notification and puts the window into focus",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/6109/noannoyance-fork)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/no_annoyance"
+        ]
+    },
+    {
         "name": "Quick Settings Audio Panel",
         "description": "Adds extra volume controls to the quick settings menu",
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel)",
@@ -74,6 +107,17 @@
         "operation_type": "script",
         "operation_args": [
             "gnome_extension/audio_panel"
+        ]
+    },
+    {
+        "name": "Tray Icons Reloaded",
+        "description": "Enables support for tray icons",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/2890/tray-icons-reloaded)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/tray_icons"
         ]
     }
 ]
