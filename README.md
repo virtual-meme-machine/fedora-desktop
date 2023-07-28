@@ -8,7 +8,7 @@ Supports Fedora Linux 37 and 38 as of May 2023.
 
 ## What Can This Do?
 
-See [Options](docs/Options.md) for a complete list of actions this tool can preform.
+See [Options](docs/Options.md) for a complete list of actions this tool can perform.
 
 ## Usage
 
@@ -17,7 +17,7 @@ See [Options](docs/Options.md) for a complete list of actions this tool can pref
 1. Clean install [Fedora Linux](https://www.fedoraproject.org/en/workstation/download) on your host
     1. [Fedora Linux 37 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/37/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-37-1.7.iso)
     2. [Fedora Linux 38 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-38-1.6.iso)
-2. Preform initial setup (create an account, etc.)
+2. Perform initial setup (create an account, etc.)
 3. Once at the desktop, open a terminal and git clone this package somewhere on the host:
     ```bash
     git clone https://github.com/virtual-meme-machine/fedora-desktop.git ~/fedora-desktop
@@ -27,7 +27,7 @@ See [Options](docs/Options.md) for a complete list of actions this tool can pref
     cd ~/fedora-desktop
     ./src/main.py
     ```
-5. Select the configuration actions you want the tool to preform, then click 'Begin Setup'
+5. Select the configuration actions you want the tool to perform, then click 'Begin Setup'
 
 ---
 
