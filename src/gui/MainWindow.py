@@ -16,7 +16,7 @@ APPLICATION_NAME: str = "Fedora Desktop Configurator"
 HEADER: list[str] = [
     f"Welcome to {get_distro_full_name()}!",
     f"This tool automatically installs software and configures settings.",
-    f"Select the actions you wish to preform:"
+    f"Select the actions you wish to perform:"
 ]
 WINDOW_MARGIN: int = 10
 WINDOW_SIZE: (int, int) = (500, 800)

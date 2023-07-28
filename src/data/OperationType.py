@@ -3,7 +3,7 @@ from enum import Enum
 
 class OperationType(Enum):
     """
-    Types of operation that can be preformed to configure the system
+    Types of operation that can be performed to configure the system
     """
     FLATPAK: str = "flatpak"
     GSETTINGS_VALUE: str = "gsettings_value"
