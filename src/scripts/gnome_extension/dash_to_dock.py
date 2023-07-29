@@ -4,8 +4,8 @@ from utils.gnome_extension_utils import enable_extension
 
 def execute():
     """
-    Mobile device bridge that integrates device notifications, messages, and more into Gnome Shell
+    Moves the dash out of the overview transforming it in a dock
     :return: None
     """
     install_packages(["gnome-shell-extension-dash-to-dock"])
-    enable_extension("gsconnect@andyholmes.github.io")
+    enable_extension("dash-to-dock@micxgx.gmail.com")
