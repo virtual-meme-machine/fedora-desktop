@@ -44,8 +44,8 @@
         ]
     },
     {
-        "name": "Dash to dock",
-        "description": "Moves the dash out of the overview transforming it in a dock",
+        "name": "Dash to Dock",
+        "description": "Moves the dash out of the overview transforming it into a dock",
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/307/dash-to-dock)",
         "default_state": false,
         "category": "gnome_extension",
@@ -89,7 +89,7 @@
     },
     {
         "name": "NoAnnoyance",
-        "description": "Removes the 'Window is ready' notification and puts the window into focus",
+        "description": "Removes the 'window is ready' notification and puts the window into focus instead",
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/6109/noannoyance-fork)",
         "default_state": false,
         "category": "gnome_extension",

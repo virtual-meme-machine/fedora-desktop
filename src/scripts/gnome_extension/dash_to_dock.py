@@ -4,7 +4,7 @@ from utils.gnome_extension_utils import enable_extension
 
 def execute():
     """
-    Moves the dash out of the overview transforming it in a dock
+    Moves the dash out of the overview transforming it into a dock
     :return: None
     """
     install_packages(["gnome-shell-extension-dash-to-dock"])

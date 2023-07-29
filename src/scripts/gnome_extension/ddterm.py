@@ -5,7 +5,7 @@ ID: str = "ddterm@amezin.github.com"
 
 def execute():
     """
-    Provides a terminal hotkey
+    Provides a drop-down terminal on a hotkey press
     :return: None
     """
     install_remote_extension(ID)

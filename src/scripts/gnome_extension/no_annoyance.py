@@ -5,7 +5,7 @@ ID: str = "noannoyance-fork@vrba.dev"
 
 def execute():
     """
-    Removes "window is ready" notification and puts the window into focus.
+    Removes the 'window is ready' notification and puts the window into focus instead
     :return: None
     """
     install_remote_extension(ID)
