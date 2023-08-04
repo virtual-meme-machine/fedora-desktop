@@ -49,7 +49,8 @@ def write_system_file(file_path: str, lines: list[str]):
     """
     temp_file = tempfile.mktemp()
     with open(temp_file, "w") as temp:
-        temp.writelines(lines)
-        temp.write("\n")
+        for line in lines:
+            temp.write(line)
+            temp.write("\n")
 
     subprocess.check_call(["/usr/bin/pkexec", "/usr/bin/cp", temp_file, file_path])

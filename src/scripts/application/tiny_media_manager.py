@@ -47,7 +47,7 @@ def execute():
                 "Type=Application\n",
                 "Terminal=false\n",
                 "Name=tinyMediaManager\n",
-                "Categories=Utility;AudioVideo;",
+                "Categories=Utility;AudioVideo;\n",
                 f"Icon={TMM_ICON}\n",
                 f"Exec={TMM_EXEC}\n"
             ])
