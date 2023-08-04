@@ -7,7 +7,7 @@
         "category": "application",
         "operation_type": "script",
         "operation_args": [
-            "install_toolbox"
+            "application/jetbrains_toolbox"
         ]
     },
     {
@@ -18,7 +18,7 @@
         "category": "application",
         "operation_type": "script",
         "operation_args": [
-            "install_openrgb"
+            "application/openrgb"
         ]
     },
     {
@@ -29,7 +29,7 @@
         "category": "application",
         "operation_type": "script",
         "operation_args": [
-            "install_tiny_media_manager"
+            "application/tiny_media_manager"
         ]
     }
 ]
