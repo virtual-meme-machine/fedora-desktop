@@ -31,5 +31,16 @@
         "operation_args": [
             "application/tiny_media_manager"
         ]
+    },
+    {
+        "name": "Unity Hub",
+        "description": "Launcher / version manager for Unity engine development tools",
+        "documentation_link": "[Unity Website](https://unity.com/)",
+        "default_state": false,
+        "category": "application",
+        "operation_type": "script",
+        "operation_args": [
+            "application/unity_hub"
+        ]
     }
 ]

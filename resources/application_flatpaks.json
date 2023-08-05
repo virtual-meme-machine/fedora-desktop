@@ -1,5 +1,15 @@
 [
     {
+        "name": "Blender",
+        "description": "Open source 3D creation suite used for 3D modeling, animation, etc.",
+        "default_state": true,
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "org.blender.Blender"
+        ]
+    },
+    {
         "name": "Bottles",
         "description": "Easy to use launcher for running Windows applications",
         "default_state": true,
