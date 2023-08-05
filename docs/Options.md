@@ -5,6 +5,7 @@
 | Option | Description | Link |
 | ------ | ----------- | ---- |
 | Archive Manager | Advanced archive manager | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/file-roller/file-roller) |
+| Blender | Open source 3D creation suite used for 3D modeling, animation, etc. | [View on Flathub](https://flathub.org/apps/org.blender.Blender) |
 | Bottles | Easy to use launcher for running Windows applications | [View on Flathub](https://flathub.org/apps/com.usebottles.bottles) |
 | dconf Editor | GUI for viewing and modifying dconf, similar to Windows' regedit | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/dconf-editor/dconf-editor) |
 | FileZilla | FTP client | [View on Flathub](https://flathub.org/apps/org.filezillaproject.Filezilla) |
@@ -36,6 +37,7 @@
 | Steam | Ubiquitous PC gaming platform | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/steam) |
 | tinyMediaManager | Media library management tool | [tinyMediaManager Website](https://www.tinymediamanager.org) |
 | UnGoogled Chromium | Chromium fork with Google dependencies removed | [View on Flathub](https://flathub.org/apps/com.github.Eloston.UngoogledChromium) |
+| Unity Hub | Launcher / version manager for Unity engine development tools | [Unity Website](https://unity.com/) |
 | VLC Media Player | Popular open-source media player that supports most formats | [View on Flathub](https://flathub.org/apps/org.videolan.VLC) |
 | VSCodium | Feature rich text editor based on Visual Studio Code | [View on Flathub](https://flathub.org/apps/com.vscodium.codium) |
 | WatchMate | Manager for the Pine64 PineTime smart watch | [View on Flathub](https://flathub.org/apps/io.gitlab.azymohliad.WatchMate) |
