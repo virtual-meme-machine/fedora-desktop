@@ -1,5 +1,15 @@
 [
     {
+        "name": "Bitwarden",
+        "description": "Popular free and open source password manager",
+        "default_state": true,
+        "category": "application",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.bitwarden.desktop"
+        ]
+    },
+    {
         "name": "Blender",
         "description": "Open source 3D creation suite used for 3D modeling, animation, etc.",
         "default_state": true,
