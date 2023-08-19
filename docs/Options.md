@@ -5,6 +5,7 @@
 | Option | Description | Link |
 | ------ | ----------- | ---- |
 | Archive Manager | Advanced archive manager | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/file-roller/file-roller) |
+| Bitwarden | Popular free and open source password manager | [View on Flathub](https://flathub.org/apps/com.bitwarden.desktop) |
 | Blender | Open source 3D creation suite used for 3D modeling, animation, etc. | [View on Flathub](https://flathub.org/apps/org.blender.Blender) |
 | Bottles | Easy to use launcher for running Windows applications | [View on Flathub](https://flathub.org/apps/com.usebottles.bottles) |
 | dconf Editor | GUI for viewing and modifying dconf, similar to Windows' regedit | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/dconf-editor/dconf-editor) |
