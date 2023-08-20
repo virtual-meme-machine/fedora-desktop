@@ -47,6 +47,7 @@
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
+| bsnes | Super Nintendo Entertainment System (SNES) emulator | [View on Flathub](https://flathub.org/apps/dev.bsnes.bsnes) |
 | Dolphin Emulator | Nintendo GameCube and Nintendo Wii emulator | [View on Flathub](https://flathub.org/apps/org.DolphinEmu.dolphin-emu) |
 | DuckStation | Sony PlayStation (PS1) emulator | [View on Flathub](https://flathub.org/apps/org.duckstation.DuckStation) |
 | mGBA | Nintendo GameBoy Advance emulator | [View on Flathub](https://flathub.org/apps/io.mgba.mGBA) |
