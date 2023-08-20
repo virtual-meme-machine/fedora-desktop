@@ -1,5 +1,15 @@
 [
     {
+        "name": "bsnes",
+        "description": "Super Nintendo Entertainment System (SNES) emulator",
+        "default_state": true,
+        "category": "emulator",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "dev.bsnes.bsnes"
+        ]
+    },
+    {
         "name": "Dolphin Emulator",
         "description": "Nintendo GameCube and Nintendo Wii emulator",
         "default_state": true,
