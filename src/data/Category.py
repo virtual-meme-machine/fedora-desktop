@@ -21,7 +21,8 @@ def from_string(string: str) -> Category:
     :return: Corresponding Category value
     """
     for category in Category:
-        if category.value[0] == string:
-            return category
+        for value in category.value:
+            if value == string:
+                return category
 
     raise ValueError(f"Invalid Category: '{string}'")

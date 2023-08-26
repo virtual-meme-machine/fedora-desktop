@@ -74,3 +74,17 @@ def import_options() -> list[OptionToggle]:
                                             operation_args=option.get("operation_args")))
 
     return options
+
+
+def get_selected_string(option_list: list[OptionToggle]) -> str:
+    """
+    Generates a string that notes how many options in a list of OptionToggle objects have been selected
+    :param option_list: List of OptionToggle objects
+    :return: String with selected count in it
+    """
+    count = 0
+    for option in option_list:
+        if option.get_active():
+            count += 1
+
+    return f"Selected: {count}/{len(option_list)}"

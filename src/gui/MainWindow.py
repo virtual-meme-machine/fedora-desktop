@@ -3,8 +3,8 @@ import threading
 
 import gi
 
-from data.Category import Category
-from gui.OptionToggle import OptionToggle, import_options
+from data.Category import Category, from_string
+from gui.OptionToggle import OptionToggle, get_selected_string, import_options
 from utils.platform_utils import get_distro_full_name, get_script_version
 from utils.print_utils import print_header
 from workflows.setup import setup
@@ -95,23 +95,31 @@ class MainWindow(Gtk.ApplicationWindow):
         self.set_child(main_box)
 
         # Initialize expander sections for each option category
+        self.category_check_buttons = {}
         options_box = Gtk.Box(margin_top=WINDOW_MARGIN,
                               margin_bottom=WINDOW_MARGIN,
                               orientation=Gtk.Orientation.VERTICAL,
-                              spacing=WINDOW_MARGIN,
                               vexpand=True)
         for category in Category:
-            expander_box = Gtk.Box(margin_start=WINDOW_MARGIN,
-                                   margin_top=WINDOW_MARGIN,
-                                   orientation=Gtk.Orientation.VERTICAL)
+            expander_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+
+            # Initialize category check button
+            category_check_button = Gtk.CheckButton(active=True,
+                                                    halign=Gtk.Align.FILL,
+                                                    label=category.value[1])
+            category_check_button.connect("toggled", self.button_action_category_select)
+            self.category_check_buttons.update({category: category_check_button})
             options_box.append(Gtk.Expander(child=expander_box,
-                                            label=category.value[1]))
+                                            label_widget=category_check_button))
+
+            # Initialize option check buttons
             for option in self.option_list:
                 if option.category == category:
                     expander_box.append(option.check_button)
+                    option.check_button.connect("toggled", self.button_action_update_selected)
         main_box.append(Gtk.ScrolledWindow(child=options_box))
 
-        # Initialize select / deselect all buttons
+        # Initialize select all and unselect all buttons
         select_buttons_box = Gtk.Box(margin_top=WINDOW_MARGIN,
                                      margin_bottom=WINDOW_MARGIN,
                                      orientation=Gtk.Orientation.HORIZONTAL,
@@ -119,9 +127,14 @@ class MainWindow(Gtk.ApplicationWindow):
         button_select_all = Gtk.Button(label="Select All")
         button_select_all.connect("clicked", self.button_action_select_all)
         select_buttons_box.append(button_select_all)
-        button_deselect_all = Gtk.Button(label="Unselect All")
-        button_deselect_all.connect("clicked", self.button_action_deselect_all)
-        select_buttons_box.append(button_deselect_all)
+        button_unselect_all = Gtk.Button(label="Unselect All")
+        button_unselect_all.connect("clicked", self.button_action_unselect_all)
+        select_buttons_box.append(button_unselect_all)
+
+        # Initialize selected count label
+        self.selected_count = Gtk.Label()
+        self.button_action_update_selected(None)
+        select_buttons_box.append(self.selected_count)
         main_box.append(select_buttons_box)
         main_box.append(Gtk.Separator.new(orientation=Gtk.Orientation.HORIZONTAL))
 
@@ -130,9 +143,23 @@ class MainWindow(Gtk.ApplicationWindow):
         button_begin_setup.connect("clicked", self.button_action_setup)
         main_box.append(button_begin_setup)
 
+    def button_action_category_select(self, button: Gtk.CheckButton):
+        """
+        Selects or unselects all options in the button's category
+        Triggered by: Category CheckButtons
+        :param button: Button that triggered this method
+        :return: None
+        """
+        category = from_string(button.get_label())
+        state = button.get_active()
+        for option in self.option_list:
+            if option.category == category:
+                option.check_button.set_active(state)
+
     def button_action_setup(self, button: Gtk.Button):
         """
         Triggers the setup workflow in another thread and closes this window
+        Triggered by: 'Setup 'Button at the bottom of the window
         :param button: Button that triggered this method
         :return: None
         """
@@ -143,20 +170,41 @@ class MainWindow(Gtk.ApplicationWindow):
     def button_action_select_all(self, button: Gtk.Button):
         """
         Selects all options
+        Triggered by: 'Select All' Button at the bottom of the window
         :param button: Button that triggered this method
         :return: None
         """
-        for option in self.option_list:
-            option.check_button.set_active(True)
+        # Setting the category check box also sets all options under the category
+        for category in Category:
+            self.category_check_buttons.get(category).set_active(True)
 
-    def button_action_deselect_all(self, button: Gtk.Button):
+    def button_action_unselect_all(self, button: Gtk.Button):
         """
-        Deselects all options
+        Unselects all options
+        Triggered by: 'Unselect All' Button at the bottom of the window
         :param button: Button that triggered this method
         :return: None
         """
-        for option in self.option_list:
-            option.check_button.set_active(False)
+        # Setting the category check box also sets all options under the category
+        for category in Category:
+            self.category_check_buttons.get(category).set_active(False)
+
+    def button_action_update_selected(self, button: Gtk.Button or None):
+        """
+        Updates the label that counts how many options have been selected
+        Also toggles Category CheckButtons if all category options are set to the same value
+        Triggered by: Option CheckButtons
+        :param button: Button that triggered this method
+        :return: None
+        """
+        self.selected_count.set_label(get_selected_string(self.option_list))
+
+        for category in Category:
+            category_options = [option for option in self.option_list if option.category == category]
+            if all(option.get_active() is True for option in category_options):
+                self.category_check_buttons.get(category).set_active(True)
+            elif all(option.get_active() is False for option in category_options):
+                self.category_check_buttons.get(category).set_active(False)
 
     def menu_show_about(self, action: Gio.SimpleAction, param: object):
         """

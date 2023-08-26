@@ -3,7 +3,7 @@ from subprocess import CalledProcessError
 import utils.dnf_utils as dnf_utils
 import utils.flatpak_utils as flatpak_utils
 from data.OperationType import OperationType
-from gui.OptionToggle import OptionToggle
+from gui.OptionToggle import OptionToggle, get_selected_string
 from utils.platform_utils import set_gsettings_values
 from utils.print_utils import print_header
 from utils.script_utils import load_script
@@ -23,12 +23,10 @@ def setup(option_list: list[OptionToggle]):
     script_list: list[str] = []
 
     # Process selected options
-    enabled_count = 0
     for option in option_list:
-        if not option.check_button.get_active():
+        if not option.get_active():
             continue
 
-        enabled_count += 1
         if option.operation_type is OperationType.FLATPAK:
             flatpak_list.extend(option.operation_args)
         elif option.operation_type is OperationType.GSETTINGS_VALUE:
@@ -44,7 +42,7 @@ def setup(option_list: list[OptionToggle]):
 
     # Print start message
     print_header("Beginning Setup")
-    print(f"{enabled_count}/{len(option_list)} options selected")
+    print(get_selected_string(option_list))
 
     # Check if any packages from RPMFusion are marked for install
     enable_rpmfusion = False
