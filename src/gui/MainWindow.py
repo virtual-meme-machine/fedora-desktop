@@ -101,7 +101,8 @@ class MainWindow(Gtk.ApplicationWindow):
                               orientation=Gtk.Orientation.VERTICAL,
                               vexpand=True)
         for category in Category:
-            expander_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+            expander_box = Gtk.Box(margin_start=40,
+                                   orientation=Gtk.Orientation.VERTICAL)
 
             # Initialize category check button
             category_check_button = Gtk.CheckButton(active=True,
