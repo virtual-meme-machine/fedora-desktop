@@ -3,11 +3,9 @@
 import platform
 import sys
 
+from data.Info import SUPPORTED_FEDORA_VERSIONS
 from gui.AdwApp import AdwApp
 from utils.platform_utils import get_fedora_version
-
-APPLICATION_ID: str = "com.meme.fedora.desktop.configurator"
-SUPPORTED_FEDORA_VERSIONS: list[int] = [37, 38]
 
 if __name__ == "__main__":
     operating_system = platform.system()
@@ -30,5 +28,5 @@ if __name__ == "__main__":
         print(f"This script does not support Fedora version: {version}")
         exit(203)
 
-    adw_app = AdwApp(application_id=APPLICATION_ID)
+    adw_app = AdwApp()
     adw_app.run(sys.argv)

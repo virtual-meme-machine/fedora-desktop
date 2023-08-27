@@ -8,7 +8,6 @@ DCONF_EXEC: str = "/usr/bin/dconf"
 GSETTINGS_EXEC: str = "/usr/bin/gsettings"
 LOCAL_BIN: str = os.path.expanduser("~/.local/bin")
 REMOVE_VALUES: list[str] = ["@as", "uint32"]
-SCRIPT_MAIN_VERSION: str = "3.2"
 
 XDG_DATA_DIRS = os.environ.get("XDG_DATA_DIRS").split(":")
 if os.path.expanduser("~/.local/share") not in XDG_DATA_DIRS:
@@ -160,21 +159,6 @@ def get_installed_applications() -> list[str]:
                 application_list.append(file)
 
     return application_list
-
-
-def get_script_version() -> str:
-    """
-    Gets the version of this script
-    :return: String containing this script's version
-    """
-    try:
-        git_commit = subprocess.check_output(["/usr/bin/git", "rev-parse", "--short", "HEAD"],
-                                             cwd=os.path.dirname(os.path.realpath(__file__)),
-                                             stderr=subprocess.DEVNULL,
-                                             text=True).strip()
-        return f"{SCRIPT_MAIN_VERSION}-git-{git_commit}"
-    except:
-        return SCRIPT_MAIN_VERSION
 
 
 def is_application_installed(application_desktop: str) -> bool:

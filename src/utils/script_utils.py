@@ -3,7 +3,7 @@ import os
 import sys
 from types import ModuleType
 
-SCRIPTS_DIR = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "scripts"))
+from data.Paths import SCRIPTS_DIR
 
 
 def load_script(script_name: str) -> ModuleType:

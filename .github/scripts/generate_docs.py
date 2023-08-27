@@ -4,16 +4,13 @@ import json
 import os
 import sys
 
-CATEGORY_LISTS: dict[str, list[str]] = {}
-HEADER_CATEGORIES: dict[str, str] = {
-    "application": "Install Applications",
-    "emulator": "Install Emulators",
-    "game": "Install Games",
-    "gnome_extension": "Install Gnome Shell Extensions",
-    "setting": "Configure Settings",
-    "system": "Configure System",
-    "vpn": "Configure VPN"
-}
+__PACKAGE_ROOT: str = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", ".."))
+sys.path.append(os.path.join(__PACKAGE_ROOT, "src"))
+
+from data.Paths import DOCS_DIR, OPTIONS_DIR
+from data.Category import Category, from_string
+
+CATEGORY_LISTS: dict[Category, list[str]] = {}
 
 
 def get_option_string(option: dict[str, str]) -> str:
@@ -42,56 +39,44 @@ def get_option_string(option: dict[str, str]) -> str:
     return f"| {name} | {description} | {link} |"
 
 
-def main(package_root: str):
+def main():
     """
     Generates documentation for the package
     :param package_root: Path to the root of this package
     :return: None
     """
-    docs_dir: str = os.path.join(package_root, "docs")
-    output_file: str = os.path.join(docs_dir, "Options.md")
-    resources_dir: str = os.path.join(package_root, "resources")
+    options_doc: str = os.path.join(DOCS_DIR, "Options.md")
 
-    if not os.path.isdir(package_root):
-        raise NotADirectoryError(f"Provided package root '{package_root}' is not a directory")
+    if not os.path.isdir(OPTIONS_DIR):
+        raise NotADirectoryError(f"Options directory '{OPTIONS_DIR}' is not a directory")
 
-    if not os.path.isdir(resources_dir):
-        raise NotADirectoryError(f"Resources directory '{resources_dir}' is not a directory")
+    if not os.path.exists(DOCS_DIR):
+        os.makedirs(DOCS_DIR)
 
-    if not os.path.exists(docs_dir):
-        os.makedirs(docs_dir)
-
-    for option_file in os.listdir(resources_dir):
+    for option_file in os.listdir(OPTIONS_DIR):
         if not os.path.splitext(option_file)[1] == ".json":
             continue
 
-        with open(os.path.join(resources_dir, option_file), "r") as json_file:
+        with open(os.path.join(OPTIONS_DIR, option_file), "r") as json_file:
             for option in json.load(json_file):
-                key = HEADER_CATEGORIES.get(option.get("category"))
-                value_list = []
-                if key in CATEGORY_LISTS.keys():
-                    value_list = CATEGORY_LISTS.get(key)
-
+                category = from_string(option.get("category"))
+                value_list = ([], CATEGORY_LISTS.get(category))[category in CATEGORY_LISTS.keys()]
                 value_list.append(get_option_string(option))
-                CATEGORY_LISTS.update({key: value_list})
+                CATEGORY_LISTS.update({category: value_list})
 
     print(f"Generating documentation...")
-    with open(output_file, "w") as file:
-        print(f"Writing file: '{output_file}'")
+    with open(options_doc, "w") as file:
+        print(f"Writing file: '{options_doc}'")
         file.write("# Fedora Desktop Configurator - Options\n\n")
-        for key in sorted(CATEGORY_LISTS, key=lambda c: c.replace("Install ", "").replace("Configure ", "").lower()):
-            file.write(f"## {key}\n\n")
+        for category in sorted(CATEGORY_LISTS, key=lambda c: c.value[0]):
+            file.write(f"## {category.value[1]}\n\n")
             file.write(f"| Option | Description | Link |\n")
             file.write(f"| ------ | ----------- | ---- |\n")
-            for line in sorted(CATEGORY_LISTS.get(key), key=lambda o: o.replace("[", "").lower()):
+            for line in sorted(CATEGORY_LISTS.get(category), key=lambda o: o.replace("[", "").lower()):
                 file.write(f"{line}\n")
 
             file.write("\n")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print(f"Usage: '{sys.argv[0]} $path_to_package_root'")
-        exit(1)
-
-    main(sys.argv[1])
+    main()

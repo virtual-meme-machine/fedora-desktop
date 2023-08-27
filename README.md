@@ -12,6 +12,8 @@ See [Options](docs/Options.md) for a complete list of actions this tool can perf
 
 ## Usage
 
+### Installation
+
 **!! DO NOT enable third-party repos if asked, this script will set up RPM Fusion and Flathub on its own !!**
 
 1. Clean install [Fedora Linux](https://www.fedoraproject.org/en/workstation/download) on your host
@@ -22,12 +24,37 @@ See [Options](docs/Options.md) for a complete list of actions this tool can perf
     ```bash
     git clone https://github.com/virtual-meme-machine/fedora-desktop.git ~/fedora-desktop
     ```
-4. Enter the package directory and run `main.py`:
+
+### Option A: Selecting Options via GUI
+
+This option allows you to select the actions you want to prefrom via a GUI.
+
+1. Enter the package directory and run `main.py`:
     ```bash
     cd ~/fedora-desktop
     ./src/main.py
     ```
-5. Select the configuration actions you want the tool to perform, then click 'Begin Setup'
+2. Select the configuration actions you want the tool to perform
+    1. You can also load a saved set of option selections via `Menu -> Load Profile` or `Control + L`
+3. Click 'Begin Setup'
+
+### Option B: Selecting Options via Profile (Non-interactive Mode)
+
+This option preforms a predefined set of actions stored in a profile file.
+
+A set of basic profiles are included with the package, see [resource/profiles](resources/profiles).
+
+While in the GUI you can save your current option selections as a profile via `Menu -> Save Profile` or `Control + S`.
+
+1. Enter the package directory and run `main.py --profile /path/to/your_profile.profile`:
+    ```bash
+    cd ~/fedora-desktop
+    ./src/main.py --profile /path/to/your_profile.profile
+    ```
+
+## Contributing
+
+Interested in contributing? See [CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
 ---
 

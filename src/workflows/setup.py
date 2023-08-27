@@ -3,16 +3,16 @@ from subprocess import CalledProcessError
 import utils.dnf_utils as dnf_utils
 import utils.flatpak_utils as flatpak_utils
 from data.OperationType import OperationType
-from gui.OptionToggle import OptionToggle, get_selected_string
+from data.OptionStore import OptionStore
 from utils.platform_utils import set_gsettings_values
 from utils.print_utils import print_header
 from utils.script_utils import load_script
 
 
-def setup(option_list: list[OptionToggle]):
+def setup(option_store: OptionStore):
     """
     Setup workflow executed once the 'Begin Setup' button is clicked
-    :param option_list: List of OptionToggle objects provided by the GUI
+    :param option_store: OptionStore that denotes which actions should be taken
     :return: None
     """
     flatpak_list: list[str] = []
@@ -23,26 +23,24 @@ def setup(option_list: list[OptionToggle]):
     script_list: list[str] = []
 
     # Process selected options
-    for option in option_list:
-        if not option.get_active():
-            continue
-
-        if option.operation_type is OperationType.FLATPAK:
-            flatpak_list.extend(option.operation_args)
-        elif option.operation_type is OperationType.GSETTINGS_VALUE:
-            gsettings_value_list.extend(option.operation_args)
-        elif option.operation_type is OperationType.PACKAGE_INSTALL:
-            package_install_list.extend(option.operation_args)
-        elif option.operation_type is OperationType.PACKAGE_INSTALL_RPMFUSION:
-            package_install_rpmfusion_list.extend(option.operation_args)
-        elif option.operation_type is OperationType.PACKAGE_REMOVE:
-            package_remove_list.extend(option.operation_args)
-        elif option.operation_type is OperationType.SCRIPT:
-            script_list.extend(option.operation_args)
+    for option_list in option_store.get_options_active().values():
+        for option in option_list:
+            if option.operation_type is OperationType.FLATPAK:
+                flatpak_list.extend(option.operation_args)
+            elif option.operation_type is OperationType.GSETTINGS_VALUE:
+                gsettings_value_list.extend(option.operation_args)
+            elif option.operation_type is OperationType.PACKAGE_INSTALL:
+                package_install_list.extend(option.operation_args)
+            elif option.operation_type is OperationType.PACKAGE_INSTALL_RPMFUSION:
+                package_install_rpmfusion_list.extend(option.operation_args)
+            elif option.operation_type is OperationType.PACKAGE_REMOVE:
+                package_remove_list.extend(option.operation_args)
+            elif option.operation_type is OperationType.SCRIPT:
+                script_list.extend(option.operation_args)
 
     # Print start message
     print_header("Beginning Setup")
-    print(get_selected_string(option_list))
+    print(option_store.get_selected_string())
 
     # Check if any packages from RPMFusion are marked for install
     enable_rpmfusion = False

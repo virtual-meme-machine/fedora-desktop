@@ -1,18 +1,19 @@
 import datetime
+import subprocess
 import threading
 
 import gi
 
-from data.Category import Category, from_string
-from gui.OptionToggle import OptionToggle, get_selected_string, import_options
-from utils.platform_utils import get_distro_full_name, get_script_version
-from utils.print_utils import print_header
+from data.Category import from_string
+from data.Info import APPLICATION_AUTHOR, APPLICATION_NAME, get_application_version
+from data.OptionStore import OptionStore
+from data.Paths import PROFILES_DIR
+from utils.platform_utils import get_distro_full_name
 from workflows.setup import setup
 
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gio, GLib, Gtk
 
-APPLICATION_NAME: str = "Fedora Desktop Configurator"
 HEADER: list[str] = [
     f"Welcome to {get_distro_full_name()}!",
     f"This tool automatically installs software and configures settings.",
@@ -21,14 +22,12 @@ HEADER: list[str] = [
 WINDOW_MARGIN: int = 10
 WINDOW_SIZE: (int, int) = (500, 800)
 
-ABOUT_AUTHOR: str = "virtual-meme-machine"
-ABOUT_BUTTON_LABEL: str = f"About {APPLICATION_NAME}"
 ABOUT_COPYRIGHT: str = f"Copyright {datetime.date.today().year}"
 ABOUT_LICENSE: Gtk.License = Gtk.License.GPL_2_0
 ABOUT_LOGO: str = "org.fedoraproject.AnacondaInstaller"
 ABOUT_WEBSITE: str = "https://github.com/virtual-meme-machine/fedora-desktop"
 ABOUT_WEBSITE_LABEL: str = "View source code on GitHub"
-ABOUT_VERSION: str = get_script_version()
+HELP_URL: str = "https://github.com/virtual-meme-machine/fedora-desktop/blob/main/README.md"
 
 
 class MainWindow(Gtk.ApplicationWindow):
@@ -42,11 +41,6 @@ class MainWindow(Gtk.ApplicationWindow):
         :param args: Arguments
         :param kwargs: Keyword arguments
         """
-        # Print startup message
-        print_header(f"{APPLICATION_NAME}\n"
-                     f"Version {get_script_version()}\n"
-                     f"(C) {ABOUT_AUTHOR}")
-        print(f"Host OS: {get_distro_full_name()}")
         print(f"Displaying option selection GUI")
 
         # Initialize window properties
@@ -58,9 +52,30 @@ class MainWindow(Gtk.ApplicationWindow):
         # Initialize application properties
         GLib.set_application_name(APPLICATION_NAME)
 
+        # Initialize actions
+        action_save_profile = Gio.SimpleAction.new("save_profile", None)
+        action_save_profile.connect("activate", self.action_dialog_save_profile)
+        self.add_action(action_save_profile)
+        action_load_profile = Gio.SimpleAction.new("load_profile", None)
+        action_load_profile.connect("activate", self.action_dialog_load_profile)
+        self.add_action(action_load_profile)
+        action_show_help = Gio.SimpleAction.new("show_help", None)
+        action_show_help.connect("activate", self.action_show_help)
+        self.add_action(action_show_help)
+        action_show_about = Gio.SimpleAction.new("show_about", None)
+        action_show_about.connect("activate", self.action_show_about)
+        self.add_action(action_show_about)
+
         # Initialize application menu
         self.menu = Gio.Menu.new()
-        self.menu.append(ABOUT_BUTTON_LABEL, "win.about")
+        profiles_section = Gio.Menu.new()
+        profiles_section.append("Save Profile", "win.save_profile")
+        profiles_section.append("Load Profile", "win.load_profile")
+        self.menu.append_section(None, profiles_section)
+        help_section = Gio.Menu.new()
+        help_section.append("Help", "win.show_help")
+        help_section.append("About", "win.show_about")
+        self.menu.append_section(None, help_section)
         self.popover = Gtk.PopoverMenu()
         self.popover.set_menu_model(self.menu)
         self.hamburger = Gtk.MenuButton()
@@ -72,13 +87,14 @@ class MainWindow(Gtk.ApplicationWindow):
         self.set_titlebar(self.header)
         self.header.pack_end(self.hamburger)
 
-        # Initialize actions
-        action_show_about = Gio.SimpleAction.new("about", None)
-        action_show_about.connect("activate", self.menu_show_about)
-        self.add_action(action_show_about)
+        # Initialize shortcuts
+        self.get_application().set_accels_for_action("win.save_profile", ["<Control>s"])
+        self.get_application().set_accels_for_action("win.load_profile", ["<Control>l"])
+        self.get_application().set_accels_for_action("win.show_help", ["F1"])
 
-        # Initialize option list
-        self.option_list: list[OptionToggle] = sorted(import_options(), key=lambda o: o.name.lower())
+        # Initialize OptionStore
+        self.option_store: OptionStore = OptionStore()
+        options = self.option_store.get_options()
 
         # Initialize main window box and header labels
         main_box = Gtk.Box(margin_top=WINDOW_MARGIN,
@@ -100,24 +116,22 @@ class MainWindow(Gtk.ApplicationWindow):
                               margin_bottom=WINDOW_MARGIN,
                               orientation=Gtk.Orientation.VERTICAL,
                               vexpand=True)
-        for category in Category:
+        for category in options.keys():
             expander_box = Gtk.Box(margin_start=40,
                                    orientation=Gtk.Orientation.VERTICAL)
 
             # Initialize category check button
-            category_check_button = Gtk.CheckButton(active=True,
-                                                    halign=Gtk.Align.FILL,
+            category_check_button = Gtk.CheckButton(halign=Gtk.Align.FILL,
                                                     label=category.value[1])
-            category_check_button.connect("toggled", self.button_action_category_select)
+            category_check_button.connect("toggled", self.check_button_action_category_toggle)
             self.category_check_buttons.update({category: category_check_button})
             options_box.append(Gtk.Expander(child=expander_box,
                                             label_widget=category_check_button))
 
             # Initialize option check buttons
-            for option in self.option_list:
-                if option.category == category:
-                    expander_box.append(option.check_button)
-                    option.check_button.connect("toggled", self.button_action_update_selected)
+            for option in options.get(category):
+                expander_box.append(option.check_button)
+                option.check_button.connect("toggled", self.check_button_action_option_toggle)
         main_box.append(Gtk.ScrolledWindow(child=options_box))
 
         # Initialize select all and unselect all buttons
@@ -134,28 +148,90 @@ class MainWindow(Gtk.ApplicationWindow):
 
         # Initialize selected count label
         self.selected_count = Gtk.Label()
-        self.button_action_update_selected(None)
         select_buttons_box.append(self.selected_count)
         main_box.append(select_buttons_box)
         main_box.append(Gtk.Separator.new(orientation=Gtk.Orientation.HORIZONTAL))
 
         # Initialize begin installation button
-        button_begin_setup = Gtk.Button(label="Begin Setup", margin_top=WINDOW_MARGIN)
-        button_begin_setup.connect("clicked", self.button_action_setup)
-        main_box.append(button_begin_setup)
+        self.button_begin_setup = Gtk.Button(label="Begin Setup", margin_top=WINDOW_MARGIN)
+        self.button_begin_setup.connect("clicked", self.button_action_setup)
+        main_box.append(self.button_begin_setup)
 
-    def button_action_category_select(self, button: Gtk.CheckButton):
+        # Run selection update method to sync button state with data
+        self.check_button_action_option_toggle(None)
+
+    def action_dialog_load_profile(self, action: Gio.SimpleAction, param: object):
         """
-        Selects or unselects all options in the button's category
-        Triggered by: Category CheckButtons
-        :param button: Button that triggered this method
+        Displays a dialog for selecting a profile to load
+        :param action: Action that triggered this method
+        :param param: Parameters passed into this method
         :return: None
         """
-        category = from_string(button.get_label())
-        state = button.get_active()
-        for option in self.option_list:
-            if option.category == category:
-                option.check_button.set_active(state)
+        profile_filter = Gtk.FileFilter()
+        profile_filter.add_pattern("*.profile")
+
+        file_chooser = Gtk.FileChooserDialog(action=Gtk.FileChooserAction.OPEN,
+                                             filter=profile_filter,
+                                             modal=True,
+                                             title="Select a profile to load",
+                                             transient_for=self)
+        file_chooser.set_current_folder(Gio.File.new_for_path(PROFILES_DIR))
+        file_chooser.add_button("Cancel", Gtk.ResponseType.CANCEL)
+        file_chooser.add_button("Load", Gtk.ResponseType.ACCEPT)
+        file_chooser.set_default_response(Gtk.ResponseType.ACCEPT)
+        file_chooser.connect("response", self.profile_load)
+        file_chooser.show()
+
+    def action_dialog_save_profile(self, action: Gio.SimpleAction, param: object):
+        """
+        Displays a dialog for saving the current profile to a file
+        :param action: Action that triggered this method
+        :param param: Parameters passed into this method
+        :return: None
+        """
+        profile_filter = Gtk.FileFilter()
+        profile_filter.add_pattern("*.profile")
+
+        file_chooser = Gtk.FileChooserDialog(action=Gtk.FileChooserAction.SAVE,
+                                             create_folders=True,
+                                             filter=profile_filter,
+                                             modal=True,
+                                             title="Save profile",
+                                             transient_for=self)
+        file_chooser.set_current_folder(Gio.File.new_for_path(PROFILES_DIR))
+        file_chooser.add_button("Cancel", Gtk.ResponseType.CANCEL)
+        file_chooser.add_button("Save", Gtk.ResponseType.ACCEPT)
+        file_chooser.set_default_response(Gtk.ResponseType.ACCEPT)
+        file_chooser.connect("response", self.profile_save)
+        file_chooser.show()
+
+    def action_show_about(self, action: Gio.SimpleAction, param: object):
+        """
+        Displays an about dialog
+        :param action: Action that triggered this method
+        :param param: Parameters passed into this method
+        :return: None
+        """
+        about = Gtk.AboutDialog(authors=[APPLICATION_AUTHOR],
+                                copyright=ABOUT_COPYRIGHT,
+                                license_type=ABOUT_LICENSE,
+                                logo_icon_name=ABOUT_LOGO,
+                                modal=True,
+                                title="About",
+                                transient_for=self,
+                                website=ABOUT_WEBSITE,
+                                website_label=ABOUT_WEBSITE_LABEL,
+                                version=get_application_version())
+        about.show()
+
+    def action_show_help(self, action: Gio.SimpleAction, param: object):
+        """
+        Opens help documentation in the browser
+        :param action: Action that triggered this method
+        :param param: Parameters passed into this method
+        :return: None
+        """
+        subprocess.call(["/usr/bin/xdg-open", HELP_URL])
 
     def button_action_setup(self, button: Gtk.Button):
         """
@@ -164,7 +240,7 @@ class MainWindow(Gtk.ApplicationWindow):
         :param button: Button that triggered this method
         :return: None
         """
-        install_thread = threading.Thread(target=setup, args=[self.option_list])
+        install_thread = threading.Thread(target=setup, args=[self.option_store])
         install_thread.start()
         self.close()
 
@@ -175,9 +251,9 @@ class MainWindow(Gtk.ApplicationWindow):
         :param button: Button that triggered this method
         :return: None
         """
-        # Setting the category check box also sets all options under the category
-        for category in Category:
-            self.category_check_buttons.get(category).set_active(True)
+        for option_list in self.option_store.get_options().values():
+            for option in option_list:
+                option.check_button.set_active(True)
 
     def button_action_unselect_all(self, button: Gtk.Button):
         """
@@ -186,42 +262,69 @@ class MainWindow(Gtk.ApplicationWindow):
         :param button: Button that triggered this method
         :return: None
         """
-        # Setting the category check box also sets all options under the category
-        for category in Category:
-            self.category_check_buttons.get(category).set_active(False)
+        for option_list in self.option_store.get_options().values():
+            for option in option_list:
+                option.check_button.set_active(False)
 
-    def button_action_update_selected(self, button: Gtk.Button or None):
+    def check_button_action_category_toggle(self, button: Gtk.CheckButton):
         """
-        Updates the label that counts how many options have been selected
-        Also toggles Category CheckButtons if all category options are set to the same value
+        Selects or unselects all options in the button's category
+        Triggered by: Category CheckButtons
+        :param button: Button that triggered this method
+        :return: None
+        """
+        category = from_string(button.get_label())
+        state = button.get_active()
+        for option in self.option_store.get_options().get(category):
+            option.check_button.set_active(state)
+
+    def check_button_action_option_toggle(self, button: Gtk.Button or None):
+        """
+        - Updates the label that counts how many options have been selected
+        - Enables or disables the 'Begin Setup' button if there are options selected or not
+        - Toggles Category CheckButtons if all category options are set to the same value
         Triggered by: Option CheckButtons
         :param button: Button that triggered this method
         :return: None
         """
-        self.selected_count.set_label(get_selected_string(self.option_list))
+        self.selected_count.set_label(self.option_store.get_selected_string())
 
-        for category in Category:
-            category_options = [option for option in self.option_list if option.category == category]
-            if all(option.get_active() is True for option in category_options):
+        if self.option_store.get_selected_count() == 0:
+            self.button_begin_setup.set_sensitive(False)
+        elif not self.button_begin_setup.get_sensitive():
+            self.button_begin_setup.set_sensitive(True)
+
+        options = self.option_store.get_options()
+        for category in options.keys():
+            if all(option.check_button.get_active() is True for option in options.get(category)):
                 self.category_check_buttons.get(category).set_active(True)
-            elif all(option.get_active() is False for option in category_options):
+            elif all(option.check_button.get_active() is False for option in options.get(category)):
                 self.category_check_buttons.get(category).set_active(False)
 
-    def menu_show_about(self, action: Gio.SimpleAction, param: object):
+    def profile_load(self, dialog: Gtk.FileChooserDialog, response: Gtk.ResponseType):
         """
-        Displays an about dialog
-        :param action: Action that triggered this method
-        :param param: Parameters passed into this method
+        Loads a profile from file
+        :param dialog: Dialog window that triggered this method
+        :param response: Response returned by the dialog
         :return: None
         """
-        about = Gtk.AboutDialog()
-        about.set_transient_for(self)
-        about.set_modal(True)
-        about.set_authors([ABOUT_AUTHOR])
-        about.set_copyright(ABOUT_COPYRIGHT)
-        about.set_license_type(ABOUT_LICENSE)
-        about.set_logo_icon_name(ABOUT_LOGO)
-        about.set_website(ABOUT_WEBSITE)
-        about.set_website_label(ABOUT_WEBSITE_LABEL)
-        about.set_version(ABOUT_VERSION)
-        about.show()
+        dialog.destroy()
+
+        if response == Gtk.ResponseType.CANCEL:
+            return
+        elif response == Gtk.ResponseType.ACCEPT:
+            self.option_store.profile_load(dialog.get_file().get_path())
+
+    def profile_save(self, dialog: Gtk.FileChooserDialog, response: Gtk.ResponseType):
+        """
+        Saves a profile to file
+        :param dialog: Dialog window that triggered this method
+        :param response: Response returned by the dialog
+        :return: None
+        """
+        dialog.destroy()
+
+        if response == Gtk.ResponseType.CANCEL:
+            return
+        elif response == Gtk.ResponseType.ACCEPT:
+            self.option_store.profile_save(dialog.get_file().get_path())
