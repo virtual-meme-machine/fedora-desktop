@@ -1,4 +1,5 @@
 import datetime
+import getpass
 import subprocess
 import threading
 
@@ -201,6 +202,7 @@ class MainWindow(Gtk.ApplicationWindow):
         file_chooser.set_current_folder(Gio.File.new_for_path(PROFILES_DIR))
         file_chooser.add_button("Cancel", Gtk.ResponseType.CANCEL)
         file_chooser.add_button("Save", Gtk.ResponseType.ACCEPT)
+        file_chooser.set_current_name(f"{getpass.getuser()}_default.profile")
         file_chooser.set_default_response(Gtk.ResponseType.ACCEPT)
         file_chooser.connect("response", self.profile_save)
         file_chooser.show()
