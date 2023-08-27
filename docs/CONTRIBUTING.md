@@ -79,7 +79,7 @@ Scripts are stored in the [`src/scripts`](../src/scripts) directory of this pack
 This package includes many utility functions for use in scripts, see [`src/utils`](../src/utils).
 
 1. Create a new option entry for the script following [Adding a New Option](#adding-a-new-option)
-2. Create a new script file in the scripts directory
+2. Create a new script file in the [`scripts`](../src/scripts) directory
     1. Script file names need to match what is defined in their respective options,
        example: `["example"]` = `example.py`
 3. Add a function called `execute()` to the script
