@@ -62,6 +62,7 @@
 | ------ | ----------- | ---- |
 | AM2RLauncher | Fan remake of Metroid II: Return of Samus | [View on Flathub](https://flathub.org/apps/io.github.am2r_community_developers.AM2RLauncher) |
 | DevilutionX | Enhanced source port of Diablo 1 | [View on Flathub](https://flathub.org/apps/org.diasurgical.DevilutionX) |
+| ET: Legacy | Enhanced source port of Wolfenstein: Enemy Territory | [View on Flathub](https://flathub.org/apps/com.etlegacy.ETLegacy) |
 | Mindustry | Sandbox tower-defense game | [View on Flathub](https://flathub.org/apps/com.github.Anuken.Mindustry) |
 | OpenMW | Open-source re-implementation of The Elder Scrolls III: Morrowind | [View on Flathub](https://flathub.org/apps/org.openmw.OpenMW) |
 | OpenRCT2 | Open-source re-implementation of Roller Coaster Tycoon 2 | [View on Flathub](https://flathub.org/apps/io.openrct2.OpenRCT2) |
