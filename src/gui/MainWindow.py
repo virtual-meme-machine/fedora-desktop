@@ -176,9 +176,9 @@ class MainWindow(Gtk.ApplicationWindow):
                                              modal=True,
                                              title="Select a profile to load",
                                              transient_for=self)
-        file_chooser.set_current_folder(Gio.File.new_for_path(PROFILES_DIR))
         file_chooser.add_button("Cancel", Gtk.ResponseType.CANCEL)
         file_chooser.add_button("Load", Gtk.ResponseType.ACCEPT)
+        file_chooser.set_current_folder(Gio.File.new_for_path(PROFILES_DIR))
         file_chooser.set_default_response(Gtk.ResponseType.ACCEPT)
         file_chooser.connect("response", self.profile_load)
         file_chooser.show()
@@ -199,9 +199,9 @@ class MainWindow(Gtk.ApplicationWindow):
                                              modal=True,
                                              title="Save profile",
                                              transient_for=self)
-        file_chooser.set_current_folder(Gio.File.new_for_path(PROFILES_DIR))
         file_chooser.add_button("Cancel", Gtk.ResponseType.CANCEL)
         file_chooser.add_button("Save", Gtk.ResponseType.ACCEPT)
+        file_chooser.set_current_folder(Gio.File.new_for_path(PROFILES_DIR))
         file_chooser.set_current_name(f"{getpass.getuser()}_default.profile")
         file_chooser.set_default_response(Gtk.ResponseType.ACCEPT)
         file_chooser.connect("response", self.profile_save)

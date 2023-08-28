@@ -20,6 +20,16 @@
         ]
     },
     {
+        "name": "ET: Legacy",
+        "description": "Enhanced source port of Wolfenstein: Enemy Territory",
+        "default_state": true,
+        "category": "game",
+        "operation_type": "flatpak",
+        "operation_args": [
+            "com.etlegacy.ETLegacy"
+        ]
+    },
+    {
         "name": "Mindustry",
         "description": "Sandbox tower-defense game",
         "default_state": true,
