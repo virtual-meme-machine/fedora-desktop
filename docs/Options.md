@@ -51,6 +51,7 @@
 | Dolphin Emulator | Nintendo GameCube and Nintendo Wii emulator | [View on Flathub](https://flathub.org/apps/org.DolphinEmu.dolphin-emu) |
 | DuckStation | Sony PlayStation (PS1) emulator | [View on Flathub](https://flathub.org/apps/org.duckstation.DuckStation) |
 | mGBA | Nintendo GameBoy Advance emulator | [View on Flathub](https://flathub.org/apps/io.mgba.mGBA) |
+| Parallel Launcher | Nintendo 64 emulator | [View on Flathub](https://flathub.org/apps/ca.parallel_launcher.ParallelLauncher) |
 | PCSX2 | Sony PlayStation 2 emulator | [View on Flathub](https://flathub.org/apps/net.pcsx2.PCSX2) |
 | PPSSPP | Sony PlayStation Portable (PSP) emulator | [View on Flathub](https://flathub.org/apps/org.ppsspp.PPSSPP) |
 | Ryujinx | Nintendo Switch emulator | [View on Flathub](https://flathub.org/apps/org.ryujinx.Ryujinx) |
