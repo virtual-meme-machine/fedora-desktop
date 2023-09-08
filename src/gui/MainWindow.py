@@ -113,6 +113,7 @@ class MainWindow(Gtk.ApplicationWindow):
 
         # Initialize expander sections for each option category
         self.category_check_buttons = {}
+        self.category_check_buttons_active = True
         options_box = Gtk.Box(margin_top=WINDOW_MARGIN,
                               margin_bottom=WINDOW_MARGIN,
                               orientation=Gtk.Orientation.VERTICAL,
@@ -275,6 +276,9 @@ class MainWindow(Gtk.ApplicationWindow):
         :param button: Button that triggered this method
         :return: None
         """
+        if not self.category_check_buttons_active:
+            return
+
         category = from_string(button.get_label())
         state = button.get_active()
         for option in self.option_store.get_options().get(category):
@@ -289,6 +293,7 @@ class MainWindow(Gtk.ApplicationWindow):
         :param button: Button that triggered this method
         :return: None
         """
+        self.category_check_buttons_active = False
         self.selected_count.set_label(self.option_store.get_selected_string())
 
         if self.option_store.get_selected_count() == 0:
@@ -298,10 +303,13 @@ class MainWindow(Gtk.ApplicationWindow):
 
         options = self.option_store.get_options()
         for category in options.keys():
-            if all(option.check_button.get_active() is True for option in options.get(category)):
-                self.category_check_buttons.get(category).set_active(True)
+            category_check_button = self.category_check_buttons.get(category)
+            if any(option.check_button.get_active() is True for option in options.get(category)):
+                category_check_button.set_active(True)
             elif all(option.check_button.get_active() is False for option in options.get(category)):
-                self.category_check_buttons.get(category).set_active(False)
+                category_check_button.set_active(False)
+
+        self.category_check_buttons_active = True
 
     def profile_load(self, dialog: Gtk.FileChooserDialog, response: Gtk.ResponseType):
         """

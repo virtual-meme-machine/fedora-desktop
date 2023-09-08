@@ -43,6 +43,7 @@
         "Dolphin Emulator",
         "DuckStation",
         "mGBA",
+        "Parallel Launcher",
         "PCSX2",
         "PPSSPP",
         "Ryujinx",
@@ -51,6 +52,7 @@
     "game": [
         "AM2RLauncher",
         "DevilutionX",
+        "ET: Legacy",
         "Mindustry",
         "OpenMW",
         "OpenRCT2",
