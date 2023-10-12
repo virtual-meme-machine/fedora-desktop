@@ -19,7 +19,9 @@ def __get_account_id() -> str or None:
     while True:
         print("Prompting for Mullvad VPN account ID")
         try:
-            account_id = subprocess.run(["/usr/bin/zenity", "--entry", "--hide-text",
+            account_id = subprocess.run(["/usr/bin/zenity", "--entry",
+                                         "--modal",
+                                         "--hide-text",
                                          "--title=Mullvad VPN Setup",
                                          "--text=Please input your Mullvad VPN account ID",
                                          "--ok-label=Submit"],

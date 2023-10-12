@@ -32,6 +32,7 @@ def __get_connection_info(public_key: str) -> (str, str) or None:
     """
     try:
         subprocess.run(["/usr/bin/zenity", "--info",
+                        "--modal",
                         "--title=CryptoStorm Setup",
                         "--text=Your public key needs to be registered with your CryptoStorm account.\n"
                         "You will input the your CryptoStorm IP address and preshared key in the next dialog."
@@ -47,6 +48,7 @@ def __get_connection_info(public_key: str) -> (str, str) or None:
     while True:
         try:
             account_info = subprocess.run(["/usr/bin/zenity", "--forms",
+                                           "--modal",
                                            "--title=CryptoStorm Setup",
                                            "--text=Connection Info",
                                            "--add-entry=IP Address",
