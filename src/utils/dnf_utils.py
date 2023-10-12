@@ -1,9 +1,9 @@
 import subprocess
 
 from utils.platform_utils import get_fedora_version
+from utils.sudo_utils import run_command_as_sudo
 
 DNF_EXEC: str = "/usr/bin/dnf"
-PKEXEC_EXEC: str = "/usr/bin/pkexec"
 
 
 def __enable_rpmfusion_repos():
@@ -87,7 +87,7 @@ def auto_remove_packages():
         print("No unused dependencies to remove")
         return
 
-    subprocess.run([PKEXEC_EXEC, DNF_EXEC, "-y", "autoremove"], check=True)
+    run_command_as_sudo([DNF_EXEC, "-y", "autoremove"])
 
 
 def install_packages(package_list: list[str], rpmfusion: bool = False):
@@ -110,7 +110,7 @@ def install_packages(package_list: list[str], rpmfusion: bool = False):
         __enable_rpmfusion_repos()
 
     print(f"Installing RPM packages: {package_list}")
-    subprocess.run([PKEXEC_EXEC, DNF_EXEC, "-y", "install"] + package_list, check=True)
+    run_command_as_sudo([DNF_EXEC, "-y", "install"] + package_list)
 
 
 def install_updates():
@@ -125,7 +125,7 @@ def install_updates():
         print("No updates available")
         return
 
-    subprocess.run([PKEXEC_EXEC, DNF_EXEC, "-y", "update", "--refresh"], check=True)
+    run_command_as_sudo([DNF_EXEC, "-y", "update", "--refresh"])
 
 
 def is_package_installed(package_name: str) -> bool:
@@ -158,4 +158,4 @@ def remove_packages(package_list: list[str]):
         return
 
     print(f"Removing RPM packages: {package_list}")
-    subprocess.run([PKEXEC_EXEC, DNF_EXEC, "-y", "remove"] + package_list, check=True)
+    run_command_as_sudo([DNF_EXEC, "-y", "remove"] + package_list)

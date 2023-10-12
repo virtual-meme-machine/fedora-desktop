@@ -3,6 +3,8 @@ import shutil
 import subprocess
 import tempfile
 
+from utils.sudo_utils import run_command_as_sudo
+
 
 def delete_path(path: str):
     """
@@ -53,4 +55,4 @@ def write_system_file(file_path: str, lines: list[str]):
             temp.write(line)
             temp.write("\n")
 
-    subprocess.run(["/usr/bin/pkexec", "/usr/bin/cp", temp_file, file_path], check=True)
+    run_command_as_sudo(["/usr/bin/cp", temp_file, file_path])

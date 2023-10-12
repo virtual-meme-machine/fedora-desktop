@@ -7,6 +7,7 @@ from data.OptionStore import OptionStore
 from utils.platform_utils import set_gsettings_values
 from utils.print_utils import print_header
 from utils.script_utils import load_script
+from utils.sudo_utils import set_sudo_password
 
 
 def setup(option_store: OptionStore):
@@ -38,15 +39,19 @@ def setup(option_store: OptionStore):
             elif option.operation_type is OperationType.SCRIPT:
                 script_list.extend(option.operation_args)
 
-    # Print start message
-    print_header("Beginning Setup")
-    print(option_store.get_selected_string())
-
     # Check if any packages from RPMFusion are marked for install
     enable_rpmfusion = False
     if package_install_rpmfusion_list:
         package_install_list.extend(package_install_rpmfusion_list)
         enable_rpmfusion = True
+
+    # Print start message
+    print_header("Beginning Setup")
+    print(option_store.get_selected_string())
+
+    # Prompt user for sudo password
+    print_header("Prompting for Authentication")
+    set_sudo_password()
 
     # Install packages
     if package_install_list:
