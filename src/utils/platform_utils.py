@@ -85,7 +85,7 @@ def get_dconf_value(key: str) -> str:
     :param key: Key for the specific dconf value in the schema
     :return: Retrieved dconf value
     """
-    output = subprocess.run([DCONF_EXEC, "read", key], capture_output=True, text=True).stdout.strip()
+    output = subprocess.run([DCONF_EXEC, "read", key], capture_output=True, check=True, text=True).stdout.strip()
 
     for value in REMOVE_VALUES:
         if value in output:
@@ -109,6 +109,7 @@ def get_gnome_version() -> int:
     """
     return int(subprocess.run(["/usr/bin/gnome-shell", "--version"],
                               capture_output=True,
+                              check=True,
                               text=True).stdout.strip().split()[2].split(".")[0])
 
 
@@ -121,6 +122,7 @@ def get_gsettings_json(schema: str, key: str) -> list or dict:
     """
     output = subprocess.run([GSETTINGS_EXEC, "get", schema, key],
                             capture_output=True,
+                            check=True,
                             text=True).stdout.strip().replace("'", "\"")
 
     for value in REMOVE_VALUES:
@@ -137,7 +139,10 @@ def get_gsettings_value(schema: str, key: str) -> str:
     :param key: Key for the specific Gsettings value in the schema
     :return: Retrieved Gsettings value
     """
-    output = subprocess.run([GSETTINGS_EXEC, "get", schema, key], capture_output=True, text=True).stdout.strip()
+    output = subprocess.run([GSETTINGS_EXEC, "get", schema, key],
+                            capture_output=True,
+                            check=True,
+                            text=True).stdout.strip()
 
     for value in REMOVE_VALUES:
         if value in output:

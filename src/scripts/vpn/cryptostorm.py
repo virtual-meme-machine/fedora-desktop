@@ -51,7 +51,10 @@ def __get_connection_info(public_key: str) -> (str, str) or None:
                                            "--text=Connection Info",
                                            "--add-entry=IP Address",
                                            "--add-entry=Preshared Key",
-                                           "--ok-label=Submit"], capture_output=True, text=True).stdout.strip()
+                                           "--ok-label=Submit"],
+                                          capture_output=True,
+                                          check=True,
+                                          text=True).stdout.strip()
         except subprocess.CalledProcessError as err:
             if err.returncode == 1:
                 return None, None

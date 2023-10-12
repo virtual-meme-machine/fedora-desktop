@@ -26,6 +26,7 @@ def __get_flatpak_list() -> list[str]:
 
     output = subprocess.run([FLATPAK_EXEC, "list", "--app", "--columns=application"],
                             capture_output=True,
+                            check=True,
                             text=True).stdout.strip()
     for line in output.split("\n"):
         if line == "Application ID":
@@ -43,7 +44,10 @@ def __get_repo_dict() -> dict[str, str]:
     """
     repo_list: dict[str, str] = {}
 
-    output = subprocess.run([FLATPAK_EXEC, "remotes", "--show-disabled"], capture_output=True, text=True).stdout.strip()
+    output = subprocess.run([FLATPAK_EXEC, "remotes", "--show-disabled"],
+                            capture_output=True,
+                            check=True,
+                            text=True).stdout.strip()
     if output:
         for line in output.split("\n"):
             split = line.split()

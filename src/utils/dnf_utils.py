@@ -33,7 +33,7 @@ def __get_package_list() -> list[str]:
     """
     package_list: list[str] = []
 
-    output = subprocess.run([DNF_EXEC, "list", "installed"], capture_output=True, text=True).stdout.strip()
+    output = subprocess.run([DNF_EXEC, "list", "installed"], capture_output=True, check=True, text=True).stdout.strip()
     for line in output.split("\n"):
         if line == "Installed Packages":
             continue
@@ -50,7 +50,7 @@ def __get_repo_list() -> list[str]:
     """
     repo_list: list[str] = []
 
-    output = subprocess.run([DNF_EXEC, "repolist"], capture_output=True, text=True).stdout.strip()
+    output = subprocess.run([DNF_EXEC, "repolist"], capture_output=True, check=True, text=True).stdout.strip()
     for line in output.split("\n"):
         if "repo id" in line and "repo name" in line:
             continue
@@ -81,7 +81,7 @@ def auto_remove_packages():
     :return: None
     """
     print("Checking for unused dependency packages...")
-    check = subprocess.run([DNF_EXEC, "list", "autoremove"], capture_output=True, text=True).stdout
+    check = subprocess.run([DNF_EXEC, "list", "autoremove"], capture_output=True, check=True, text=True).stdout
 
     if "Autoremove Packages" not in check:
         print("No unused dependencies to remove")

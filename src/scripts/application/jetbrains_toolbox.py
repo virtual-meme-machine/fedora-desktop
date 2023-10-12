@@ -32,7 +32,7 @@ def __install():
                                                "-H", "Referer: https://www.jetbrains.com/toolbox/download/",
                                                "-H", "Connection: keep-alive",
                                                "-H", "DNT: 1",
-                                               "--compressed"], capture_output=True).stdout)
+                                               "--compressed"], capture_output=True, check=True).stdout)
 
     if "TBA" not in download_info.keys():
         raise ValueError(f"Unable to determine JetBrains Toolbox download URL")

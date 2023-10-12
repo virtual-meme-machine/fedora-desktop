@@ -8,7 +8,7 @@ def generate_wireguard_private_key() -> str:
     Generates a new WireGuard private key and returns it
     :return: New WireGuard private key as a string
     """
-    return subprocess.run(["/usr/bin/wg", "genkey"], capture_output=True, text=True).stdout.strip()
+    return subprocess.run(["/usr/bin/wg", "genkey"], capture_output=True, check=True, text=True).stdout.strip()
 
 
 def generate_wireguard_public_key(private_key: str) -> str:
@@ -17,7 +17,11 @@ def generate_wireguard_public_key(private_key: str) -> str:
     :param private_key: Private key that we want to generate an associated public key for
     :return: New WireGuard public key as a string
     """
-    return subprocess.run(["/usr/bin/wg", "pubkey"], capture_output=True, input=private_key, text=True).stdout.strip()
+    return subprocess.run(["/usr/bin/wg", "pubkey"],
+                          capture_output=True,
+                          check=True,
+                          input=private_key,
+                          text=True).stdout.strip()
 
 
 def import_wireguard_config(connection_name: str, config_data: list[str]):
@@ -47,4 +51,5 @@ def is_wireguard_connection_active():
     """
     return "wireguard" in subprocess.run(["/usr/bin/nmcli", "connection", "show", "--active"],
                                          capture_output=True,
+                                         check=True,
                                          text=True).stdout

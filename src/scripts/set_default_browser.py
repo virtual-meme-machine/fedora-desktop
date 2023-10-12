@@ -16,6 +16,7 @@ def execute():
 
     output = subprocess.run(["/usr/bin/xdg-settings", "get", "default-web-browser"],
                             capture_output=True,
+                            check=True,
                             text=True).stdout.strip()
     if output == BROWSER_DESKTOP:
         print(f"Default web browser already set")

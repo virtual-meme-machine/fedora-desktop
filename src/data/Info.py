@@ -18,6 +18,7 @@ def get_application_version() -> str:
     try:
         git_commit = subprocess.run(["/usr/bin/git", "rev-parse", "--short", "HEAD"],
                                     capture_output=True,
+                                    check=True,
                                     cwd=PACKAGE_ROOT,
                                     text=True).stdout.strip()
         return f"{APPLICATION_VERSION}-git-{git_commit}"
