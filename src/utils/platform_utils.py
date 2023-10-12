@@ -85,7 +85,7 @@ def get_dconf_value(key: str) -> str:
     :param key: Key for the specific dconf value in the schema
     :return: Retrieved dconf value
     """
-    output = subprocess.check_output([DCONF_EXEC, "read", key], text=True).strip()
+    output = subprocess.run([DCONF_EXEC, "read", key], capture_output=True, text=True).stdout.strip()
 
     for value in REMOVE_VALUES:
         if value in output:
@@ -107,7 +107,9 @@ def get_gnome_version() -> int:
     Gets the version of Gnome Shell on this system
     :return: Integer that represents the Gnome Shell version, eg: 44
     """
-    return int(subprocess.check_output(["gnome-shell", "--version"], text=True).strip().split()[2].split(".")[0])
+    return int(subprocess.run(["/usr/bin/gnome-shell", "--version"],
+                              capture_output=True,
+                              text=True).stdout.strip().split()[2].split(".")[0])
 
 
 def get_gsettings_json(schema: str, key: str) -> list or dict:
@@ -117,7 +119,9 @@ def get_gsettings_json(schema: str, key: str) -> list or dict:
     :param key: Key for the specific Gsettings value in the schema
     :return: Retrieved deserialized JSON data, likely a list or dictionary
     """
-    output = subprocess.check_output([GSETTINGS_EXEC, "get", schema, key], text=True).strip().replace("'", "\"")
+    output = subprocess.run([GSETTINGS_EXEC, "get", schema, key],
+                            capture_output=True,
+                            text=True).stdout.strip().replace("'", "\"")
 
     for value in REMOVE_VALUES:
         if value in output:
@@ -133,7 +137,7 @@ def get_gsettings_value(schema: str, key: str) -> str:
     :param key: Key for the specific Gsettings value in the schema
     :return: Retrieved Gsettings value
     """
-    output = subprocess.check_output([GSETTINGS_EXEC, "get", schema, key], text=True).strip()
+    output = subprocess.run([GSETTINGS_EXEC, "get", schema, key], capture_output=True, text=True).stdout.strip()
 
     for value in REMOVE_VALUES:
         if value in output:
@@ -199,7 +203,7 @@ def set_dconf_value(key: str, value: str):
         return
 
     print(f"Applying dconf value: [Key: '{key}', Value: '{value}']")
-    subprocess.check_call([DCONF_EXEC, "write", key, value])
+    subprocess.run([DCONF_EXEC, "write", key, value], check=True)
 
 
 def set_dconf_values(setting_list: list[dict]):
@@ -244,7 +248,7 @@ def set_gsettings_value(schema: str, key: str, value: str):
         return
 
     print(f"Applying Gsettings value: [Schema: '{schema}', Key: '{key}', Value: '{value}']")
-    subprocess.check_call([GSETTINGS_EXEC, "set", schema, key, value])
+    subprocess.run([GSETTINGS_EXEC, "set", schema, key, value], check=True)
 
 
 def set_gsettings_values(gsettings_list: list[dict]):

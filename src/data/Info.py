@@ -16,10 +16,10 @@ def get_application_version() -> str:
     :return: String containing the application's version
     """
     try:
-        git_commit = subprocess.check_output(["/usr/bin/git", "rev-parse", "--short", "HEAD"],
-                                             cwd=PACKAGE_ROOT,
-                                             stderr=subprocess.DEVNULL,
-                                             text=True).strip()
+        git_commit = subprocess.run(["/usr/bin/git", "rev-parse", "--short", "HEAD"],
+                                    capture_output=True,
+                                    cwd=PACKAGE_ROOT,
+                                    text=True).stdout.strip()
         return f"{APPLICATION_VERSION}-git-{git_commit}"
     except:
         return APPLICATION_VERSION

@@ -19,10 +19,10 @@ def __get_account_id() -> str or None:
     while True:
         print("Prompting for Mullvad VPN account ID")
         try:
-            account_id = subprocess.check_output(["/usr/bin/zenity", "--entry", "--hide-text",
-                                                  "--title=Mullvad VPN Setup",
-                                                  "--text=Please input your Mullvad VPN account ID",
-                                                  "--ok-label=Submit"], text=True).strip()
+            account_id = subprocess.run(["/usr/bin/zenity", "--entry", "--hide-text",
+                                         "--title=Mullvad VPN Setup",
+                                         "--text=Please input your Mullvad VPN account ID",
+                                         "--ok-label=Submit"], capture_output=True, text=True).stdout.strip()
         except subprocess.CalledProcessError as err:
             if err.returncode == 1:
                 print("VPN configuration cancelled")
@@ -53,15 +53,18 @@ def execute():
     public_key = generate_wireguard_public_key(private_key)
 
     print("Submitting keys to Mullvad API")
-    server_address = subprocess.check_output(["/usr/bin/curl", "-LsS", "https://api.mullvad.net/wg/",
-                                              "-d", f"account={account_id}",
-                                              "--data-urlencode", f"pubkey={public_key}"], text=True).strip()
+    server_address = subprocess.run(["/usr/bin/curl", "-LsS", "https://api.mullvad.net/wg/",
+                                     "-d", f"account={account_id}",
+                                     "--data-urlencode", f"pubkey={public_key}"],
+                                    capture_output=True,
+                                    text=True).stdout.strip()
     if "Account does not exist" in server_address:
         raise ConnectionError("Unable to retrieve server address from Mullvad API")
 
-    endpoint_data: dict = json.loads(subprocess.check_output(["/usr/bin/curl", "-LsS",
-                                                              "https://api.mullvad.net/public/relays/wireguard/v1/"],
-                                                             text=True).strip())
+    endpoint_data: dict = json.loads(subprocess.run(["/usr/bin/curl", "-LsS",
+                                                     "https://api.mullvad.net/public/relays/wireguard/v1/"],
+                                                    capture_output=True,
+                                                    text=True).stdout.strip())
     if "countries" not in endpoint_data.keys():
         raise ConnectionError("Unable to retrieve endpoint data from Mullvad API")
 

@@ -17,7 +17,7 @@ def __get_extension_list() -> list[str]:
     """
     extension_list: list[str] = []
 
-    output = subprocess.check_output([GNOME_EXTENSIONS_EXEC, "list"], text=True).strip()
+    output = subprocess.run([GNOME_EXTENSIONS_EXEC, "list"], capture_output=True, text=True).stdout.strip()
     for line in output.split("\n"):
         extension_list.append(line)
 
@@ -55,7 +55,8 @@ def install_remote_extension(extension_id: str):
         print(f"Gnome Shell extension '{extension_id}' is already installed")
         return
 
-    info = json.loads(subprocess.check_output(["/usr/bin/curl", "-LsS", f"{EXTENSION_INFO_URL}?uuid={extension_id}"]))
+    info = json.loads(subprocess.run(["/usr/bin/curl", "-LsS", f"{EXTENSION_INFO_URL}?uuid={extension_id}"],
+                                     capture_output=True).stdout)
     if gnome_shell_version not in info.get("shell_version_map").keys():
         raise ValueError(f"Extension '{extension_id}' does not support Gnome Shell version {gnome_shell_version}")
 

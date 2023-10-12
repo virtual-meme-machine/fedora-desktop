@@ -234,7 +234,7 @@ class MainWindow(Gtk.ApplicationWindow):
         :param param: Parameters passed into this method
         :return: None
         """
-        subprocess.call(["/usr/bin/xdg-open", HELP_URL])
+        subprocess.run(["/usr/bin/xdg-open", HELP_URL])
 
     def button_action_setup(self, button: Gtk.Button):
         """

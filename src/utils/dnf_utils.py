@@ -33,7 +33,7 @@ def __get_package_list() -> list[str]:
     """
     package_list: list[str] = []
 
-    output = subprocess.check_output([DNF_EXEC, "list", "installed"], text=True).strip()
+    output = subprocess.run([DNF_EXEC, "list", "installed"], capture_output=True, text=True).stdout.strip()
     for line in output.split("\n"):
         if line == "Installed Packages":
             continue
@@ -50,7 +50,7 @@ def __get_repo_list() -> list[str]:
     """
     repo_list: list[str] = []
 
-    output = subprocess.check_output([DNF_EXEC, "repolist"], text=True).strip()
+    output = subprocess.run([DNF_EXEC, "repolist"], capture_output=True, text=True).stdout.strip()
     for line in output.split("\n"):
         if "repo id" in line and "repo name" in line:
             continue
@@ -81,13 +81,13 @@ def auto_remove_packages():
     :return: None
     """
     print("Checking for unused dependency packages...")
-    check = subprocess.check_output([DNF_EXEC, "list", "autoremove"], text=True)
+    check = subprocess.run([DNF_EXEC, "list", "autoremove"], capture_output=True, text=True).stdout
 
     if "Autoremove Packages" not in check:
         print("No unused dependencies to remove")
         return
 
-    subprocess.check_call([PKEXEC_EXEC, DNF_EXEC, "-y", "autoremove"])
+    subprocess.run([PKEXEC_EXEC, DNF_EXEC, "-y", "autoremove"], check=True)
 
 
 def install_packages(package_list: list[str], rpmfusion: bool = False):
@@ -110,8 +110,7 @@ def install_packages(package_list: list[str], rpmfusion: bool = False):
         __enable_rpmfusion_repos()
 
     print(f"Installing RPM packages: {package_list}")
-    command = [PKEXEC_EXEC, DNF_EXEC, "-y", "install"] + package_list
-    subprocess.check_call(command)
+    subprocess.run([PKEXEC_EXEC, DNF_EXEC, "-y", "install"] + package_list, check=True)
 
 
 def install_updates():
@@ -126,7 +125,7 @@ def install_updates():
         print("No updates available")
         return
 
-    subprocess.check_call([PKEXEC_EXEC, DNF_EXEC, "-y", "update", "--refresh"])
+    subprocess.run([PKEXEC_EXEC, DNF_EXEC, "-y", "update", "--refresh"], check=True)
 
 
 def is_package_installed(package_name: str) -> bool:
@@ -159,5 +158,4 @@ def remove_packages(package_list: list[str]):
         return
 
     print(f"Removing RPM packages: {package_list}")
-    command = [PKEXEC_EXEC, DNF_EXEC, "-y", "remove"] + package_list
-    subprocess.check_call(command)
+    subprocess.run([PKEXEC_EXEC, DNF_EXEC, "-y", "remove"] + package_list, check=True)

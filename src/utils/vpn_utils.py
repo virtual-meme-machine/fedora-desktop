@@ -8,7 +8,7 @@ def generate_wireguard_private_key() -> str:
     Generates a new WireGuard private key and returns it
     :return: New WireGuard private key as a string
     """
-    return subprocess.check_output(["/usr/bin/wg", "genkey"], text=True).strip()
+    return subprocess.run(["/usr/bin/wg", "genkey"], capture_output=True, text=True).stdout.strip()
 
 
 def generate_wireguard_public_key(private_key: str) -> str:
@@ -17,7 +17,7 @@ def generate_wireguard_public_key(private_key: str) -> str:
     :param private_key: Private key that we want to generate an associated public key for
     :return: New WireGuard public key as a string
     """
-    return subprocess.check_output(["/usr/bin/wg", "pubkey"], input=private_key, text=True).strip()
+    return subprocess.run(["/usr/bin/wg", "pubkey"], capture_output=True, input=private_key, text=True).stdout.strip()
 
 
 def import_wireguard_config(connection_name: str, config_data: list[str]):
@@ -36,7 +36,7 @@ def import_wireguard_config(connection_name: str, config_data: list[str]):
             config.write("\n")
 
     print(f"Importing WireGuard config '{connection_name}'")
-    subprocess.check_call(["/usr/bin/nmcli", "connection", "import", "type", "wireguard", "file", config_file])
+    subprocess.run(["/usr/bin/nmcli", "connection", "import", "type", "wireguard", "file", config_file], check=True)
     os.remove(config_file)
 
 
@@ -45,4 +45,6 @@ def is_wireguard_connection_active():
     Checks if a WireGuard connection is currently active
     :return: True if WireGuard connection is active, False if not
     """
-    return "wireguard" in subprocess.check_output(["/usr/bin/nmcli", "connection", "show", "--active"], text=True)
+    return "wireguard" in subprocess.run(["/usr/bin/nmcli", "connection", "show", "--active"],
+                                         capture_output=True,
+                                         text=True).stdout

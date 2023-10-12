@@ -34,7 +34,7 @@ def download_file(url: str, output: str):
     :return: None
     """
     print(f"Downloading '{url}' to '{output}'")
-    subprocess.check_call(["/usr/bin/curl", "-Ls", url, "--output", output])
+    subprocess.run(["/usr/bin/curl", "-Ls", url, "--output", output], check=True)
 
     if not os.path.isfile(output):
         raise FileNotFoundError(f"Failed to download file '{url}'")
@@ -53,4 +53,4 @@ def write_system_file(file_path: str, lines: list[str]):
             temp.write(line)
             temp.write("\n")
 
-    subprocess.check_call(["/usr/bin/pkexec", "/usr/bin/cp", temp_file, file_path])
+    subprocess.run(["/usr/bin/pkexec", "/usr/bin/cp", temp_file, file_path], check=True)

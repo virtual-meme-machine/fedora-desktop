@@ -87,7 +87,7 @@ class OptionStore:
         """
         try:
             with open(file_path, "r") as import_file:
-                profile_data: dict[str, list[str]] = json.loads(import_file.read())
+                profile_data: dict[str, list[str]] = json.load(import_file)
                 for category in self.__options_dict.keys():
                     profile_options = profile_data.get(category.value[0])
                     for option in self.__options_dict.get(category):

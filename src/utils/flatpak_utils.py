@@ -14,7 +14,7 @@ def __enable_flathub_repo():
         return
 
     print(f"Enabling Flathub repo...")
-    subprocess.check_call([FLATPAK_EXEC, "remote-add", "flathub", FLATHUB_URL])
+    subprocess.run([FLATPAK_EXEC, "remote-add", "flathub", FLATHUB_URL], check=True)
 
 
 def __get_flatpak_list() -> list[str]:
@@ -24,7 +24,9 @@ def __get_flatpak_list() -> list[str]:
     """
     flatpak_list: list[str] = []
 
-    output = subprocess.check_output([FLATPAK_EXEC, "list", "--app", "--columns=application"], text=True).strip()
+    output = subprocess.run([FLATPAK_EXEC, "list", "--app", "--columns=application"],
+                            capture_output=True,
+                            text=True).stdout.strip()
     for line in output.split("\n"):
         if line == "Application ID":
             continue
@@ -41,7 +43,7 @@ def __get_repo_dict() -> dict[str, str]:
     """
     repo_list: dict[str, str] = {}
 
-    output = subprocess.check_output([FLATPAK_EXEC, "remotes", "--show-disabled"], text=True).strip()
+    output = subprocess.run([FLATPAK_EXEC, "remotes", "--show-disabled"], capture_output=True, text=True).stdout.strip()
     if output:
         for line in output.split("\n"):
             split = line.split()
@@ -73,7 +75,7 @@ def __remove_fedora_repos():
 
     for repo in remove_list:
         print(f"Removing stock Fedora repo: '{repo}'")
-        subprocess.check_call([FLATPAK_EXEC, "remote-delete", repo, "--force"])
+        subprocess.run([FLATPAK_EXEC, "remote-delete", repo, "--force"], check=True)
 
 
 def install_flatpaks(flatpak_list: list[str]):
@@ -96,7 +98,7 @@ def install_flatpaks(flatpak_list: list[str]):
 
     print(f"Installing flatpaks: {flatpak_list}")
     command = [FLATPAK_EXEC, "install", "flathub", "--noninteractive"] + flatpak_list
-    subprocess.check_call(command)
+    subprocess.run(command, check=True)
 
 
 def install_updates():
@@ -105,7 +107,7 @@ def install_updates():
     :return: None
     """
     print("Checking for flatpak updates...")
-    subprocess.check_call([FLATPAK_EXEC, "update", "--noninteractive"])
+    subprocess.run([FLATPAK_EXEC, "update", "--noninteractive"], check=True)
 
 
 def is_flatpak_installed(flatpak_id: str) -> bool:

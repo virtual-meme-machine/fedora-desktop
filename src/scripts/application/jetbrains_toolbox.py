@@ -23,16 +23,16 @@ def __install():
         print("JetBrains Toolbox is already installed")
         return
 
-    download_info = json.loads(subprocess.check_output(["/usr/bin/curl", "-s", RELEASE_INFO_URL,
-                                                        "-H", "Origin: https://www.jetbrains.com",
-                                                        "-H", "Accept-Encoding: gzip, deflate, br",
-                                                        "-H", "Accept-Language: en-US,en;q=0.8",
-                                                        "-H", RELEASE_INFO_USER_AGENT,
-                                                        "-H", "Accept: application/json, text/javascript, */*; q=0.01",
-                                                        "-H", "Referer: https://www.jetbrains.com/toolbox/download/",
-                                                        "-H", "Connection: keep-alive",
-                                                        "-H", "DNT: 1",
-                                                        "--compressed"]))
+    download_info = json.loads(subprocess.run(["/usr/bin/curl", "-s", RELEASE_INFO_URL,
+                                               "-H", "Origin: https://www.jetbrains.com",
+                                               "-H", "Accept-Encoding: gzip, deflate, br",
+                                               "-H", "Accept-Language: en-US,en;q=0.8",
+                                               "-H", RELEASE_INFO_USER_AGENT,
+                                               "-H", "Accept: application/json, text/javascript, */*; q=0.01",
+                                               "-H", "Referer: https://www.jetbrains.com/toolbox/download/",
+                                               "-H", "Connection: keep-alive",
+                                               "-H", "DNT: 1",
+                                               "--compressed"], capture_output=True).stdout)
 
     if "TBA" not in download_info.keys():
         raise ValueError(f"Unable to determine JetBrains Toolbox download URL")
@@ -44,9 +44,9 @@ def __install():
 
     print("Installing...")
     shutil.unpack_archive(download_path, temp_dir)
-    subprocess.check_call([os.path.join(temp_dir,
-                                        os.path.basename(download_path).replace(".tar.gz", ""),
-                                        "jetbrains-toolbox")])
+    subprocess.run([os.path.join(temp_dir,
+                                 os.path.basename(download_path).replace(".tar.gz", ""),
+                                 "jetbrains-toolbox")], check=True)
 
 
 def execute():
