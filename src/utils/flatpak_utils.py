@@ -1,5 +1,7 @@
 import subprocess
 
+from utils.sudo_utils import run_command_as_sudo
+
 FLATHUB_URL: str = "https://flathub.org/repo/flathub.flatpakrepo"
 FLATPAK_EXEC: str = "/usr/bin/flatpak"
 
@@ -14,7 +16,7 @@ def __enable_flathub_repo():
         return
 
     print(f"Enabling Flathub repo...")
-    subprocess.run([FLATPAK_EXEC, "remote-add", "flathub", FLATHUB_URL], check=True)
+    run_command_as_sudo([FLATPAK_EXEC, "remote-add", "flathub", FLATHUB_URL])
 
 
 def __get_flatpak_list() -> list[str]:
@@ -79,7 +81,7 @@ def __remove_fedora_repos():
 
     for repo in remove_list:
         print(f"Removing stock Fedora repo: '{repo}'")
-        subprocess.run([FLATPAK_EXEC, "remote-delete", repo, "--force"], check=True)
+        run_command_as_sudo([FLATPAK_EXEC, "remote-delete", repo, "--force"])
 
 
 def install_flatpaks(flatpak_list: list[str]):

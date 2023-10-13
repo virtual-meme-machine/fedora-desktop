@@ -4,6 +4,7 @@ import utils.dnf_utils as dnf_utils
 import utils.flatpak_utils as flatpak_utils
 from data.OperationType import OperationType
 from data.OptionStore import OptionStore
+from utils.caffeine_utils import activate_caffeine, deactivate_caffeine
 from utils.platform_utils import set_gsettings_values
 from utils.print_utils import print_header
 from utils.script_utils import load_script
@@ -48,6 +49,10 @@ def setup(option_store: OptionStore):
     # Print start message
     print_header("Beginning Setup")
     print(option_store.get_selected_string())
+
+    # Activate caffeine to prevent system from going to sleep
+    print_header("Activating Caffeine (Prevents Sleep)")
+    caffeine_cookie = activate_caffeine()
 
     # Prompt user for sudo password
     print_header("Prompting for Authentication")
@@ -97,6 +102,10 @@ def setup(option_store: OptionStore):
         except CalledProcessError as err:
             print(f"Package removal failed, {err}")
             exit(1)
+
+    # Deactivate caffeine
+    print_header("Deactivating Caffeine (Prevents Sleep)")
+    deactivate_caffeine(caffeine_cookie)
 
     # Print finished message
     print_header("Setup Complete")
