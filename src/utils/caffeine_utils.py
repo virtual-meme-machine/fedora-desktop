@@ -6,7 +6,7 @@ INTERFACE_NAME: str = "org.gnome.SessionManager"
 INTERFACE_PATH: str = "/org/gnome/SessionManager"
 
 METHOD_NAME_INHIBIT: str = "Inhibit"
-METHOD_NAME_UN_INHIBIT: str = "UnInhibit"
+METHOD_NAME_UN_INHIBIT: str = "Uninhibit"
 
 
 def __get_interface() -> dbus.Interface:
