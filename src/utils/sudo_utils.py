@@ -1,6 +1,7 @@
+import base64
 import subprocess
 
-__SUDO_PASSWORD: str or None = None
+__SUDO_PASSWORD: bytes or None = None
 SUDO_EXEC: str = "/usr/bin/sudo"
 
 
@@ -33,7 +34,7 @@ def run_command_as_sudo(args: list[str]):
     subprocess.run([SUDO_EXEC, "-k", "-S", "-p", ""] +
                    args,
                    check=True,
-                   input=__SUDO_PASSWORD.encode())
+                   input=base64.b64decode(__SUDO_PASSWORD))
 
 
 def set_sudo_password():
@@ -52,7 +53,7 @@ def set_sudo_password():
             if __verify_sudo_password(password):
                 print("Password is valid, temporarily caching")
                 global __SUDO_PASSWORD
-                __SUDO_PASSWORD = password
+                __SUDO_PASSWORD = base64.b64encode(password.encode())
                 return
             else:
                 print("Password is invalid, try again")
