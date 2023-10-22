@@ -2,9 +2,9 @@ import dbus
 
 from data.Info import APPLICATION_NAME
 
+CAFFEINE_COOKIE: dbus.UInt32 or None = None
 INTERFACE_NAME: str = "org.gnome.SessionManager"
 INTERFACE_PATH: str = "/org/gnome/SessionManager"
-
 METHOD_NAME_INHIBIT: str = "Inhibit"
 METHOD_NAME_UN_INHIBIT: str = "Uninhibit"
 
@@ -19,23 +19,37 @@ def __get_interface() -> dbus.Interface:
     return dbus.Interface(dbus_object, INTERFACE_NAME)
 
 
-def activate_caffeine() -> dbus.UInt32:
+def activate_caffeine():
     """
     Activates a new caffeine session
-    :return: Integer that is used to track the caffeine session
+    :return: None
     """
     inhibit_method = getattr(__get_interface(), METHOD_NAME_INHIBIT)
     caffeine_cookie = inhibit_method(APPLICATION_NAME, 0, APPLICATION_NAME, 8)
     print(f"Started caffeine session: {caffeine_cookie}")
-    return caffeine_cookie
+
+    global CAFFEINE_COOKIE
+    CAFFEINE_COOKIE = caffeine_cookie
 
 
-def deactivate_caffeine(caffeine_cookie: dbus.UInt32):
+def deactivate_caffeine():
     """
-    Deactivates a given caffeine session
-    :param caffeine_cookie: Integer for the caffeine session we want to deactivate
+    Deactivates the current caffeine session
     :return: None
     """
+    if CAFFEINE_COOKIE is None:
+        return
+
     un_inhibit_method = getattr(__get_interface(), METHOD_NAME_UN_INHIBIT)
-    un_inhibit_method(caffeine_cookie)
-    print(f"Ended caffeine session: {caffeine_cookie}")
+    un_inhibit_method(CAFFEINE_COOKIE)
+    print(f"Ended caffeine session: {CAFFEINE_COOKIE}")
+
+
+def deactivate_caffeine_exit(exit_code: int = 1):
+    """
+    Deactivates caffeine and exits, this should only be used for handling fatal errors
+    :param exit_code: Exit code to return
+    :return: None
+    """
+    deactivate_caffeine()
+    exit(exit_code)

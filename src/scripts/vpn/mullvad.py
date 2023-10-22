@@ -6,6 +6,7 @@ import subprocess
 from utils.dnf_utils import install_packages
 from utils.vpn_utils import generate_wireguard_private_key, generate_wireguard_public_key, import_wireguard_config, \
     is_wireguard_connection_active
+from utils.zenity_utils import prompt_text_entry
 
 DNS_SERVER: str = "193.138.218.74"
 PREFERRED_COUNTRY: str = "USA"
@@ -17,21 +18,12 @@ def __get_account_id() -> str or None:
     :return: Account ID as a string, or False if user cancelled input
     """
     while True:
-        print("Prompting for Mullvad VPN account ID")
-        try:
-            account_id = subprocess.run(["/usr/bin/zenity", "--entry",
-                                         "--modal",
-                                         "--hide-text",
-                                         "--title=Mullvad VPN Setup",
-                                         "--text=Please input your Mullvad VPN account ID",
-                                         "--ok-label=Submit"],
-                                        capture_output=True,
-                                        check=True,
-                                        text=True).stdout.strip()
-        except subprocess.CalledProcessError as err:
-            if err.returncode == 1:
-                print("VPN configuration cancelled")
-                return None
+        account_id = prompt_text_entry(prompt_text="Please input your Mullvad VPN account ID",
+                                       title="Mullvad VPN Setup")
+
+        if account_id is None:
+            print("VPN configuration cancelled")
+            return None
 
         if re.match(r"\d{16}", account_id):
             return account_id

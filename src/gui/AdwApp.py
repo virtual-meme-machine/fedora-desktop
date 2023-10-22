@@ -5,6 +5,7 @@ from data.Info import APPLICATION_AUTHOR, APPLICATION_ID, APPLICATION_NAME, get_
 from data.OptionStore import OptionStore
 from utils.platform_utils import get_distro_full_name
 from utils.print_utils import print_header
+from utils.zenity_utils import set_use_cli_prompts
 from workflows.setup import setup
 
 gi.require_version("Adw", "1")
@@ -67,6 +68,7 @@ class AdwApp(Adw.Application):
         if not option_store.profile_load(profile_file):
             exit(1)
 
+        set_use_cli_prompts(True)
         setup(option_store)
         return 0
 

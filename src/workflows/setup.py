@@ -4,7 +4,7 @@ import utils.dnf_utils as dnf_utils
 import utils.flatpak_utils as flatpak_utils
 from data.OperationType import OperationType
 from data.OptionStore import OptionStore
-from utils.caffeine_utils import activate_caffeine, deactivate_caffeine
+from utils.caffeine_utils import activate_caffeine, deactivate_caffeine, deactivate_caffeine_exit
 from utils.platform_utils import set_gsettings_values
 from utils.print_utils import print_header
 from utils.script_utils import load_script
@@ -52,7 +52,7 @@ def setup(option_store: OptionStore):
 
     # Activate caffeine to prevent system from going to sleep
     print_header("Activating Caffeine (Prevents Sleep)")
-    caffeine_cookie = activate_caffeine()
+    activate_caffeine()
 
     # Prompt user for sudo password
     print_header("Prompting for Authentication")
@@ -65,7 +65,7 @@ def setup(option_store: OptionStore):
             dnf_utils.install_packages(sorted(package_install_list), rpmfusion=enable_rpmfusion)
         except CalledProcessError as err:
             print(f"Package installation failed, {err}")
-            exit(1)
+            deactivate_caffeine_exit()
 
     # Install flatpaks
     if flatpak_list:
@@ -74,7 +74,7 @@ def setup(option_store: OptionStore):
             flatpak_utils.install_flatpaks(flatpak_list)
         except CalledProcessError as err:
             print(f"Flatpak installation failed, {err}")
-            exit(1)
+            deactivate_caffeine_exit()
 
     # Execute scripts
     for script in sorted(script_list):
@@ -83,7 +83,7 @@ def setup(option_store: OptionStore):
             load_script(script).execute()
         except (ConnectionError, FileNotFoundError, NotADirectoryError, ValueError, CalledProcessError) as err:
             print(f"Script '{script}' failed, {err}")
-            exit(1)
+            deactivate_caffeine_exit()
 
     # Apply Gsettings values
     if gsettings_value_list:
@@ -92,7 +92,7 @@ def setup(option_store: OptionStore):
             set_gsettings_values(sorted(gsettings_value_list, key=lambda i: i.get("schema").lower()))
         except CalledProcessError as err:
             print(f"Failed to apply settings, {err}")
-            exit(1)
+            deactivate_caffeine_exit()
 
     # Remove packages
     if package_remove_list:
@@ -101,11 +101,11 @@ def setup(option_store: OptionStore):
             dnf_utils.remove_packages(sorted(package_remove_list))
         except CalledProcessError as err:
             print(f"Package removal failed, {err}")
-            exit(1)
+            deactivate_caffeine_exit()
 
     # Deactivate caffeine
     print_header("Deactivating Caffeine (Prevents Sleep)")
-    deactivate_caffeine(caffeine_cookie)
+    deactivate_caffeine()
 
     # Print finished message
     print_header("Setup Complete")

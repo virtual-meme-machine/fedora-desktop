@@ -1,6 +1,9 @@
 import base64
 import subprocess
 
+from utils.caffeine_utils import deactivate_caffeine_exit
+from utils.zenity_utils import prompt_password
+
 __SUDO_PASSWORD: bytes or None = None
 SUDO_EXEC: str = "/usr/bin/sudo"
 
@@ -43,21 +46,13 @@ def set_sudo_password():
     :return: None
     """
     while True:
-        try:
-            print("Please enter your password in the prompt window")
-            password = subprocess.run(["/usr/bin/zenity", "--password",
-                                       "--modal",
-                                       "--title=Authentication Required",
-                                       "--ok-label=Submit"], capture_output=True, check=True, text=True).stdout.strip()
-
-            if __verify_sudo_password(password):
-                print("Password is valid, temporarily caching")
-                global __SUDO_PASSWORD
-                __SUDO_PASSWORD = base64.b64encode(password.encode())
-                return
-            else:
-                print("Password is invalid, try again")
-        except subprocess.CalledProcessError as err:
-            if err.returncode == 1:
-                print("Authentication cancelled, exiting")
-                exit(100)
+        password = prompt_password()
+        if password is None:
+            deactivate_caffeine_exit(100)
+        elif __verify_sudo_password(password):
+            print("Password is valid, temporarily caching")
+            global __SUDO_PASSWORD
+            __SUDO_PASSWORD = base64.b64encode(password.encode())
+            return
+        else:
+            print("Password is invalid, try again")

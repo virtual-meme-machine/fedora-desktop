@@ -1,10 +1,10 @@
 import random
 import re
-import subprocess
 
 from utils.dnf_utils import install_packages
 from utils.vpn_utils import generate_wireguard_private_key, generate_wireguard_public_key, import_wireguard_config, \
     is_wireguard_connection_active
+from utils.zenity_utils import prompt_info, prompt_form
 
 DNS_SERVER: str = "DNS=10.31.33.8"
 IPV4_REGEX: str = r"(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}"
@@ -24,44 +24,33 @@ SERVER_DATA: dict[str, str] = {
 }
 
 
-def __get_connection_info(public_key: str) -> (str, str) or None:
+def __get_connection_info(public_key: str) -> (str, str) or (None, None):
     """
     Prompts the user to provide their CryptoStorm connection info, this would be an IP address and a pre-shared key
     :param public_key: Generated public key that needs to be registered with CryptoStorm
     :return: Provided server IP address and preshared key
     """
-    try:
-        subprocess.run(["/usr/bin/zenity", "--info",
-                        "--modal",
-                        "--title=CryptoStorm Setup",
-                        "--text=Your public key needs to be registered with your CryptoStorm account.\n"
-                        "You will input the your CryptoStorm IP address and preshared key in the next dialog."
-                        "\n\n\n"
-                        "Register your key here: https://cryptostorm.is/wireguard"
-                        "\n\n"
-                        f"Your public key: <b>{public_key}</b>",
-                        "--ok-label=Next"], check=True)
-    except subprocess.CalledProcessError as err:
-        if err.returncode == 1:
-            return None, None
+    result = prompt_info(title="CryptoStorm Setup",
+                         gui_text="Your public key needs to be registered with your CryptoStorm account.\n"
+                                  "You will input the your CryptoStorm IP address and preshared key in the next dialog."
+                                  "\n\n\n"
+                                  "Register your key here: https://cryptostorm.is/wireguard"
+                                  "\n\n"
+                                  f"Your public key: <b>{public_key}</b>",
+                         cli_text="Your public key needs to be registered with your CryptoStorm account.\n"
+                                  "Register your key here: https://cryptostorm.is/wireguard\n"
+                                  f"Your public key: {public_key}",
+                         ok_label="I have registered my public key")
+    if result is None:
+        return None, None
 
     while True:
-        try:
-            account_info = subprocess.run(["/usr/bin/zenity", "--forms",
-                                           "--modal",
-                                           "--title=CryptoStorm Setup",
-                                           "--text=Connection Info",
-                                           "--add-entry=IP Address",
-                                           "--add-entry=Preshared Key",
-                                           "--ok-label=Submit"],
-                                          capture_output=True,
-                                          check=True,
-                                          text=True).stdout.strip()
-        except subprocess.CalledProcessError as err:
-            if err.returncode == 1:
-                return None, None
+        input_list = prompt_form(title="CryptoStorm Setup",
+                                 prompt_text="Please input your connection info",
+                                 prompt_fields=["IP Address", "Preshared Key"])
+        if input_list is None:
+            return None, None
 
-        input_list = account_info.split("|")
         if len(input_list) == 2:
             if re.match(IPV4_REGEX, input_list[0]) and re.match(r"\S{43}=", input_list[1]):
                 return input_list[0], input_list[1]
