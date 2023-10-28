@@ -10,15 +10,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate-docs:
+  unit-tests:
     name: Run Unit Tests
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: Install System Dependencies
+        run: sudo apt install libcairo2-dev libdbus-glib-1-dev libgirepository1.0-dev libgtk-4-dev
+
+      - name: Checkout Package
+        uses: actions/checkout@v3
+
+      - name: Configure Python
+        uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-      - run: sudo apt-get install python3-pytest
-      - run: python .github/scripts/run_unit_tests.py
+
+      - name: Install Python Packages
+        run: pip install pytest pygobject dbus-python
+
+      - name: Run Unit Tests
+        run: python .github/scripts/run_unit_tests.py --github_ignore
