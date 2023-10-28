@@ -81,13 +81,17 @@
 | Option | Description | Link |
 | ------ | ----------- | ---- |
 | AppIndicator and KStatusNotifierItem Support | Enables support for tray icons | [View on Gnome Extensions](https://extensions.gnome.org/extension/615/appindicator-support) |
+| ArcMenu | Windows-like Application menu for GNOME Shell | [View on Gnome Extensions](https://extensions.gnome.org/extension/3628/arcmenu) |
 | Background Logo | Adds a Fedora logo watermark to the wallpaper | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/gnome-shell-extension-background-logo/gnome-shell-extension-background-logo) |
+| BackSlide | Automatic background-image (wallpaper) slideshow for Gnome Shell | [View on Gnome Extensions](https://extensions.gnome.org/extension/543/backslide) |
 | Blur my Shell | Blurs some elements of the Gnome Shell | [View on Gnome Extensions](https://extensions.gnome.org/extension/3193/blur-my-shell) |
 | Caffeine | Quick settings toggle that prevents the system from sleeping | [View on Gnome Extensions](https://extensions.gnome.org/extension/517/caffeine) |
 | Dash to Dock | Moves the dash out of the overview transforming it into a dock | [View on Gnome Extensions](https://extensions.gnome.org/extension/307/dash-to-dock) |
+| Dash to Panel | An icon taskbar for the Gnome Shell. This extension moves the dash into the gnome main panel so that the application launchers and system tray are combined into a single panel, similar to that found in KDE Plasma and Windows 7+. | [View on Gnome Extensions](https://extensions.gnome.org/extension/1160/dash-to-panel) |
 | ddterm | Provides a drop-down terminal on a hotkey press | [View on Gnome Extensions](https://extensions.gnome.org/extension/3780/ddterm) |
 | Desktop Icons NG (DING) | Adds icons to the desktop | [View on Gnome Extensions](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding) |
 | GSConnect | Mobile device bridge that integrates device notifications, messages, and more into Gnome Shell | [View on Gnome Extensions](https://extensions.gnome.org/extension/1319/gsconnect) |
+| gSnap | Organize windows in customizable snap zones like FancyZones on Windows. | [View on Gnome Extensions](https://extensions.gnome.org/extension/4442/gsnap) |
 | NoAnnoyance | Removes the 'window is ready' notification and puts the window into focus instead | [View on Gnome Extensions](https://extensions.gnome.org/extension/6109/noannoyance-fork) |
 | Quick Settings Audio Panel | Adds extra volume controls to the quick settings menu | [View on Gnome Extensions](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel) |
 
