@@ -17,7 +17,7 @@ jobs:
       contents: write
     steps:
       - name: Install System Dependencies
-        run: sudo apt install libcairo2-dev libdbus-glib-1-dev libgirepository1.0-dev libgtk-4-dev
+        run: sudo apt install libadwaita-1-dev libcairo2-dev libdbus-glib-1-dev libgirepository1.0-dev libgtk-4-dev
 
       - name: Checkout Package
         uses: actions/checkout@v3
