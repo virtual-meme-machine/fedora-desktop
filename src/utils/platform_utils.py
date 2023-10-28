@@ -9,9 +9,18 @@ GSETTINGS_EXEC: str = "/usr/bin/gsettings"
 LOCAL_BIN: str = os.path.expanduser("~/.local/bin")
 REMOVE_VALUES: list[str] = ["@as", "uint32"]
 
-XDG_DATA_DIRS = os.environ.get("XDG_DATA_DIRS").split(":")
-if os.path.expanduser("~/.local/share") not in XDG_DATA_DIRS:
-    XDG_DATA_DIRS.append(os.path.expanduser("~/.local/share"))
+XDG_DATA_DIRS = [
+    "/usr/share/",
+    "/usr/local/share/"
+    "/var/lib/flatpak/exports/share",
+    os.path.expanduser("~/.local/share"),
+    os.path.expanduser("~/.local/share/flatpak/exports/share")
+
+]
+if os.environ.get("XDG_DATA_DIRS") is not None:
+    for path in os.environ.get("XDG_DATA_DIRS").split(":"):
+        if path not in XDG_DATA_DIRS:
+            XDG_DATA_DIRS.append(path)
 
 
 def __get_desktop_file(application_desktop: str) -> str or None:
