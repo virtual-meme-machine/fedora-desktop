@@ -10,16 +10,17 @@ APPLICATION_VERSION: str = "3.3"
 SUPPORTED_FEDORA_VERSIONS: list[int] = [37, 38]
 
 
-def get_application_version() -> str:
+def get_application_version(package_root: str = PACKAGE_ROOT) -> str:
     """
     Gets the application version
+    :param package_root: Path to the root of the package, example: "/home/user/fedora-desktop"
     :return: String containing the application's version
     """
     try:
         git_commit = subprocess.run(["/usr/bin/git", "rev-parse", "--short", "HEAD"],
                                     capture_output=True,
                                     check=True,
-                                    cwd=PACKAGE_ROOT,
+                                    cwd=package_root,
                                     text=True).stdout.strip()
         return f"{APPLICATION_VERSION}-git-{git_commit}"
     except:
