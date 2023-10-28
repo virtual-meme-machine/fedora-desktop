@@ -1,8 +1,6 @@
 from utils.dnf_utils import install_packages
 from utils.gnome_extension_utils import enable_extension
 
-ID: str = "dash-to-panel@jderose9.github.com"
-
 
 def execute():
     """
