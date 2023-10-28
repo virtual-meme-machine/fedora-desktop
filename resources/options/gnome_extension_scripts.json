@@ -1,5 +1,16 @@
 [
     {
+        "name": "ArcMenu",
+        "description": "Windows-like Application menu for GNOME Shell",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3628/arcmenu)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/arcmenu"
+        ]
+    },
+    {
         "name": "AppIndicator and KStatusNotifierItem Support",
         "description": "Enables support for tray icons",
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/615/appindicator-support)",
@@ -19,6 +30,17 @@
         "operation_type": "script",
         "operation_args": [
             "gnome_extension/background_logo"
+        ]
+    },
+    {
+        "name": "BackSlide",
+        "description": "Automatic background-image (wallpaper) slideshow for Gnome Shell",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/543/backslide)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/backslide"
         ]
     },
     {
@@ -55,6 +77,17 @@
         ]
     },
     {
+        "name": "Dash to Panel",
+        "description": "An icon taskbar for the Gnome Shell. This extension moves the dash into the gnome main panel so that the application launchers and system tray are combined into a single panel, similar to that found in KDE Plasma and Windows 7+.",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/1160/dash-to-panel)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/dash_to_panel"
+        ]
+    },
+    {
         "name": "ddterm",
         "description": "Provides a drop-down terminal on a hotkey press",
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3780/ddterm)",
@@ -85,6 +118,17 @@
         "operation_type": "script",
         "operation_args": [
             "gnome_extension/gsconnect"
+        ]
+    },
+    {
+        "name": "gSnap",
+        "description": "Organize windows in customizable snap zones like FancyZones on Windows.",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/4442/gsnap)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/gsnap"
         ]
     },
     {
