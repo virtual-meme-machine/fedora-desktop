@@ -1,6 +1,29 @@
+import random
+from unittest.mock import patch
+
 import pytest
 
 from utils import caffeine_utils
+
+
+class MockInterface(object):
+    """
+    Mocked dbus.Interface object
+    """
+
+    def Inhibit(self, param1, param2, param3, param4):
+        return random.randint(a=111111, b=999999)
+
+    def Uninhibit(self, param1):
+        return
+
+
+def mock__get_interface() -> MockInterface:
+    """
+    Mocked caffeine_utils.__get_interface()
+    :return: MockInterface object
+    """
+    return MockInterface()
 
 
 def test_importable():
@@ -11,6 +34,7 @@ def test_importable():
     import utils.caffeine_utils  # noqa: F401
 
 
+@patch("utils.caffeine_utils.__get_interface", new=mock__get_interface)
 def test_activate_caffeine(capfd):
     """
     Tests activate_caffeine() with the following use cases:
@@ -33,6 +57,7 @@ def test_activate_caffeine(capfd):
     caffeine_utils.deactivate_caffeine()
 
 
+@patch("utils.caffeine_utils.__get_interface", new=mock__get_interface)
 def test_deactivate_caffeine(capfd):
     """
     Tests deactivate_caffeine() with the following use cases:
@@ -56,6 +81,7 @@ def test_deactivate_caffeine(capfd):
                   f"Ended caffeine session: {session_cookie}\n"
 
 
+@patch("utils.caffeine_utils.__get_interface", new=mock__get_interface)
 def test_deactivate_caffeine_exit(capfd):
     """
     Tests deactivate_caffeine_exit() with the following use cases:
