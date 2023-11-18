@@ -4,6 +4,7 @@ from utils.platform_utils import get_fedora_version
 from utils.sudo_utils import run_command_as_sudo
 
 DNF_EXEC: str = "/usr/bin/dnf"
+DNF_NON_INTERACTIVE_FLAG: str = "--assumeyes"
 
 
 def __enable_rpmfusion_repos():
@@ -33,7 +34,8 @@ def __get_package_list() -> list[str]:
     """
     package_list: list[str] = []
 
-    output = subprocess.run([DNF_EXEC, "list", "installed"], capture_output=True, check=True, text=True).stdout.strip()
+    output = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "list", "installed"],
+                            capture_output=True, check=True, text=True).stdout.strip()
     for line in output.split("\n"):
         if line == "Installed Packages":
             continue
@@ -50,7 +52,8 @@ def __get_repo_list() -> list[str]:
     """
     repo_list: list[str] = []
 
-    output = subprocess.run([DNF_EXEC, "repolist"], capture_output=True, check=True, text=True).stdout.strip()
+    output = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "repolist"],
+                            capture_output=True, check=True, text=True).stdout.strip()
     for line in output.split("\n"):
         if "repo id" in line and "repo name" in line:
             continue
@@ -81,13 +84,14 @@ def auto_remove_packages():
     :return: None
     """
     print("Checking for unused dependency packages...")
-    check = subprocess.run([DNF_EXEC, "list", "autoremove"], capture_output=True, check=True, text=True).stdout
+    check = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "list", "autoremove"],
+                           capture_output=True, check=True, text=True).stdout
 
     if "Autoremove Packages" not in check:
         print("No unused dependencies to remove")
         return
 
-    run_command_as_sudo([DNF_EXEC, "-y", "autoremove"])
+    run_command_as_sudo([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "autoremove"])
 
 
 def install_packages(package_list: list[str], rpmfusion: bool = False):
@@ -110,7 +114,7 @@ def install_packages(package_list: list[str], rpmfusion: bool = False):
         __enable_rpmfusion_repos()
 
     print(f"Installing RPM packages: {package_list}")
-    run_command_as_sudo([DNF_EXEC, "-y", "install"] + package_list)
+    run_command_as_sudo([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "install"] + package_list)
 
 
 def install_updates():
@@ -119,13 +123,14 @@ def install_updates():
     :return: None
     """
     print("Checking for package updates...")
-    check = subprocess.run([DNF_EXEC, "check-update", "--refresh"], stdout=subprocess.DEVNULL)
+    check = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "check-update", "--refresh"],
+                           stdout=subprocess.DEVNULL)
 
     if check.returncode == 0:
         print("No updates available")
         return
 
-    run_command_as_sudo([DNF_EXEC, "-y", "update", "--refresh"])
+    run_command_as_sudo([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "update", "--refresh"])
 
 
 def is_package_installed(package_name: str) -> bool:
@@ -158,4 +163,4 @@ def remove_packages(package_list: list[str]):
         return
 
     print(f"Removing RPM packages: {package_list}")
-    run_command_as_sudo([DNF_EXEC, "-y", "remove"] + package_list)
+    run_command_as_sudo([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "remove"] + package_list)
