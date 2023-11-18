@@ -32,6 +32,7 @@
     {
         "name": "MangoHud",
         "description": "In game performance monitoring overlay, similar to MSI Afterburner",
+        "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/MangoHud.md)",
         "default_state": true,
         "category": "application",
         "operation_type": "package_install",
@@ -43,6 +44,7 @@
     {
         "name": "Steam",
         "description": "Ubiquitous PC gaming platform",
+        "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/Steam.md)",
         "default_state": true,
         "category": "application",
         "operation_type": "package_install_rpmfusion",

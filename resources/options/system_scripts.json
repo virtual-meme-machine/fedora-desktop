@@ -2,7 +2,7 @@
     {
         "name": "Configure MangoHud",
         "description": "Configures MangoHud and enables it for all Vulkan applications",
-        "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud)",
+        "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/MangoHud.md)",
         "default_state": true,
         "category": "system",
         "operation_type": "script",

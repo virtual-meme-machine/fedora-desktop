@@ -13,7 +13,7 @@
     {
         "name": "OpenRGB",
         "description": "Unified interface for managing RGB hardware and peripherals",
-        "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#openrgb)",
+        "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/OpenRGB.md)",
         "default_state": true,
         "category": "application",
         "operation_type": "script",

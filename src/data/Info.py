@@ -7,7 +7,7 @@ APPLICATION_ID: str = "com.virtual.meme.machine.fedora.setup"
 APPLICATION_NAME: str = "Fedora Desktop Configurator"
 APPLICATION_VERSION: str = "3.3"
 
-SUPPORTED_FEDORA_VERSIONS: list[int] = [37, 38]
+SUPPORTED_FEDORA_VERSIONS: list[int] = [37, 38, 39]
 
 
 def get_application_version(package_root: str = PACKAGE_ROOT) -> str:
