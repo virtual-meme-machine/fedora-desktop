@@ -37,6 +37,9 @@
         "description": "Automatic background-image (wallpaper) slideshow for Gnome Shell",
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/543/backslide)",
         "default_state": false,
+        "unsupported_versions": [
+            39
+        ],
         "category": "gnome_extension",
         "operation_type": "script",
         "operation_args": [

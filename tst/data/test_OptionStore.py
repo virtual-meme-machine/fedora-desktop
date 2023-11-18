@@ -1,6 +1,7 @@
 import json
 import os
 import tempfile
+from unittest.mock import patch
 
 from data import Category
 from data import OperationType
@@ -11,7 +12,9 @@ from utils.file_utils import delete_path
 TEST_OPTION_DATA: dict = {
     "name": "Archive Manager",
     "description": "Advanced archive manager",
+    "documentation_link": "testing123",
     "default_state": True,
+    "unsupported_versions": [0],
     "category": "application",
     "operation_type": "package_install",
     "operation_args": [
@@ -23,6 +26,14 @@ TEST_PROFILE_DATA: dict = {
         "Archive Manager"
     ]
 }
+
+
+def mock_get_fedora_version_unsupported() -> int:
+    """
+    Mocked platform_utils.get_fedora_version()
+    :return: Unsupported version number
+    """
+    return 0
 
 
 def test_importable():
@@ -88,6 +99,9 @@ class TestOptionStore:
         assert option.description == TEST_OPTION_DATA.get("description")
         assert type(option.default_state) is bool
         assert option.default_state == TEST_OPTION_DATA.get("default_state")
+        assert type(option.can_toggle) is bool
+        assert option.can_toggle is True
+        assert option.check_button.get_sensitive() is True
         assert type(option.category) is Category.Category
         assert option.category.value[0] == TEST_OPTION_DATA.get("category")
         assert type(option.operation_type) is OperationType.OperationType
@@ -169,3 +183,20 @@ class TestOptionStore:
         self.option_store.profile_save(file_path="/")
         out, err = capfd.readouterr()
         assert "Unable to save profile" in out
+
+    @patch("data.OptionStore.get_fedora_version", new=mock_get_fedora_version_unsupported)
+    def test_option_is_unsupported(self):
+        """
+        Tests OptionStore initialization with the following use cases:
+        - Option does not support the hosts Fedora version
+        :return: None
+        """
+        self.option_store = OptionStore.OptionStore(options_dir=self.temp_dir)
+
+        options = self.option_store.get_options()
+        options_sub_list = options.get(Category.Category.APPLICATION)
+        option = options_sub_list[0]
+
+        assert option.default_state is False
+        assert option.can_toggle is False
+        assert option.check_button.get_sensitive() is False

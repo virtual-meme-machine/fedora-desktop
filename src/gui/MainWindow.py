@@ -256,6 +256,9 @@ class MainWindow(Gtk.ApplicationWindow):
         """
         for option_list in self.option_store.get_options().values():
             for option in option_list:
+                if not option.check_button.get_sensitive():
+                    continue
+
                 option.check_button.set_active(True)
 
     def button_action_unselect_all(self, button: Gtk.Button):
@@ -267,6 +270,9 @@ class MainWindow(Gtk.ApplicationWindow):
         """
         for option_list in self.option_store.get_options().values():
             for option in option_list:
+                if not option.check_button.get_sensitive():
+                    continue
+
                 option.check_button.set_active(False)
 
     def check_button_action_category_toggle(self, button: Gtk.CheckButton):

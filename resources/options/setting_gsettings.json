@@ -88,6 +88,9 @@
         "name": "Image Viewer - Disable Filtering",
         "description": "Disables filtering (blurring) in the Gnome Image Viewer",
         "default_state": true,
+        "unsupported_versions": [
+            39
+        ],
         "category": "setting",
         "operation_type": "gsettings_value",
         "operation_args": [

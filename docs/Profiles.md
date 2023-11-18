@@ -2,7 +2,7 @@
 
 Fedora Desktop Configurator supports saving and loading pre-defined selected options known as 'profiles'.
 
-A set of basic profiles are included with this package, see [resources/profiles](../resources/profiles).
+A set of basic profiles is included with this package, see [resources/profiles](../resources/profiles).
 
 ## Loading a Profile
 

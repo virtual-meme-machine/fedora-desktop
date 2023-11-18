@@ -5,6 +5,7 @@ import data.Category as Category
 import data.OperationType as OperationType
 from data.OptionToggle import OptionToggle
 from data.Paths import OPTIONS_DIR
+from utils.platform_utils import get_fedora_version
 
 
 class OptionStore:
@@ -22,15 +23,18 @@ class OptionStore:
         self.__options_dict: dict[Category, list[OptionToggle]] = {}
 
         temp_dict: dict[Category, list[OptionToggle]] = {}
+        fedora_version: int = get_fedora_version()
         for option_file in os.listdir(options_dir):
             if not os.path.splitext(option_file)[1] == ".json":
                 continue
 
             with open(os.path.join(options_dir, option_file), "r") as json_file:
                 for option in json.load(json_file):
+                    supported = fedora_version not in option.get("unsupported_versions", [])
                     option_toggle = OptionToggle(name=option.get("name"),
                                                  description=option.get("description"),
-                                                 default_state=option.get("default_state"),
+                                                 default_state=supported and option.get("default_state"),
+                                                 can_toggle=supported,
                                                  category=Category.from_string(option.get("category")),
                                                  operation_type=OperationType.from_string(option.get("operation_type")),
                                                  operation_args=option.get("operation_args"))

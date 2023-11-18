@@ -12,18 +12,16 @@ See [Options](docs/Options.md) for a complete list of actions Fedora Desktop Con
 
 ## Usage
 
-**!! DO NOT enable third-party repos if asked, this script will set up RPM Fusion and Flathub on its own !!**
-
-1. Install [Fedora Linux](https://www.fedoraproject.org/en/workstation/download) on your host
+1. Install [Fedora Linux](https://www.fedoraproject.org/en/workstation/download)
     1. [Fedora Linux 39 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/39/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-39-1.5.iso)
     2. [Fedora Linux 38 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-38-1.6.iso)
     3. [Fedora Linux 37 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/37/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-37-1.7.iso)
-2. Perform initial setup (create an account, etc.)
+2. Perform initial setup (create an account, etc.), most options can be skipped or left default
 3. Once at the desktop, open a terminal and git clone this package:
     ```bash
     git clone https://github.com/virtual-meme-machine/fedora-desktop.git ~/fedora-desktop
     ```
-4. Launch the Fedora Desktop Configurator GUI:
+4. Launch Fedora Desktop Configurator:
     ```bash
     ~/fedora-desktop/src/main.py
     ```
@@ -36,15 +34,13 @@ Fedora Desktop Configurator supports saving and loading pre-defined selected opt
 
 See [Profiles](docs/Profiles.md) for more information.
 
-### CLI (Non-Interactive Mode)
+### Non-Interactive Mode
 
 Fedora Desktop Configurator can also be used to non-interactively install a profile.
 
-1. Enter the package directory and run `main.py --profile /path/to/your_profile.profile`:
-    ```bash
-    cd ~/fedora-desktop
-    ./src/main.py --profile /path/to/your_profile.profile
-    ```
+```bash
+~/fedora-desktop/src/main.py --profile /path/to/your_profile.profile
+```
 
 ## Contributing
 
