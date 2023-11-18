@@ -21,11 +21,11 @@
 | Jitsi Meet | Encrypted video conferencing application, similar to Skype or Zoom | [View on Flathub](https://flathub.org/apps/org.jitsi.jitsi-meet) |
 | Kdenlive | Non linear video editor, similar to Adobe Premier or Sony Vegas | [View on Flathub](https://flathub.org/apps/org.kde.kdenlive) |
 | LibreWolf | Firefox fork with enhanced privacy and security | [View on Flathub](https://flathub.org/apps/io.gitlab.librewolf-community) |
-| MangoHud | In game performance monitoring overlay, similar to MSI Afterburner | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/goverlay/goverlay) |
+| MangoHud | In game performance monitoring overlay, similar to MSI Afterburner | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/MangoHud.md) |
 | Metadata Cleaner | Scrubs metadata from files | [View on Flathub](https://flathub.org/apps/fr.romainvigier.MetadataCleaner) |
 | OBS Studio | Recording and streaming workstation | [View on Flathub](https://flathub.org/apps/com.obsproject.Studio) |
 | OnlyOffice Desktop Editors | Office productivity suite, similar to Microsoft Office | [View on Flathub](https://flathub.org/apps/org.onlyoffice.desktopeditors) |
-| OpenRGB | Unified interface for managing RGB hardware and peripherals | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#openrgb) |
+| OpenRGB | Unified interface for managing RGB hardware and peripherals | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/OpenRGB.md) |
 | Parabolic | Simple video downloader that supports multiple services such as YouTube | [View on Flathub](https://flathub.org/apps/org.nickvision.tubeconverter) |
 | ProtonUp-Qt | Proton (Windows application compatibility layer) version manager | [View on Flathub](https://flathub.org/apps/net.davidotek.pupgui2) |
 | PrusaSlicer | 3D model slicer for use with 3D printers | [View on Flathub](https://flathub.org/apps/com.prusa3d.PrusaSlicer) |
@@ -35,7 +35,7 @@
 | Signal Desktop | Encrypted communication platform, similar to WhatsApp | [View on Flathub](https://flathub.org/apps/org.signal.Signal) |
 | Spotify | Official client for the Spotify music streaming platform | [View on Flathub](https://flathub.org/apps/com.spotify.Client) |
 | Steam ROM Manager | Utility for adding custom emulator shortcuts to Steam | [View on Flathub](https://flathub.org/apps/com.steamgriddb.steam-rom-manager) |
-| Steam | Ubiquitous PC gaming platform | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/steam) |
+| Steam | Ubiquitous PC gaming platform | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/Steam.md) |
 | tinyMediaManager | Media library management tool | [tinyMediaManager Website](https://www.tinymediamanager.org) |
 | UnGoogled Chromium | Chromium fork with Google dependencies removed | [View on Flathub](https://flathub.org/apps/com.github.Eloston.UngoogledChromium) |
 | Unity Hub | Launcher / version manager for Unity engine development tools | [Unity Website](https://unity.com/) |
@@ -117,7 +117,7 @@
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
-| Configure MangoHud | Configures MangoHud and enables it for all Vulkan applications | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop#mangohud) |
+| Configure MangoHud | Configures MangoHud and enables it for all Vulkan applications | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/MangoHud.md) |
 | Enable GameCube Controller Adapter for Wii U | Installs udev rules for the GameCube Controller Adapter for Wii U | [View on Dolphin Wiki](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux) |
 | Install Nvidia Drivers | Drivers for modern Nvidia GPUs | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/akmod-nvidia) |
 | Install Unrar | Enables extracting .rar archives | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/unrar) |
