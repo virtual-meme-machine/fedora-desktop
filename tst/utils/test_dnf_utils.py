@@ -73,9 +73,9 @@ def mock_subprocess_run_invalid(args: list[str] = [],
     :return: MockCompletedProcess object
     """
     print(f"mock_subprocess_run_valid called: '{args}'")
-    if args == [dnf_utils.DNF_EXEC, "list", "autoremove"]:
+    if args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "list", "autoremove"]:
         return MockCompletedProcess(stdout="null")  # No packages can be removed
-    elif args == [dnf_utils.DNF_EXEC, "check-update", "--refresh"]:
+    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "check-update", "--refresh"]:
         return MockCompletedProcess(returncode=0)  # No updates can be installed
 
 
@@ -94,11 +94,11 @@ def mock_subprocess_run_valid(args: list[str] = [],
     :return: MockCompletedProcess object
     """
     print(f"mock_subprocess_run_valid called: '{args}'")
-    if args == [dnf_utils.DNF_EXEC, "list", "autoremove"]:
+    if args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "list", "autoremove"]:
         return MockCompletedProcess(stdout="Autoremove Packages")  # Packages can be removed
-    elif args == [dnf_utils.DNF_EXEC, "check-update", "--refresh"]:
+    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "check-update", "--refresh"]:
         return MockCompletedProcess(returncode=1)  # Updates can be installed
-    elif args == [dnf_utils.DNF_EXEC, "list", "installed"]:
+    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "list", "installed"]:
         return MockCompletedProcess(stdout="Installed Packages\n"
                                            "ModemManager.x86_64               "
                                            "1.18.12-1.fc37                    "
@@ -106,7 +106,7 @@ def mock_subprocess_run_valid(args: list[str] = [],
                                            "NetworkManager.x86_64             "
                                            "1:1.40.18-1.fc37                  "
                                            "@updates                        \n")
-    elif args == [dnf_utils.DNF_EXEC, "repolist"]:
+    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "repolist"]:
         return MockCompletedProcess(stdout="repo id                        repo name\n"
                                            "fedora                         Fedora 37 - x86_64\n"
                                            "fedora-cisco-openh264          Fedora 37 openh264 (From Cisco) - x86_64\n"
