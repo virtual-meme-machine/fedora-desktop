@@ -21,6 +21,7 @@ UTILITIES_FOLDER: list[str] = [
     "org.gnome.Connections.desktop",
     "org.gnome.DiskUtility.desktop",
     "org.gnome.eog.desktop",
+    "org.gnome.Loupe.desktop",
     "org.gnome.Evince.desktop",
     "org.gnome.FileRoller.desktop",
     "org.gnome.font-viewer.desktop",

@@ -2,8 +2,10 @@ from subprocess import CalledProcessError
 
 import utils.dnf_utils as dnf_utils
 import utils.flatpak_utils as flatpak_utils
+from data.Category import Category
 from data.OperationType import OperationType
 from data.OptionStore import OptionStore
+from data.OptionToggle import OptionToggle
 from utils.caffeine_utils import activate_caffeine, deactivate_caffeine, deactivate_caffeine_exit
 from utils.platform_utils import set_gsettings_values
 from utils.print_utils import print_header
@@ -23,6 +25,7 @@ def setup(option_store: OptionStore):
     package_install_rpmfusion_list: list[str] = []
     package_remove_list: list[str] = []
     script_list: list[str] = []
+    vpn_list: list[OptionToggle] = []
 
     # Process selected options
     for option_list in option_store.get_options_active().values():
@@ -38,7 +41,10 @@ def setup(option_store: OptionStore):
             elif option.operation_type is OperationType.PACKAGE_REMOVE:
                 package_remove_list.extend(option.operation_args)
             elif option.operation_type is OperationType.SCRIPT:
-                script_list.extend(option.operation_args)
+                if option.category is Category.VPN:
+                    vpn_list.append(option)
+                else:
+                    script_list.extend(option.operation_args)
 
     # Check if any packages from RPMFusion are marked for install
     enable_rpmfusion = False
@@ -57,6 +63,16 @@ def setup(option_store: OptionStore):
     # Prompt user for sudo password
     print_header("Prompting for Authentication")
     set_sudo_password()
+
+    # Configure VPN connections
+    for vpn_option in vpn_list:
+        print_header(f"Configuring VPN Connection: '{vpn_option.name}'")
+        for vpn_script in vpn_option.operation_args:
+            try:
+                load_script(vpn_script).execute()
+            except (ConnectionError, CalledProcessError) as err:
+                print(f"VPN configuration failed, {err}")
+                deactivate_caffeine_exit()
 
     # Install packages
     if package_install_list:

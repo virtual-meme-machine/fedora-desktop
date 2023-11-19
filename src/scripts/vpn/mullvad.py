@@ -56,8 +56,8 @@ def execute():
                                     capture_output=True,
                                     check=True,
                                     text=True).stdout.strip()
-    if "Account does not exist" in server_address:
-        raise ConnectionError("Unable to retrieve server address from Mullvad API")
+    if "Account does not exist" in server_address or "KEY_LIMIT_REACHED" in server_address:
+        raise ConnectionError(f"Unable to retrieve server address: {server_address}")
 
     endpoint_data: dict = json.loads(subprocess.run(["/usr/bin/curl", "-LsS",
                                                      "https://api.mullvad.net/public/relays/wireguard/v1/"],

@@ -27,7 +27,7 @@
         "operation_type": "flatpak",
         "operation_args": [
             "com.usebottles.bottles",
-            "org.freedesktop.Platform.VulkanLayer.MangoHud//22.08"
+            "org.freedesktop.Platform.VulkanLayer.MangoHud"
         ]
     },
     {

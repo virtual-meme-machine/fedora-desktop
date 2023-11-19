@@ -11,8 +11,8 @@
         ]
     },
     {
-        "name": "Mullvad VPN",
-        "description": "Configures and enables a WireGuard connection to Mullvad VPN",
+        "name": "Mullvad",
+        "description": "Configures and enables a WireGuard connection to Mullvad",
         "documentation_link": "[Mullvad Website](https://mullvad.net)",
         "default_state": false,
         "category": "vpn",

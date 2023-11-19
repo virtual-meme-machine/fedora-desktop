@@ -6,8 +6,6 @@ FAVORITE_APPS: list[str] = [
     "org.signal.Signal.desktop",
     "org.jitsi.jitsi-meet.desktop",
     "com.vscodium.codium.desktop",
-    "jetbrains-pycharm.desktop",
-    "jetbrains-rider.desktop",
     "com.usebottles.bottles.desktop",
     "steam.desktop",
     "com.spotify.Client.desktop",

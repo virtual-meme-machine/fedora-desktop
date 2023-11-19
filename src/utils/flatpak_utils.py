@@ -26,7 +26,7 @@ def __get_flatpak_list() -> list[str]:
     """
     flatpak_list: list[str] = []
 
-    output = subprocess.run([FLATPAK_EXEC, "list", "--app", "--columns=application"],
+    output = subprocess.run([FLATPAK_EXEC, "list", "--columns=application"],
                             capture_output=True,
                             check=True,
                             text=True).stdout.strip()
