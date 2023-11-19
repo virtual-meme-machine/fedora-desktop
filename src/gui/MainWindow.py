@@ -254,12 +254,7 @@ class MainWindow(Gtk.ApplicationWindow):
         :param button: Button that triggered this method
         :return: None
         """
-        for option_list in self.option_store.get_options().values():
-            for option in option_list:
-                if not option.check_button.get_sensitive():
-                    continue
-
-                option.check_button.set_active(True)
+        self.option_store.set_all(True)
 
     def button_action_unselect_all(self, button: Gtk.Button):
         """
@@ -268,12 +263,7 @@ class MainWindow(Gtk.ApplicationWindow):
         :param button: Button that triggered this method
         :return: None
         """
-        for option_list in self.option_store.get_options().values():
-            for option in option_list:
-                if not option.check_button.get_sensitive():
-                    continue
-
-                option.check_button.set_active(False)
+        self.option_store.set_all(False)
 
     def check_button_action_category_toggle(self, button: Gtk.CheckButton):
         """
@@ -285,10 +275,7 @@ class MainWindow(Gtk.ApplicationWindow):
         if not self.category_check_buttons_active:
             return
 
-        category = from_string(button.get_label())
-        state = button.get_active()
-        for option in self.option_store.get_options().get(category):
-            option.check_button.set_active(state)
+        self.option_store.set_category(from_string(button.get_label()), button.get_active())
 
     def check_button_action_option_toggle(self, button: Gtk.Button or None):
         """

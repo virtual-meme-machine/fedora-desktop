@@ -30,7 +30,7 @@ See [Options](docs/Options.md) for a complete list of actions Fedora Desktop Con
 
 ### Profiles
 
-Fedora Desktop Configurator supports saving and loading pre-defined selected options known as 'profiles'.
+Fedora Desktop Configurator supports saving and loading pre-defined sets of options known as 'profiles'.
 
 See [Profiles](docs/Profiles.md) for more information.
 

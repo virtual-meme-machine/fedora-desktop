@@ -95,6 +95,8 @@ class OptionStore:
                 for category in self.__options_dict.keys():
                     profile_options = profile_data.get(category.value[0])
                     for option in self.__options_dict.get(category):
+                        if not option.can_toggle:
+                            continue
                         option.check_button.set_active(option.name in profile_options)
             print(f"Loaded profile from: '{file_path}'")
             return True
@@ -119,3 +121,25 @@ class OptionStore:
             print(f"Saved profile to: '{file_path}'")
         except Exception as err:
             print(f"Unable to save profile: {err}")
+
+    def set_all(self, new_value: bool):
+        """
+        Sets all options to a new value, skips options that are disabled
+        :param new_value: New value that all options should be set to, example: True
+        :return: None
+        """
+        for category in self.__options_dict.keys():
+            self.set_category(category, new_value)
+
+    def set_category(self, category: Category, new_value: bool):
+        """
+        Sets all options in a category to a new value, skips options that are disabled
+        :param category: Category that we want to toggle, example: Category.APPLICATION
+        :param new_value: New value that the category options should be set to, example: True
+        :return: None
+        """
+        for option in self.__options_dict.get(category):
+            if not option.can_toggle:
+                continue
+
+            option.check_button.set_active(new_value)

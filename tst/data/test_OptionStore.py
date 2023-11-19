@@ -109,6 +109,23 @@ class TestOptionStore:
         assert type(option.operation_args) is list
         assert option.operation_args == TEST_OPTION_DATA.get("operation_args")
 
+    @patch("data.OptionStore.get_fedora_version", new=mock_get_fedora_version_unsupported)
+    def test_get_options_unsupported(self):
+        """
+        Tests OptionStore.get_options() with the following use cases:
+        - Unsupported option is not enabled
+        :return: None
+        """
+        option_store = OptionStore.OptionStore(options_dir=self.temp_dir)
+
+        options = option_store.get_options()
+        options_sub_list = options.get(Category.Category.APPLICATION)
+        option = options_sub_list[0]
+
+        assert option.default_state is False
+        assert option.can_toggle is False
+        assert option.check_button.get_sensitive() is False
+
     def test_get_options_active(self):
         """
         Tests OptionStore.get_options_active() with the following use cases:
@@ -164,6 +181,18 @@ class TestOptionStore:
         self.option_store.profile_load(file_path=self.profile_file)
         assert self.option_store.get_options().get(Category.Category.APPLICATION)[0].check_button.get_active() is True
 
+    @patch("data.OptionStore.get_fedora_version", new=mock_get_fedora_version_unsupported)
+    def test_profile_load_unsupported(self):
+        """
+        Tests OptionStore.profile_load() with the following use cases:
+        - OptionStore.profile_load() does not enable unsupported option
+        :return: None
+        """
+        option_store = OptionStore.OptionStore(options_dir=self.temp_dir)
+
+        assert option_store.profile_load(file_path=self.profile_file) is True
+        assert option_store.get_options().get(Category.Category.APPLICATION)[0].check_button.get_active() is False
+
     def test_profile_save(self, capfd):
         """
         Tests OptionStore.profile_save() with the following use cases:
@@ -184,19 +213,29 @@ class TestOptionStore:
         out, err = capfd.readouterr()
         assert "Unable to save profile" in out
 
-    @patch("data.OptionStore.get_fedora_version", new=mock_get_fedora_version_unsupported)
-    def test_option_is_unsupported(self):
+    def test_set_all(self):
         """
-        Tests OptionStore initialization with the following use cases:
-        - Option does not support the hosts Fedora version
+        Tests OptionStore.set_all() with the following use cases:
+        - OptionStore.set_all(True) sets all options to True
+        - OptionStore.set_all(False) sets all options to False
         :return: None
         """
-        self.option_store = OptionStore.OptionStore(options_dir=self.temp_dir)
+        self.option_store.set_all(new_value=True)
+        assert all(all(option.check_button.get_active() is True for option in option_list)
+                   for option_list in self.option_store.get_options().values())
 
-        options = self.option_store.get_options()
-        options_sub_list = options.get(Category.Category.APPLICATION)
-        option = options_sub_list[0]
+        self.option_store.set_all(new_value=False)
+        assert all(all(option.check_button.get_active() is False for option in option_list)
+                   for option_list in self.option_store.get_options().values())
 
-        assert option.default_state is False
-        assert option.can_toggle is False
-        assert option.check_button.get_sensitive() is False
+    @patch("data.OptionStore.get_fedora_version", new=mock_get_fedora_version_unsupported)
+    def test_set_all_unsupported(self):
+        """
+        Tests OptionStore.set_all() with the following use cases:
+        - OptionStore.set_all(True) does not enable unsupported options
+        :return: None
+        """
+        option_store = OptionStore.OptionStore(options_dir=self.temp_dir)
+
+        option_store.set_all(new_value=True)
+        assert option_store.get_options().get(Category.Category.APPLICATION)[0].check_button.get_active() is False
