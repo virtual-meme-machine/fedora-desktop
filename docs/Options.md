@@ -134,5 +134,5 @@
 | Option | Description | Link |
 | ------ | ----------- | ---- |
 | CryptoStorm | Configures and enables a WireGuard connection to CryptoStorm | [CryptoStorm Website](https://cryptostorm.is) |
-| Mullvad VPN | Configures and enables a WireGuard connection to Mullvad VPN | [Mullvad Website](https://mullvad.net) |
+| Mullvad | Configures and enables a WireGuard connection to Mullvad | [Mullvad Website](https://mullvad.net) |
 
