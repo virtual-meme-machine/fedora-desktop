@@ -1,3 +1,5 @@
+import os
+
 from utils.dnf_utils import install_packages
 from utils.file_utils import write_system_file
 from utils.flatpak_utils import install_flatpaks
@@ -13,6 +15,10 @@ def execute():
     """
     install_packages(["openrgb-udev-rules"])
     install_flatpaks(["org.openrgb.OpenRGB"])
+
+    if os.path.isfile(I2C_DEV_CONF_FILE):
+        print("Kernel module 'i2c-dev' is already set to load on startup")
+        return
 
     print(f"Setting kernel module 'i2c-dev' to load on startup")
     write_system_file(I2C_DEV_CONF_FILE, [I2C_DEV_CONTENTS])
