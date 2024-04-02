@@ -1,5 +1,16 @@
 [
     {
+        "name": "Alphabetical App Grid",
+        "description": "Automatically alphabetizes applications in the app picker",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/4269/alphabetical-app-grid)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "operation_type": "script",
+        "operation_args": [
+            "gnome_extension/alphabetical_app_grid"
+        ]
+    },
+    {
         "name": "ArcMenu",
         "description": "Windows-like Application menu for GNOME Shell",
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3628/arcmenu)",

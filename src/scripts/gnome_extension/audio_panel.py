@@ -18,7 +18,7 @@ SETTINGS: list[dict] = [
     {
         "key": "/org/gnome/shell/extensions/quick-settings-audio-panel/panel-position",
         "value": "'top'"
-    },
+    }
 ]
 
 
