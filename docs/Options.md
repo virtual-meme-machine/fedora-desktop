@@ -80,6 +80,7 @@
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
+| Alphabetical App Grid | Automatically alphabetizes applications in the app picker | [View on Gnome Extensions](https://extensions.gnome.org/extension/4269/alphabetical-app-grid) |
 | AppIndicator and KStatusNotifierItem Support | Enables support for tray icons | [View on Gnome Extensions](https://extensions.gnome.org/extension/615/appindicator-support) |
 | ArcMenu | Windows-like Application menu for GNOME Shell | [View on Gnome Extensions](https://extensions.gnome.org/extension/3628/arcmenu) |
 | Background Logo | Adds a Fedora logo watermark to the wallpaper | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/gnome-shell-extension-background-logo/gnome-shell-extension-background-logo) |
