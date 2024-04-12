@@ -119,7 +119,9 @@
 | Option | Description | Link |
 | ------ | ----------- | ---- |
 | Configure MangoHud | Configures MangoHud and enables it for all Vulkan applications | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/MangoHud.md) |
+| Configure OpenRGB Autostart | Configures OpenRGB to automatically start and apply a default lighting profile on login | N/A |
 | Enable GameCube Controller Adapter for Wii U | Installs udev rules for the GameCube Controller Adapter for Wii U | [View on Dolphin Wiki](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux) |
+| Fix SteamVR | Applies various fixes to address known issues with SteamVR for Linux | N/A |
 | Install Nvidia Drivers | Drivers for modern Nvidia GPUs | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/akmod-nvidia) |
 | Install Unrar | Enables extracting .rar archives | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/unrar) |
 | Install Updates | Installs available updates | N/A |
