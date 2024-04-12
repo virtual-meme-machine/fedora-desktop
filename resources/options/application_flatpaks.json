@@ -12,7 +12,7 @@
     {
         "name": "Blender",
         "description": "Open source 3D creation suite used for 3D modeling, animation, etc.",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -33,7 +33,7 @@
     {
         "name": "FileZilla",
         "description": "FTP client",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -43,7 +43,7 @@
     {
         "name": "FreeCAD",
         "description": "Parametric 3D modeling software",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -63,7 +63,7 @@
     {
         "name": "Gnome Boxes",
         "description": "Simple QEMU virtualization frontend",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -83,7 +83,7 @@
     {
         "name": "GNU Image Manipulation Program (GIMP)",
         "description": "Photo editor with a variety of features, similar to Adobe Photoshop",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -93,7 +93,7 @@
     {
         "name": "Inkscape",
         "description": "SVG editor",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -103,7 +103,7 @@
     {
         "name": "Jitsi Meet",
         "description": "Encrypted video conferencing application, similar to Skype or Zoom",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -113,7 +113,7 @@
     {
         "name": "Kdenlive",
         "description": "Non linear video editor, similar to Adobe Premier or Sony Vegas",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -133,7 +133,7 @@
     {
         "name": "Metadata Cleaner",
         "description": "Scrubs metadata from files",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -143,7 +143,7 @@
     {
         "name": "OBS Studio",
         "description": "Recording and streaming workstation",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -163,7 +163,7 @@
     {
         "name": "Parabolic",
         "description": "Simple video downloader that supports multiple services such as YouTube",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -183,7 +183,7 @@
     {
         "name": "PrusaSlicer",
         "description": "3D model slicer for use with 3D printers",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -193,7 +193,7 @@
     {
         "name": "qBittorrent",
         "description": "Modern BitTorrent client",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -203,7 +203,7 @@
     {
         "name": "Samplebrain",
         "description": "Sample mashing application designed by Aphex Twin",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -223,7 +223,7 @@
     {
         "name": "Spotify",
         "description": "Official client for the Spotify music streaming platform",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -233,7 +233,7 @@
     {
         "name": "SGDBoop",
         "description": "Helps apply custom assets from SteamGridDB",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -243,7 +243,7 @@
     {
         "name": "Steam ROM Manager",
         "description": "Utility for adding custom emulator shortcuts to Steam",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
@@ -283,7 +283,7 @@
     {
         "name": "WatchMate",
         "description": "Manager for the Pine64 PineTime smart watch",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [

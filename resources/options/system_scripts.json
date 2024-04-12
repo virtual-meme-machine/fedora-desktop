@@ -24,7 +24,7 @@
         "name": "Enable GameCube Controller Adapter for Wii U",
         "description": "Installs udev rules for the GameCube Controller Adapter for Wii U",
         "documentation_link": "[View on Dolphin Wiki](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)",
-        "default_state": true,
+        "default_state": false,
         "category": "system",
         "operation_type": "script",
         "operation_args": [

@@ -12,7 +12,7 @@
     {
         "name": "dconf Editor",
         "description": "GUI for viewing and modifying dconf, similar to Windows' regedit",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "package_install",
         "operation_args": [

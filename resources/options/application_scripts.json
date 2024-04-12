@@ -3,7 +3,7 @@
         "name": "JetBrains Toolbox",
         "description": "Manager for JetBrains products such as Android Studio, Rider, and PyCharm",
         "documentation_link": "[View on JetBrains Website](https://www.jetbrains.com/toolbox-app)",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "script",
         "operation_args": [
@@ -25,7 +25,7 @@
         "name": "tinyMediaManager",
         "description": "Media library management tool",
         "documentation_link": "[tinyMediaManager Website](https://www.tinymediamanager.org)",
-        "default_state": true,
+        "default_state": false,
         "category": "application",
         "operation_type": "script",
         "operation_args": [

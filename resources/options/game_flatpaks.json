@@ -2,7 +2,7 @@
     {
         "name": "AM2RLauncher",
         "description": "Fan remake of Metroid II: Return of Samus",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -12,7 +12,7 @@
     {
         "name": "DevilutionX",
         "description": "Enhanced source port of Diablo 1",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -22,7 +22,7 @@
     {
         "name": "ET: Legacy",
         "description": "Enhanced source port of Wolfenstein: Enemy Territory",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -32,7 +32,7 @@
     {
         "name": "Mindustry",
         "description": "Sandbox tower-defense game",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -42,7 +42,7 @@
     {
         "name": "OpenMW",
         "description": "Open-source re-implementation of The Elder Scrolls III: Morrowind",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -52,7 +52,7 @@
     {
         "name": "OpenRCT2",
         "description": "Open-source re-implementation of Roller Coaster Tycoon 2",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -62,7 +62,7 @@
     {
         "name": "OpenSpades",
         "description": "Open-source re-implementation of Ace of Spades 0.75",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -72,7 +72,7 @@
     {
         "name": "PolyMC",
         "description": "Configurable Java Minecraft launcher",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -82,7 +82,7 @@
     {
         "name": "Quadrapassel",
         "description": "Basic Tetris clone",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -92,7 +92,7 @@
     {
         "name": "Sonic 3: Angel Island Revisited",
         "description": "Enhanced version of Sonic 3 & Knuckles",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -102,7 +102,7 @@
     {
         "name": "Sonic Robo Blast 2 Kart",
         "description": "Genesis era Sonic themed kart racer with online multiplayer",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -112,7 +112,7 @@
     {
         "name": "Space Cadet Pinball",
         "description": "Source port of 3D Pinball for Windows - Space Cadet",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -122,7 +122,7 @@
     {
         "name": "Unciv",
         "description": "Open-source remake of Civilization V",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [
@@ -132,7 +132,7 @@
     {
         "name": "Vintage Story",
         "description": "Wilderness survival sandbox game inspired by lovecraftian horror themes",
-        "default_state": true,
+        "default_state": false,
         "category": "game",
         "operation_type": "flatpak",
         "operation_args": [

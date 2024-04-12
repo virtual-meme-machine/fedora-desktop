@@ -3,7 +3,7 @@
         "name": "Alphabetical App Grid",
         "description": "Automatically alphabetizes applications in the app picker",
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/4269/alphabetical-app-grid)",
-        "default_state": false,
+        "default_state": true,
         "category": "gnome_extension",
         "operation_type": "script",
         "operation_args": [
