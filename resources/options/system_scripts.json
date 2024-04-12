@@ -11,6 +11,16 @@
         ]
     },
     {
+        "name": "Configure OpenRGB Autostart",
+        "description": "Configures OpenRGB to automatically start and apply a default lighting profile on login",
+        "default_state": true,
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "configure_openrgb_autostart"
+        ]
+    },
+    {
         "name": "Enable GameCube Controller Adapter for Wii U",
         "description": "Installs udev rules for the GameCube Controller Adapter for Wii U",
         "documentation_link": "[View on Dolphin Wiki](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)",
@@ -19,6 +29,16 @@
         "operation_type": "script",
         "operation_args": [
             "enable_gc_adapter"
+        ]
+    },
+    {
+        "name": "Fix SteamVR",
+        "description": "Applies various fixes to address known issues with SteamVR for Linux",
+        "default_state": false,
+        "category": "system",
+        "operation_type": "script",
+        "operation_args": [
+            "fix_steamvr"
         ]
     },
     {
