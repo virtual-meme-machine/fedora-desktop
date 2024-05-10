@@ -5,7 +5,8 @@ from utils.flatpak_utils import is_flatpak_installed
 
 PROFILE_NAME: str = "Default"
 
-AUTOSTART_DESKTOP_FILE: str = os.path.expanduser("~/.config/autostart/org.openrgb.OpenRGB.desktop")
+AUTOSTART_DIR: str = os.path.expanduser("~/.config/autostart")
+AUTOSTART_DESKTOP_FILE: str = os.path.join(AUTOSTART_DIR, "org.openrgb.OpenRGB.desktop")
 AUTOSTART_DESKTOP_CONTENTS: str = f"""
 [Desktop Entry]
 Type=Application
@@ -40,9 +41,10 @@ def execute():
         print("OpenRGB is not installed, unable to configure autostart")
         return
 
-    # Create OpenRBG data directory
-    if not os.path.exists(OPENRGB_DATA_DIR):
-        os.makedirs(OPENRGB_DATA_DIR)
+    # Create autostart directory and OpenRBG data directory if needed
+    for directory in [AUTOSTART_DIR, OPENRGB_DATA_DIR]:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
     # Create autostart .desktop
     if os.path.isfile(AUTOSTART_DESKTOP_FILE):
