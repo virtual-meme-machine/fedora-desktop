@@ -26,6 +26,7 @@ UTILITIES_FOLDER: list[str] = [
     "org.gnome.FileRoller.desktop",
     "org.gnome.font-viewer.desktop",
     "org.gnome.Settings.desktop",
+    "org.gnome.SystemMonitor.desktop",
     "org.gnome.TextEditor.desktop",
     "org.gnome.tweaks.desktop",
     "simple-scan.desktop",
