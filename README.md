@@ -2,7 +2,7 @@
 
 Automated post-installation configuration tool for Fedora Linux (Workstation Edition).
 
-Supports Fedora Linux 37, 38 and 39 as of November 2023.
+Supports Fedora Linux 38, 39 and 40 as of June 2024.
 
 ![preview](docs/images/preview.png)
 
@@ -12,10 +12,10 @@ See [Options](docs/Options.md) for a complete list of actions Fedora Desktop Con
 
 ## Usage
 
-1. Install [Fedora Linux](https://www.fedoraproject.org/en/workstation/download)
-    1. [Fedora Linux 39 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/39/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-39-1.5.iso)
-    2. [Fedora Linux 38 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-38-1.6.iso)
-    3. [Fedora Linux 37 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/37/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-37-1.7.iso)
+1. Install [Fedora Linux (Workstation Edition)](https://www.fedoraproject.org/en/workstation/download)
+   1. [Fedora Linux 40 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/40/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-40-1.14.iso)
+   2. [Fedora Linux 39 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/39/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-39-1.5.iso)
+   3. [Fedora Linux 38 Live ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-38-1.6.iso)
 2. Perform initial setup (create an account, etc.), most options can be skipped or left default
 3. Once at the desktop, open a terminal and git clone this package:
     ```bash
