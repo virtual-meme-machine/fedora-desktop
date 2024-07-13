@@ -6,9 +6,9 @@ from utils.dnf_utils import install_packages
 from utils.file_utils import download_file
 from utils.platform_utils import symlink_to_local_bin
 
-DESKTOP_FILE: str = os.path.expanduser("~/.local/share/applications/tiny-media-manager.desktop")
-DOWNLOAD_URL: str = "https://archive.tinymediamanager.org/v4.3.11.1/tmm_4.3.11.1_linux-amd64.tar.gz"
-INSTALL_DIR: str = os.path.expanduser("~/.local/share/tiny-media-manager")
+DESKTOP_FILE: str = os.path.expanduser("~/.local/share/applications/tinyMediaManager.desktop")
+DOWNLOAD_URL: str = "https://archive.tinymediamanager.org/v5.0.7/tinyMediaManager-5.0.7-linux-amd64.tar.xz"
+INSTALL_DIR: str = os.path.expanduser("~/.local/share/tinyMediaManager")
 TMM_EXEC: str = os.path.join(INSTALL_DIR, "tinyMediaManager")
 TMM_ICON: str = os.path.join(INSTALL_DIR, "tmm.png")
 
