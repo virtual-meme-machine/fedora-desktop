@@ -1,5 +1,16 @@
 [
     {
+        "name": "ALVR Launcher",
+        "description": "Stream VR games from your PC to your headset via Wi-Fi",
+        "documentation_link": "[View on GitHub](https://github.com/alvr-org/alvr)",
+        "default_state": false,
+        "category": "application",
+        "operation_type": "script",
+        "operation_args": [
+            "application/alvr_launcher"
+        ]
+    },
+    {
         "name": "JetBrains Toolbox",
         "description": "Manager for JetBrains products such as Android Studio, Rider, and PyCharm",
         "documentation_link": "[View on JetBrains Website](https://www.jetbrains.com/toolbox-app)",
