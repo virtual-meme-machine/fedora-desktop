@@ -4,6 +4,7 @@
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
+| ALVR Launcher | Stream VR games from your PC to your headset via Wi-Fi | [View on GitHub](https://github.com/alvr-org/alvr) |
 | Archive Manager | Advanced archive manager | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/file-roller/file-roller) |
 | Bitwarden | Popular free and open source password manager | [View on Flathub](https://flathub.org/apps/com.bitwarden.desktop) |
 | Blender | Open source 3D creation suite used for 3D modeling, animation, etc. | [View on Flathub](https://flathub.org/apps/org.blender.Blender) |
