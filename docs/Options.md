@@ -38,7 +38,7 @@
 | Steam ROM Manager | Utility for adding custom emulator shortcuts to Steam | [View on Flathub](https://flathub.org/apps/com.steamgriddb.steam-rom-manager) |
 | Steam | Ubiquitous PC gaming platform | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/Steam.md) |
 | tinyMediaManager | Media library management tool | [tinyMediaManager Website](https://www.tinymediamanager.org) |
-| UnGoogled Chromium | Chromium fork with Google dependencies removed | [View on Flathub](https://flathub.org/apps/com.github.Eloston.UngoogledChromium) |
+| UnGoogled Chromium | Chromium fork with Google dependencies removed | [View on Flathub](https://flathub.org/apps/io.github.ungoogled_software.ungoogled_chromium) |
 | Unity Hub | Launcher / version manager for Unity engine development tools | [Unity Website](https://unity.com/) |
 | VLC Media Player | Popular open-source media player that supports most formats | [View on Flathub](https://flathub.org/apps/org.videolan.VLC) |
 | VSCodium | Feature rich text editor based on Visual Studio Code | [View on Flathub](https://flathub.org/apps/com.vscodium.codium) |
@@ -106,7 +106,6 @@
 | Clock - Show Week Day | Makes the week day visible in the top bar's clock | N/A |
 | Files - Default to List View | Sets Files' default view to 'List View' | N/A |
 | Files - Sort Folders Before Files | Sorts folders before files in Files | N/A |
-| Image Viewer - Disable Filtering | Disables filtering (blurring) in the Gnome Image Viewer | N/A |
 | Shell - Apply Blobs Wallpaper | Applies the 'Blobs' wallpaper | N/A |
 | Shell - Apply Dark Mode | Applies the system dark theme | N/A |
 | Shell - Disable Autorun | Disables automatic opening of connected devices | N/A |
