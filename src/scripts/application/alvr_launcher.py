@@ -5,7 +5,7 @@ import tempfile
 from utils.file_utils import download_file
 
 DESKTOP_FILE: str = os.path.expanduser("~/.local/share/applications/ALVR-Launcher.desktop")
-DOWNLOAD_URL: str = "https://github.com/alvr-org/ALVR/releases/download/v20.9.1/alvr_launcher_linux.tar.gz"
+DOWNLOAD_URL: str = "https://github.com/alvr-org/ALVR/releases/download/v20.11.1/alvr_launcher_linux.tar.gz"
 INSTALL_DIR: str = os.path.expanduser("~/.local/share/ALVR-Launcher")
 ALVR_LAUNCHER_EXEC: str = os.path.join(INSTALL_DIR, "ALVR Launcher")
 ALVR_ICON_PATH: str = os.path.join(INSTALL_DIR, "alvr.png")
