@@ -11,7 +11,7 @@ FAVORITE_APPS: list[str] = [
     "com.spotify.Client.desktop",
     "io.freetubeapp.FreeTube.desktop",
     "org.videolan.VLC.desktop",
-    "org.gnome.Terminal.desktop",
+    "org.gnome.Ptyxis.desktop",
     "org.gnome.Software.desktop"
 ]
 
