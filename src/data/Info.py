@@ -5,9 +5,9 @@ from data.Paths import PACKAGE_ROOT
 APPLICATION_AUTHOR: str = "virtual-meme-machine"
 APPLICATION_ID: str = "com.virtual.meme.machine.fedora.setup"
 APPLICATION_NAME: str = "Fedora Desktop Configurator"
-APPLICATION_VERSION: str = "3.4.2"
+APPLICATION_VERSION: str = "3.4.3"
 
-SUPPORTED_FEDORA_VERSIONS: list[int] = [39, 40, 41]
+SUPPORTED_FEDORA_VERSIONS: list[int] = [41]
 
 
 def get_application_version(package_root: str = PACKAGE_ROOT) -> str:

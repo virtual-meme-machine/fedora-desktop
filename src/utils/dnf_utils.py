@@ -3,7 +3,7 @@ import subprocess
 from utils.platform_utils import get_fedora_version
 from utils.sudo_utils import run_command_as_sudo
 
-DNF_EXEC: str = "/usr/bin/dnf"
+DNF_EXEC: str = "/usr/bin/dnf5"
 DNF_NON_INTERACTIVE_FLAG: str = "--assumeyes"
 
 
@@ -34,7 +34,7 @@ def __get_package_list() -> list[str]:
     """
     package_list: list[str] = []
 
-    output = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "list", "installed"],
+    output = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "list", "--installed"],
                             capture_output=True, check=True, text=True).stdout.strip()
     for line in output.split("\n"):
         if line == "Installed Packages":
@@ -84,7 +84,7 @@ def auto_remove_packages():
     :return: None
     """
     print("Checking for unused dependency packages...")
-    check = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "list", "autoremove"],
+    check = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "list", "--autoremove"],
                            capture_output=True, check=True, text=True).stdout
 
     if "Autoremove Packages" not in check:
@@ -123,14 +123,14 @@ def install_updates():
     :return: None
     """
     print("Checking for package updates...")
-    check = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "check-update", "--refresh"],
+    check = subprocess.run([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "check-upgrade", "--refresh"],
                            stdout=subprocess.DEVNULL)
 
     if check.returncode == 0:
         print("No updates available")
         return
 
-    run_command_as_sudo([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "update", "--refresh"])
+    run_command_as_sudo([DNF_EXEC, DNF_NON_INTERACTIVE_FLAG, "upgrade", "--refresh"])
 
 
 def is_package_installed(package_name: str) -> bool:

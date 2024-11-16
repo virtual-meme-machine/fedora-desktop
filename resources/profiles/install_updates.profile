@@ -5,8 +5,7 @@
     "gnome_extension": [],
     "setting": [],
     "system": [
-        "Install Updates",
-        "Set App Picker Layout"
+        "Install Updates"
     ],
     "vpn": []
 }

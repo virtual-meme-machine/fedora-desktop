@@ -257,7 +257,7 @@
         "category": "application",
         "operation_type": "flatpak",
         "operation_args": [
-            "com.github.Eloston.UngoogledChromium"
+            "io.github.ungoogled_software.ungoogled_chromium"
         ]
     },
     {
