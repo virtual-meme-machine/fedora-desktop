@@ -73,9 +73,9 @@ def mock_subprocess_run_invalid(args: list[str] = [],
     :return: MockCompletedProcess object
     """
     print(f"mock_subprocess_run_valid called: '{args}'")
-    if args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "list", "autoremove"]:
+    if args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "list", "--autoremove"]:
         return MockCompletedProcess(stdout="null")  # No packages can be removed
-    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "check-update", "--refresh"]:
+    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "check-upgrade", "--refresh"]:
         return MockCompletedProcess(returncode=0)  # No updates can be installed
 
 
@@ -94,11 +94,11 @@ def mock_subprocess_run_valid(args: list[str] = [],
     :return: MockCompletedProcess object
     """
     print(f"mock_subprocess_run_valid called: '{args}'")
-    if args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "list", "autoremove"]:
+    if args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "list", "--autoremove"]:
         return MockCompletedProcess(stdout="Autoremove Packages")  # Packages can be removed
-    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "check-update", "--refresh"]:
+    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "check-upgrade", "--refresh"]:
         return MockCompletedProcess(returncode=1)  # Updates can be installed
-    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "list", "installed"]:
+    elif args == [dnf_utils.DNF_EXEC, dnf_utils.DNF_NON_INTERACTIVE_FLAG, "list", "--installed"]:
         return MockCompletedProcess(stdout="Installed Packages\n"
                                            "ModemManager.x86_64               "
                                            "1.18.12-1.fc37                    "
