@@ -5,77 +5,77 @@
 | Option | Description | Link |
 | ------ | ----------- | ---- |
 | ALVR Launcher | Stream VR games from your PC to your headset via Wi-Fi | [View on GitHub](https://github.com/alvr-org/alvr) |
-| Archive Manager | Advanced archive manager | N/A |
-| Bitwarden | Popular free and open source password manager | N/A |
-| Blender | Open source 3D creation suite used for 3D modeling, animation, etc. | N/A |
-| Bottles | Easy to use launcher for running Windows applications | N/A |
-| dconf Editor | GUI for viewing and modifying dconf, similar to Windows' regedit | N/A |
-| FileZilla | FTP client | N/A |
-| FreeCAD | Parametric 3D modeling software | N/A |
-| FreeTube | Privacy focused YouTube client | N/A |
-| Gnome Boxes | Simple QEMU virtualization frontend | N/A |
-| Gnome Extension Manager | Utility for browsing and installing GNOME Shell Extensions | N/A |
-| Gnome Tweaks | GUI for configuring advanced Gnome settings | N/A |
-| GNU Image Manipulation Program (GIMP) | Photo editor with a variety of features, similar to Adobe Photoshop | N/A |
-| Inkscape | SVG editor | N/A |
+| Archive Manager | Advanced archive manager | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/file-roller/file-roller) |
+| Bitwarden | Popular free and open source password manager | [View on Flathub](https://flathub.org/apps/com.bitwarden.desktop) |
+| Blender | Open source 3D creation suite used for 3D modeling, animation, etc. | [View on Flathub](https://flathub.org/apps/org.blender.Blender) |
+| Bottles | Easy to use launcher for running Windows applications | [View on Flathub](https://flathub.org/apps/com.usebottles.bottles) |
+| dconf Editor | GUI for viewing and modifying dconf, similar to Windows' regedit | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/dconf-editor/dconf-editor) |
+| FileZilla | FTP client | [View on Flathub](https://flathub.org/apps/org.filezillaproject.Filezilla) |
+| FreeCAD | Parametric 3D modeling software | [View on Flathub](https://flathub.org/apps/org.freecadweb.FreeCAD) |
+| FreeTube | Privacy focused YouTube client | [View on Flathub](https://flathub.org/apps/io.freetubeapp.FreeTube) |
+| Gnome Boxes | Simple QEMU virtualization frontend | [View on Flathub](https://flathub.org/apps/org.gnome.Boxes) |
+| Gnome Extension Manager | Utility for browsing and installing GNOME Shell Extensions | [View on Flathub](https://flathub.org/apps/com.mattjakeman.ExtensionManager) |
+| Gnome Tweaks | GUI for configuring advanced Gnome settings | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/gnome-tweaks/gnome-tweaks) |
+| GNU Image Manipulation Program (GIMP) | Photo editor with a variety of features, similar to Adobe Photoshop | [View on Flathub](https://flathub.org/apps/org.gimp.GIMP) |
+| Inkscape | SVG editor | [View on Flathub](https://flathub.org/apps/org.inkscape.Inkscape) |
 | JetBrains Toolbox | Manager for JetBrains products such as Android Studio, Rider, and PyCharm | [View on JetBrains Website](https://www.jetbrains.com/toolbox-app) |
-| Jitsi Meet | Encrypted video conferencing application, similar to Skype or Zoom | N/A |
-| Kdenlive | Non linear video editor, similar to Adobe Premier or Sony Vegas | N/A |
-| LibreWolf | Firefox fork with enhanced privacy and security | N/A |
+| Jitsi Meet | Encrypted video conferencing application, similar to Skype or Zoom | [View on Flathub](https://flathub.org/apps/org.jitsi.jitsi-meet) |
+| Kdenlive | Non linear video editor, similar to Adobe Premier or Sony Vegas | [View on Flathub](https://flathub.org/apps/org.kde.kdenlive) |
+| LibreWolf | Firefox fork with enhanced privacy and security | [View on Flathub](https://flathub.org/apps/io.gitlab.librewolf-community) |
 | MangoHud | In game performance monitoring overlay, similar to MSI Afterburner | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/MangoHud.md) |
-| Metadata Cleaner | Scrubs metadata from files | N/A |
-| OBS Studio | Recording and streaming workstation | N/A |
-| OnlyOffice Desktop Editors | Office productivity suite, similar to Microsoft Office | N/A |
+| Metadata Cleaner | Scrubs metadata from files | [View on Flathub](https://flathub.org/apps/fr.romainvigier.MetadataCleaner) |
+| OBS Studio | Recording and streaming workstation | [View on Flathub](https://flathub.org/apps/com.obsproject.Studio) |
+| OnlyOffice Desktop Editors | Office productivity suite, similar to Microsoft Office | [View on Flathub](https://flathub.org/apps/org.onlyoffice.desktopeditors) |
 | OpenRGB | Unified interface for managing RGB hardware and peripherals | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/OpenRGB.md) |
-| Parabolic | Simple video downloader that supports multiple services such as YouTube | N/A |
-| ProtonUp-Qt | Proton (Windows application compatibility layer) version manager | N/A |
-| PrusaSlicer | 3D model slicer for use with 3D printers | N/A |
-| qBittorrent | Modern BitTorrent client | N/A |
-| Samplebrain | Sample mashing application designed by Aphex Twin | N/A |
-| SGDBoop | Helps apply custom assets from SteamGridDB | N/A |
-| Signal Desktop | Encrypted communication platform, similar to WhatsApp | N/A |
-| Spotify | Official client for the Spotify music streaming platform | N/A |
-| Steam ROM Manager | Utility for adding custom emulator shortcuts to Steam | N/A |
+| Parabolic | Simple video downloader that supports multiple services such as YouTube | [View on Flathub](https://flathub.org/apps/org.nickvision.tubeconverter) |
+| ProtonUp-Qt | Proton (Windows application compatibility layer) version manager | [View on Flathub](https://flathub.org/apps/net.davidotek.pupgui2) |
+| PrusaSlicer | 3D model slicer for use with 3D printers | [View on Flathub](https://flathub.org/apps/com.prusa3d.PrusaSlicer) |
+| qBittorrent | Modern BitTorrent client | [View on Flathub](https://flathub.org/apps/org.qbittorrent.qBittorrent) |
+| Samplebrain | Sample mashing application designed by Aphex Twin | [View on Flathub](https://flathub.org/apps/org.thentrythis.Samplebrain) |
+| SGDBoop | Helps apply custom assets from SteamGridDB | [View on Flathub](https://flathub.org/apps/com.steamgriddb.SGDBoop) |
+| Signal Desktop | Encrypted communication platform, similar to WhatsApp | [View on Flathub](https://flathub.org/apps/org.signal.Signal) |
+| Spotify | Official client for the Spotify music streaming platform | [View on Flathub](https://flathub.org/apps/com.spotify.Client) |
+| Steam ROM Manager | Utility for adding custom emulator shortcuts to Steam | [View on Flathub](https://flathub.org/apps/com.steamgriddb.steam-rom-manager) |
 | Steam | Ubiquitous PC gaming platform | [View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/Steam.md) |
 | tinyMediaManager | Media library management tool | [tinyMediaManager Website](https://www.tinymediamanager.org) |
-| UnGoogled Chromium | Chromium fork with Google dependencies removed | N/A |
+| UnGoogled Chromium | Chromium fork with Google dependencies removed | [View on Flathub](https://flathub.org/apps/io.github.ungoogled_software.ungoogled_chromium) |
 | Unity Hub | Launcher / version manager for Unity engine development tools | [Unity Website](https://unity.com/) |
-| VLC Media Player | Popular open-source media player that supports most formats | N/A |
-| VSCodium | Feature rich text editor based on Visual Studio Code | N/A |
-| WatchMate | Manager for the Pine64 PineTime smart watch | N/A |
+| VLC Media Player | Popular open-source media player that supports most formats | [View on Flathub](https://flathub.org/apps/org.videolan.VLC) |
+| VSCodium | Feature rich text editor based on Visual Studio Code | [View on Flathub](https://flathub.org/apps/com.vscodium.codium) |
+| WatchMate | Manager for the Pine64 PineTime smart watch | [View on Flathub](https://flathub.org/apps/io.gitlab.azymohliad.WatchMate) |
 
 ## Install Emulators
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
-| bsnes | Super Nintendo Entertainment System (SNES) emulator | N/A |
-| Dolphin Emulator | Nintendo GameCube and Nintendo Wii emulator | N/A |
-| DuckStation | Sony PlayStation (PS1) emulator | N/A |
-| mGBA | Nintendo GameBoy Advance emulator | N/A |
-| Parallel Launcher | Nintendo 64 emulator | N/A |
-| PCSX2 | Sony PlayStation 2 emulator | N/A |
-| PPSSPP | Sony PlayStation Portable (PSP) emulator | N/A |
-| Ryujinx | Nintendo Switch emulator | N/A |
-| Xemu | Microsoft Xbox emulator | N/A |
+| bsnes | Super Nintendo Entertainment System (SNES) emulator | [View on Flathub](https://flathub.org/apps/dev.bsnes.bsnes) |
+| Dolphin Emulator | Nintendo GameCube and Nintendo Wii emulator | [View on Flathub](https://flathub.org/apps/org.DolphinEmu.dolphin-emu) |
+| DuckStation | Sony PlayStation (PS1) emulator | [View on Flathub](https://flathub.org/apps/org.duckstation.DuckStation) |
+| mGBA | Nintendo GameBoy Advance emulator | [View on Flathub](https://flathub.org/apps/io.mgba.mGBA) |
+| Parallel Launcher | Nintendo 64 emulator | [View on Flathub](https://flathub.org/apps/ca.parallel_launcher.ParallelLauncher) |
+| PCSX2 | Sony PlayStation 2 emulator | [View on Flathub](https://flathub.org/apps/net.pcsx2.PCSX2) |
+| PPSSPP | Sony PlayStation Portable (PSP) emulator | [View on Flathub](https://flathub.org/apps/org.ppsspp.PPSSPP) |
+| Ryujinx | Nintendo Switch emulator | [View on Flathub](https://flathub.org/apps/org.ryujinx.Ryujinx) |
+| Xemu | Microsoft Xbox emulator | [View on Flathub](https://flathub.org/apps/app.xemu.xemu) |
 
 ## Install Games
 
 | Option | Description | Link |
 | ------ | ----------- | ---- |
-| AM2RLauncher | Fan remake of Metroid II: Return of Samus | N/A |
-| DevilutionX | Enhanced source port of Diablo 1 | N/A |
-| ET: Legacy | Enhanced source port of Wolfenstein: Enemy Territory | N/A |
-| Mindustry | Sandbox tower-defense game | N/A |
-| OpenMW | Open-source re-implementation of The Elder Scrolls III: Morrowind | N/A |
-| OpenRCT2 | Open-source re-implementation of Roller Coaster Tycoon 2 | N/A |
-| OpenSpades | Open-source re-implementation of Ace of Spades 0.75 | N/A |
-| PolyMC | Configurable Java Minecraft launcher | N/A |
-| Quadrapassel | Basic Tetris clone | N/A |
-| Sonic 3: Angel Island Revisited | Enhanced version of Sonic 3 & Knuckles | N/A |
-| Sonic Robo Blast 2 Kart | Genesis era Sonic themed kart racer with online multiplayer | N/A |
-| Space Cadet Pinball | Source port of 3D Pinball for Windows - Space Cadet | N/A |
-| Unciv | Open-source remake of Civilization V | N/A |
-| Vintage Story | Wilderness survival sandbox game inspired by lovecraftian horror themes | N/A |
+| AM2RLauncher | Fan remake of Metroid II: Return of Samus | [View on Flathub](https://flathub.org/apps/io.github.am2r_community_developers.AM2RLauncher) |
+| DevilutionX | Enhanced source port of Diablo 1 | [View on Flathub](https://flathub.org/apps/org.diasurgical.DevilutionX) |
+| ET: Legacy | Enhanced source port of Wolfenstein: Enemy Territory | [View on Flathub](https://flathub.org/apps/com.etlegacy.ETLegacy) |
+| Mindustry | Sandbox tower-defense game | [View on Flathub](https://flathub.org/apps/com.github.Anuken.Mindustry) |
+| OpenMW | Open-source re-implementation of The Elder Scrolls III: Morrowind | [View on Flathub](https://flathub.org/apps/org.openmw.OpenMW) |
+| OpenRCT2 | Open-source re-implementation of Roller Coaster Tycoon 2 | [View on Flathub](https://flathub.org/apps/io.openrct2.OpenRCT2) |
+| OpenSpades | Open-source re-implementation of Ace of Spades 0.75 | [View on Flathub](https://flathub.org/apps/jp.yvt.OpenSpades) |
+| PolyMC | Configurable Java Minecraft launcher | [View on Flathub](https://flathub.org/apps/org.polymc.PolyMC) |
+| Quadrapassel | Basic Tetris clone | [View on Flathub](https://flathub.org/apps/org.gnome.Quadrapassel) |
+| Sonic 3: Angel Island Revisited | Enhanced version of Sonic 3 & Knuckles | [View on Flathub](https://flathub.org/apps/org.sonic3air.Sonic3AIR) |
+| Sonic Robo Blast 2 Kart | Genesis era Sonic themed kart racer with online multiplayer | [View on Flathub](https://flathub.org/apps/org.srb2.SRB2Kart) |
+| Space Cadet Pinball | Source port of 3D Pinball for Windows - Space Cadet | [View on Flathub](https://flathub.org/apps/com.github.k4zmu2a.spacecadetpinball) |
+| Unciv | Open-source remake of Civilization V | [View on Flathub](https://flathub.org/apps/io.github.yairm210.unciv) |
+| Vintage Story | Wilderness survival sandbox game inspired by lovecraftian horror themes | [View on Flathub](https://flathub.org/apps/at.vintagestory.VintageStory) |
 
 ## Install Gnome Shell Extensions
 
@@ -122,8 +122,8 @@
 | Configure OpenRGB Autostart | Configures OpenRGB to automatically start and apply a default lighting profile on login | N/A |
 | Enable GameCube Controller Adapter for Wii U | Installs udev rules for the GameCube Controller Adapter for Wii U | [View on Dolphin Wiki](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux) |
 | Fix SteamVR | Applies various fixes to address known issues with SteamVR for Linux | N/A |
-| Install Nvidia Drivers | Drivers for modern Nvidia GPUs | N/A |
-| Install Unrar | Enables extracting .rar archives | N/A |
+| Install Nvidia Drivers | Drivers for modern Nvidia GPUs | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/akmod-nvidia) |
+| Install Unrar | Enables extracting .rar archives | [View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/unrar) |
 | Install Updates | Installs available updates | N/A |
 | Remove Firefox | Uninstalls Mozilla Firefox | [View on Fedora Packages](https://packages.fedoraproject.org/pkgs/firefox/firefox) |
 | Remove Gnome Bloat | Uninstalls useless Gnome applications such as Gnome Clocks | N/A |
