@@ -32,40 +32,60 @@ To add a new option:
             - `"setting"`
             - `"system"`
             - `"vpn"`
-    - `"operation_type": "example"` - `string` that tells the application which operation to preform for the option
-        - Available Operation Types:
-            - `"flatpak"` - Installs a flatpak
-            - `"gsettings_value"` - Sets a GSettings value
-            - `"package_install"` - Installs an RPM package
-            - `"package_install_rpmfusion"` - Installs an RPM pacakge from RPM Fusion
-            - `"package_remove"` - Removes an RPM package
-            - `"script"` - Executes a script, see [Adding a New Script](#adding-a-new-script)
-    - `"operation_args": ["args"]` - `list[string]` that tells the operation what to do for the option
-        - Argument values vary based on operation type:
-            - `"flatpak"` - List of flatpak IDs, example: `["com.bitwarden.desktop"]`
-                - `"gsettings_value"` - List of dictionaries containing GSettings data, example:
-                    - ```json
-                      {
-                           "schema": "org.gnome.desktop.calendar",
-                           "key": "show-weekdate",
-                           "value": "true"
-                      }
-                      ```
-            - `"package_install"` - List of package names, example: `["firefox"]`
-            - `"package_install_rpmfusion"` - List of RPM Fusion package names, example: `["steam"]`
-            - `"package_remove"` - List of package names, example: `["firefox"]`
-            - `"script"` - List of script names, example: `["gnome_extension/ding"]`
+    - `"actions": ["args"]` - `list[dict]` list of dictionaries that define the actions preformed by this option
+        - Action Parameters:
+            - `"operation_type": "example"` - `string` that tells the application which operation to preform for the option
+                - Available Operation Types:
+                    - `"dconf_value"` - Sets dconf values
+                    - `"flatpak"` - Installs flatpaks
+                    - `"gnome_extension_enable"` - Enables a Gnome extension
+                    - `"gnome_extension_install"` - Installs a Gnome extension from https://extensions.gnome.org
+                    - `"gsettings_value"` - Sets GSettings values
+                    - `"package_install"` - Installs RPM packages
+                    - `"package_install_rpmfusion"` - Installs RPM pacakges from RPM Fusion
+                    - `"package_remove"` - Removes RPM packages
+                    - `"script"` - Executes a script, see [Adding a New Script](#adding-a-new-script)
+                    - `"vpn_script"` - Configures a VPN
+            - `"operation_args": ["args"]` - `list[string]` that tells the operation what to do for the option
+                - Argument values vary based on operation type:
+                    - `"dconf_value"` - List of dictionaries containing dconf data, example:
+                        - ```json
+                          {
+                              "key": "/org/gnome/shell/extensions/quick-settings-audio-panel/always-show-input-slider",
+                              "value": "true"
+                          }
+                          ```
+                    - `"flatpak"` - List of flatpak IDs, example: `["com.bitwarden.desktop"]`
+                    - `"gnome_extension_enable"` - List of Gnome extension IDs, example: `["gSnap@micahosborne"]`
+                    - `"gnome_extension_install"` - List of Gnome extension IDs, example: `["gSnap@micahosborne"]`
+                    - `"gsettings_value"` - List of dictionaries containing GSettings data, example:
+                        - ```json
+                          {
+                              "schema": "org.gnome.desktop.calendar",
+                              "key": "show-weekdate",
+                              "value": "true"
+                          }
+                          ```
+                    - `"package_install"` - List of package names, example: `["firefox"]`
+                    - `"package_install_rpmfusion"` - List of RPM Fusion package names, example: `["steam"]`
+                    - `"package_remove"` - List of package names, example: `["firefox"]`
+                    - `"script"` - List of script names, example: `["gnome_extension/ding"]`
+                    - `"vpn_script"` - List of VPN script names, example: `["gnome_extension/ding"]`
 5. Example option dictionary:
 
 ```json
-    {
+{
     "name": "Archive Manager",
     "description": "Advanced archive manager",
     "default_state": true,
     "category": "application",
-    "operation_type": "package_install",
-    "operation_args": [
-        "file-roller"
+    "actions": [
+        {
+            "operation_type": "package_install",
+            "operation_args": [
+                "file-roller"
+            ]
+        }
     ]
 }
 ```
