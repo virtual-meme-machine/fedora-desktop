@@ -22,17 +22,25 @@ def get_option_string(option: dict[str, str]) -> str:
     name = option.get("name")
     description = option.get("description")
     link = option.get("documentation_link")
-    operation_type = option.get("operation_type")
-    operation_args = option.get("operation_args")
+    actions = option.get("actions")
 
     if link is None:
-        if operation_type == "flatpak":
-            link = f"[View on Flathub](https://flathub.org/apps/{operation_args[0]})"
-        elif operation_type == "package_install":
-            link = f"[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/" \
-                   f"{operation_args[0]}/{operation_args[0]})"
-        elif operation_type == "package_install_rpmfusion":
-            link = f"[View on RPM Fusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/{operation_args[0]})"
+        link_segments = []
+        for action in actions:
+            operation_type = action.get("operation_type")
+            operation_args = action.get("operation_args")
+
+            if operation_type == "flatpak":
+                link_segments.append(f"[View on Flathub](https://flathub.org/apps/{operation_args[0]})")
+            elif operation_type == "package_install":
+                link_segments.append(f"[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/"
+                                     f"{operation_args[0]}/{operation_args[0]})")
+            elif operation_type == "package_install_rpmfusion":
+                link_segments.append(f"[View on RPM Fusion](https://admin.rpmfusion.org/"
+                                     f"pkgdb/package/nonfree/{operation_args[0]})")
+
+        if len(link_segments) > 0:
+            link = " ".join(link_segments)
         else:
             link = "N/A"
 
