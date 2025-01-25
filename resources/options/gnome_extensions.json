@@ -1,0 +1,379 @@
+[
+    {
+        "name": "Alphabetical App Grid",
+        "description": "Automatically alphabetizes applications in the app picker",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/4269/alphabetical-app-grid)",
+        "default_state": true,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "gnome_extension_install",
+                "operation_args": [
+                    "AlphabeticalAppGrid@stuarthayhurst"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "AlphabeticalAppGrid@stuarthayhurst"
+                ]
+            },
+            {
+                "operation_type": "dconf_value",
+                "operation_args": [
+                    {
+                        "key": "/org/gnome/shell/extensions/alphabetical-app-grid/folder-order-position",
+                        "value": "'start'"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "ArcMenu",
+        "description": "Windows-like Application menu for GNOME Shell",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3628/arcmenu)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "gnome_extension_install",
+                "operation_args": [
+                    "arcmenu@arcmenu.com"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "arcmenu@arcmenu.com"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "AppIndicator and KStatusNotifierItem Support",
+        "description": "Enables support for tray icons",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/615/appindicator-support)",
+        "default_state": true,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "gnome-shell-extension-appindicator"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "appindicatorsupport@rgcjonas.gmail.com"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Background Logo",
+        "description": "Adds a Fedora logo watermark to the wallpaper",
+        "documentation_link": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/gnome-shell-extension-background-logo/gnome-shell-extension-background-logo)",
+        "default_state": true,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "gnome-shell-extension-background-logo"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "background-logo@fedorahosted.org"
+                ]
+            },
+            {
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.fedorahosted.background-logo-extension",
+                        "key": "logo-always-visible",
+                        "value": "true"
+                    },
+                    {
+                        "schema": "org.fedorahosted.background-logo-extension",
+                        "key": "logo-border",
+                        "value": "25"
+                    },
+                    {
+                        "schema": "org.fedorahosted.background-logo-extension",
+                        "key": "logo-opacity",
+                        "value": "20"
+                    },
+                    {
+                        "schema": "org.fedorahosted.background-logo-extension",
+                        "key": "logo-position",
+                        "value": "'bottom-right'"
+                    },
+                    {
+                        "schema": "org.fedorahosted.background-logo-extension",
+                        "key": "logo-size",
+                        "value": "5.0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "BackSlide",
+        "description": "Automatic background-image (wallpaper) slideshow for Gnome Shell",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/543/backslide)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "gnome_extension_install",
+                "operation_args": [
+                    "backslide@codeisland.org"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "backslide@codeisland.org"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Blur my Shell",
+        "description": "Blurs some elements of the Gnome Shell",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3193/blur-my-shell)",
+        "default_state": true,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "gnome-shell-extension-blur-my-shell"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "blur-my-shell@aunetx"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Caffeine",
+        "description": "Quick settings toggle that prevents the system from sleeping",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/517/caffeine)",
+        "default_state": true,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "gnome-shell-extension-caffeine"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "caffeine@patapon.info"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Dash to Dock",
+        "description": "Moves the dash out of the overview transforming it into a dock",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/307/dash-to-dock)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "gnome-shell-extension-dash-to-dock"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "dash-to-dock@micxgx.gmail.com"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Dash to Panel",
+        "description": "An icon taskbar for the Gnome Shell. This extension moves the dash into the gnome main panel so that the application launchers and system tray are combined into a single panel, similar to that found in KDE Plasma and Windows 7+.",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/1160/dash-to-panel)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "gnome-shell-extension-dash-to-panel"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "dash-to-panel@jderose9.github.com"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "ddterm",
+        "description": "Provides a drop-down terminal on a hotkey press",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3780/ddterm)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "gnome_extension_install",
+                "operation_args": [
+                    "ddterm@amezin.github.com"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "ddterm@amezin.github.com"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Desktop Icons NG (DING)",
+        "description": "Adds icons to the desktop",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "gnome_extension_install",
+                "operation_args": [
+                    "ding@rastersoft.com"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "ding@rastersoft.com"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "GSConnect",
+        "description": "Mobile device bridge that integrates device notifications, messages, and more into Gnome Shell",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/1319/gsconnect)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "gnome-shell-extension-gsconnect",
+                    "nautilus-gsconnect",
+                    "webextension-gsconnect"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "gsconnect@andyholmes.github.io"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "gSnap",
+        "description": "Organize windows in customizable snap zones like FancyZones on Windows.",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/4442/gsnap)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "gnome_extension_install",
+                "operation_args": [
+                    "gSnap@micahosborne"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "gSnap@micahosborne"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NoAnnoyance",
+        "description": "Removes the 'window is ready' notification and puts the window into focus instead",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/6109/noannoyance-fork)",
+        "default_state": false,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "gnome_extension_install",
+                "operation_args": [
+                    "noannoyance-fork@vrba.dev"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "noannoyance-fork@vrba.dev"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Quick Settings Audio Panel",
+        "description": "Adds extra volume controls to the quick settings menu",
+        "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel)",
+        "default_state": true,
+        "category": "gnome_extension",
+        "actions": [
+            {
+                "operation_type": "gnome_extension_install",
+                "operation_args": [
+                    "quick-settings-audio-panel@rayzeq.github.io"
+                ]
+            },
+            {
+                "operation_type": "gnome_extension_enable",
+                "operation_args": [
+                    "quick-settings-audio-panel@rayzeq.github.io"
+                ]
+            },
+            {
+                "operation_type": "dconf_value",
+                "operation_args": [
+                    {
+                        "key": "/org/gnome/shell/extensions/quick-settings-audio-panel/always-show-input-slider",
+                        "value": "true"
+                    },
+                    {
+                        "key": "/org/gnome/shell/extensions/quick-settings-audio-panel/media-control",
+                        "value": "'none'"
+                    },
+                    {
+                        "key": "/org/gnome/shell/extensions/quick-settings-audio-panel/merge-panel",
+                        "value": "true"
+                    },
+                    {
+                        "key": "/org/gnome/shell/extensions/quick-settings-audio-panel/panel-position",
+                        "value": "'top'"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -5,7 +5,8 @@ import utils.flatpak_utils as flatpak_utils
 from data.OperationType import OperationType
 from data.OptionStore import OptionStore
 from utils.caffeine_utils import activate_caffeine, deactivate_caffeine, deactivate_caffeine_exit
-from utils.platform_utils import set_gsettings_values
+from utils.gnome_extension_utils import install_remote_extension, enable_extension
+from utils.platform_utils import set_gsettings_values, set_dconf_values
 from utils.print_utils import print_header
 from utils.script_utils import load_script
 from utils.sudo_utils import set_sudo_password
@@ -17,7 +18,10 @@ def setup(option_store: OptionStore):
     :param option_store: OptionStore that denotes which actions should be taken
     :return: None
     """
+    dconf_value_list: list[dict] = []
     flatpak_list: list[str] = []
+    gnome_extension_enable_list: list[str] = []
+    gnome_extension_install_list: list[str] = []
     gsettings_value_list: list[dict] = []
     package_install_list: list[str] = []
     package_install_rpmfusion_list: list[str] = []
@@ -29,8 +33,14 @@ def setup(option_store: OptionStore):
     for option_list in option_store.get_options_active().values():
         for option in option_list:
             for action in option.actions:
-                if action.operation_type is OperationType.FLATPAK:
+                if action.operation_type is OperationType.DCONF_VALUE:
+                    dconf_value_list.extend(action.operation_args)
+                elif action.operation_type is OperationType.FLATPAK:
                     flatpak_list.extend(action.operation_args)
+                elif action.operation_type is OperationType.GNOME_EXTENSION_ENABLE:
+                    gnome_extension_enable_list.extend(action.operation_args)
+                elif action.operation_type is OperationType.GNOME_EXTENSION_INSTALL:
+                    gnome_extension_install_list.extend(action.operation_args)
                 elif action.operation_type is OperationType.GSETTINGS_VALUE:
                     gsettings_value_list.extend(action.operation_args)
                 elif action.operation_type is OperationType.PACKAGE_INSTALL:
@@ -89,6 +99,16 @@ def setup(option_store: OptionStore):
             print(f"Flatpak installation failed, {err}")
             deactivate_caffeine_exit()
 
+    # Install Gnome extensions
+    if gnome_extension_install_list:
+        print_header("Installing Gnome Extensions")
+        try:
+            for extension_id in gnome_extension_install_list:
+                install_remote_extension(extension_id=extension_id)
+        except CalledProcessError as err:
+            print(f"Gnome Extension installation failed, {err}")
+            deactivate_caffeine_exit()
+
     # Execute scripts
     for script in sorted(script_list):
         print_header(f"Executing Script: '{script}'")
@@ -98,13 +118,32 @@ def setup(option_store: OptionStore):
             print(f"Script '{script}' failed, {err}")
             deactivate_caffeine_exit()
 
+    # Apply dconf values
+    if dconf_value_list:
+        print_header("Applying Dconf Values")
+        try:
+            set_dconf_values(sorted(dconf_value_list, key=lambda i: i.get("key").lower()))
+        except CalledProcessError as err:
+            print(f"Failed to apply dconf values, {err}")
+            deactivate_caffeine_exit()
+
     # Apply Gsettings values
     if gsettings_value_list:
-        print_header("Applying Settings")
+        print_header("Applying GSettings Values")
         try:
             set_gsettings_values(sorted(gsettings_value_list, key=lambda i: i.get("schema").lower()))
         except CalledProcessError as err:
-            print(f"Failed to apply settings, {err}")
+            print(f"Failed to apply GSettings values, {err}")
+            deactivate_caffeine_exit()
+
+    # Enable Gnome extensions
+    if gnome_extension_enable_list:
+        print_header("Enabling Gnome Extensions")
+        try:
+            for extension_id in gnome_extension_enable_list:
+                enable_extension(extension_id=extension_id)
+        except CalledProcessError as err:
+            print(f"Failed to enable Gnome extensions, {err}")
             deactivate_caffeine_exit()
 
     # Remove packages
