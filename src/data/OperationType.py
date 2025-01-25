@@ -11,6 +11,7 @@ class OperationType(Enum):
     PACKAGE_INSTALL_RPMFUSION: str = "package_install_rpmfusion"
     PACKAGE_REMOVE: str = "package_remove"
     SCRIPT: str = "script"
+    VPN_SCRIPT: str = "vpn_script"
 
 
 def from_string(string: str) -> OperationType:

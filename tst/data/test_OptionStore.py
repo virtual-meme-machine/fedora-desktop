@@ -6,7 +6,7 @@ from unittest.mock import patch
 from data import Category
 from data import OperationType
 from data import OptionStore
-from data import OptionToggle
+from data import Option
 from utils.file_utils import delete_path
 
 TEST_OPTION_DATA: dict = {
@@ -16,9 +16,13 @@ TEST_OPTION_DATA: dict = {
     "default_state": True,
     "unsupported_versions": [0],
     "category": "application",
-    "operation_type": "package_install",
-    "operation_args": [
-        "file-roller"
+    "actions": [
+        {
+            "operation_type": "package_install",
+            "operation_args": [
+                "file-roller"
+            ]
+        }
     ]
 }
 TEST_PROFILE_DATA: dict = {
@@ -89,27 +93,34 @@ class TestOptionStore:
 
         assert type(options) is dict
         assert type(options_sub_list) is list
-        assert type(option) is OptionToggle.OptionToggle
+        assert type(option) is Option.Option
 
         assert len(options_sub_list) == 1
 
         assert type(option.name) is str
         assert option.name == TEST_OPTION_DATA.get("name")
+
         assert type(option.description) is str
         assert option.description == TEST_OPTION_DATA.get("description")
+
         assert type(option.default_state) is bool
         assert option.default_state == TEST_OPTION_DATA.get("default_state")
+
         assert type(option.can_toggle) is bool
         assert option.can_toggle is True
         assert option.check_button.get_sensitive() is True
+
         assert type(option.category) is Category.Category
         assert option.category.value[0] == TEST_OPTION_DATA.get("category")
-        assert type(option.operation_type) is OperationType.OperationType
-        assert option.operation_type.value == TEST_OPTION_DATA.get("operation_type")
-        assert type(option.operation_args) is list
-        assert option.operation_args == TEST_OPTION_DATA.get("operation_args")
 
-    @patch("data.OptionStore.get_fedora_version", new=mock_get_fedora_version_unsupported)
+        assert type(option.actions) is list
+        assert type(option.actions[0].operation_type) is OperationType.OperationType
+        assert option.actions[0].operation_type.value == TEST_OPTION_DATA.get("actions")[0].get("operation_type")
+
+        assert type(option.actions[0].operation_args) is list
+        assert option.actions[0].operation_args == TEST_OPTION_DATA.get("actions")[0].get("operation_args")
+
+    @patch("data.Option.get_fedora_version", new=mock_get_fedora_version_unsupported)
     def test_get_options_unsupported(self):
         """
         Tests OptionStore.get_options() with the following use cases:
@@ -181,7 +192,7 @@ class TestOptionStore:
         self.option_store.profile_load(file_path=self.profile_file)
         assert self.option_store.get_options().get(Category.Category.APPLICATION)[0].check_button.get_active() is True
 
-    @patch("data.OptionStore.get_fedora_version", new=mock_get_fedora_version_unsupported)
+    @patch("data.Option.get_fedora_version", new=mock_get_fedora_version_unsupported)
     def test_profile_load_unsupported(self):
         """
         Tests OptionStore.profile_load() with the following use cases:
@@ -228,7 +239,7 @@ class TestOptionStore:
         assert all(all(option.check_button.get_active() is False for option in option_list)
                    for option_list in self.option_store.get_options().values())
 
-    @patch("data.OptionStore.get_fedora_version", new=mock_get_fedora_version_unsupported)
+    @patch("data.Option.get_fedora_version", new=mock_get_fedora_version_unsupported)
     def test_set_all_unsupported(self):
         """
         Tests OptionStore.set_all() with the following use cases:

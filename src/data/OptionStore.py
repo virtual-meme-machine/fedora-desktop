@@ -2,10 +2,8 @@ import json
 import os
 
 import data.Category as Category
-import data.OperationType as OperationType
-from data.OptionToggle import OptionToggle
+from data.Option import Option
 from data.Paths import OPTIONS_DIR
-from utils.platform_utils import get_fedora_version
 
 
 class OptionStore:
@@ -20,46 +18,38 @@ class OptionStore:
         :return: OptionStore object
         """
         self.__option_count: int = 0
-        self.__options_dict: dict[Category, list[OptionToggle]] = {}
+        self.__options_dict: dict[Category, list[Option]] = {}
 
-        temp_dict: dict[Category, list[OptionToggle]] = {}
-        fedora_version: int = get_fedora_version()
+        temp_dict: dict[Category, list[Option]] = {}
         for option_file in os.listdir(options_dir):
             if not os.path.splitext(option_file)[1] == ".json":
                 continue
 
             with open(os.path.join(options_dir, option_file), "r") as json_file:
-                for option in json.load(json_file):
-                    supported = fedora_version not in option.get("unsupported_versions", [])
-                    option_toggle = OptionToggle(name=option.get("name"),
-                                                 description=option.get("description"),
-                                                 default_state=supported and option.get("default_state"),
-                                                 can_toggle=supported,
-                                                 category=Category.from_string(option.get("category")),
-                                                 operation_type=OperationType.from_string(option.get("operation_type")),
-                                                 operation_args=option.get("operation_args"))
-                    key = option_toggle.category
-                    sub_options = ([], temp_dict.get(key))[key in temp_dict.keys()]
-                    sub_options.append(option_toggle)
+                for option_dict in json.load(json_file):
+                    option = Option.from_dict(option_dict=option_dict)
+                    key = option.category
+                    sub_options = temp_dict.get(key) if key in temp_dict.keys() else []
+                    sub_options.append(option)
                     temp_dict.update({key: sub_options})
                     self.__option_count += 1
 
         for key in sorted(temp_dict.keys(), key=lambda category: category.value[0]):
             self.__options_dict.update({key: sorted(temp_dict.get(key), key=lambda o: o.name.lower())})
 
-    def get_options(self) -> dict[Category, list[OptionToggle]]:
+    def get_options(self) -> dict[Category, list[Option]]:
         """
         Gets a dictionary of OptionToggles sorted by Category
         :return: Dictionary of OptionToggles
         """
         return self.__options_dict
 
-    def get_options_active(self) -> dict[Category, list[OptionToggle]]:
+    def get_options_active(self) -> dict[Category, list[Option]]:
         """
         Gets a dictionary of active OptionToggles sorted by Category
         :return: Dictionary of OptionToggles
         """
-        temp_dict: dict[Category, list[OptionToggle]] = {}
+        temp_dict: dict[Category, list[Option]] = {}
         for category in self.__options_dict.keys():
             temp_dict.update({category: [o for o in self.__options_dict.get(category) if o.check_button.get_active()]})
 
