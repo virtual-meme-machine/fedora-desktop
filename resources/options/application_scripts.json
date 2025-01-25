@@ -37,6 +37,18 @@
         "category": "application",
         "actions": [
             {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "openrgb-udev-rules"
+                ]
+            },
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.openrgb.OpenRGB"
+                ]
+            },
+            {
                 "operation_type": "script",
                 "operation_args": [
                     "application/openrgb"
@@ -51,6 +63,12 @@
         "default_state": false,
         "category": "application",
         "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "libmediainfo"
+                ]
+            },
             {
                 "operation_type": "script",
                 "operation_args": [

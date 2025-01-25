@@ -2,7 +2,6 @@ import os
 import shutil
 import tempfile
 
-from utils.dnf_utils import install_packages
 from utils.file_utils import download_file
 from utils.platform_utils import symlink_to_local_bin
 
@@ -36,7 +35,6 @@ def execute():
     Installs tinyMediaManager
     :return: None
     """
-    install_packages(["libmediainfo"])
     __install()
     symlink_to_local_bin(TMM_EXEC)
 
