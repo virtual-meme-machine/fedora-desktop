@@ -5,9 +5,13 @@
         "documentation_link": "[View on GitHub](https://github.com/alvr-org/alvr)",
         "default_state": false,
         "category": "application",
-        "operation_type": "script",
-        "operation_args": [
-            "application/alvr_launcher"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "application/alvr_launcher"
+                ]
+            }
         ]
     },
     {
@@ -16,9 +20,13 @@
         "documentation_link": "[View on JetBrains Website](https://www.jetbrains.com/toolbox-app)",
         "default_state": false,
         "category": "application",
-        "operation_type": "script",
-        "operation_args": [
-            "application/jetbrains_toolbox"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "application/jetbrains_toolbox"
+                ]
+            }
         ]
     },
     {
@@ -27,9 +35,13 @@
         "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/OpenRGB.md)",
         "default_state": true,
         "category": "application",
-        "operation_type": "script",
-        "operation_args": [
-            "application/openrgb"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "application/openrgb"
+                ]
+            }
         ]
     },
     {
@@ -38,9 +50,13 @@
         "documentation_link": "[tinyMediaManager Website](https://www.tinymediamanager.org)",
         "default_state": false,
         "category": "application",
-        "operation_type": "script",
-        "operation_args": [
-            "application/tiny_media_manager"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "application/tiny_media_manager"
+                ]
+            }
         ]
     },
     {
@@ -49,9 +65,13 @@
         "documentation_link": "[Unity Website](https://unity.com/)",
         "default_state": false,
         "category": "application",
-        "operation_type": "script",
-        "operation_args": [
-            "application/unity_hub"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "application/unity_hub"
+                ]
+            }
         ]
     }
 ]

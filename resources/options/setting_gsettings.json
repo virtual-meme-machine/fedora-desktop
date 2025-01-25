@@ -4,12 +4,16 @@
         "description": "Makes week numbers visible in the top bar's calendar widget",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.desktop.calendar",
-                "key": "show-weekdate",
-                "value": "true"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.desktop.calendar",
+                        "key": "show-weekdate",
+                        "value": "true"
+                    }
+                ]
             }
         ]
     },
@@ -18,17 +22,21 @@
         "description": "Sets the clock format to AM/PM (12 hour)",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.desktop.interface",
-                "key": "clock-format",
-                "value": "'12h'"
-            },
-            {
-                "schema": "org.gtk.Settings.FileChooser",
-                "key": "clock-format",
-                "value": "'12h'"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.desktop.interface",
+                        "key": "clock-format",
+                        "value": "'12h'"
+                    },
+                    {
+                        "schema": "org.gtk.Settings.FileChooser",
+                        "key": "clock-format",
+                        "value": "'12h'"
+                    }
+                ]
             }
         ]
     },
@@ -37,12 +45,16 @@
         "description": "Makes the week day visible in the top bar's clock",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.desktop.interface",
-                "key": "clock-show-weekday",
-                "value": "true"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.desktop.interface",
+                        "key": "clock-show-weekday",
+                        "value": "true"
+                    }
+                ]
             }
         ]
     },
@@ -51,22 +63,26 @@
         "description": "Sets Files' default view to 'List View'",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.nautilus.preferences",
-                "key": "default-folder-viewer",
-                "value": "'list-view'"
-            },
-            {
-                "schema": "org.gnome.nautilus.list-view",
-                "key": "default-zoom-level",
-                "value": "'small'"
-            },
-            {
-                "schema": "org.gnome.nautilus.list-view",
-                "key": "use-tree-view",
-                "value": "true"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.nautilus.preferences",
+                        "key": "default-folder-viewer",
+                        "value": "'list-view'"
+                    },
+                    {
+                        "schema": "org.gnome.nautilus.list-view",
+                        "key": "default-zoom-level",
+                        "value": "'small'"
+                    },
+                    {
+                        "schema": "org.gnome.nautilus.list-view",
+                        "key": "use-tree-view",
+                        "value": "true"
+                    }
+                ]
             }
         ]
     },
@@ -75,12 +91,16 @@
         "description": "Sorts folders before files in Files",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gtk.gtk4.Settings.FileChooser",
-                "key": "sort-directories-first",
-                "value": "true"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gtk.gtk4.Settings.FileChooser",
+                        "key": "sort-directories-first",
+                        "value": "true"
+                    }
+                ]
             }
         ]
     },
@@ -89,32 +109,36 @@
         "description": "Applies the 'Blobs' wallpaper",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.desktop.background",
-                "key": "picture-uri",
-                "value": "'file:///usr/share/backgrounds/gnome/blobs-l.svg'"
-            },
-            {
-                "schema": "org.gnome.desktop.background",
-                "key": "picture-uri-dark",
-                "value": "'file:///usr/share/backgrounds/gnome/blobs-d.svg'"
-            },
-            {
-                "schema": "org.gnome.desktop.background",
-                "key": "primary-color",
-                "value": "'#241f31'"
-            },
-            {
-                "schema": "org.gnome.desktop.screensaver",
-                "key": "picture-uri",
-                "value": "'file:///usr/share/backgrounds/gnome/blobs-l.svg'"
-            },
-            {
-                "schema": "org.gnome.desktop.screensaver",
-                "key": "primary-color",
-                "value": "'#241f31'"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.desktop.background",
+                        "key": "picture-uri",
+                        "value": "'file:///usr/share/backgrounds/gnome/blobs-l.svg'"
+                    },
+                    {
+                        "schema": "org.gnome.desktop.background",
+                        "key": "picture-uri-dark",
+                        "value": "'file:///usr/share/backgrounds/gnome/blobs-d.svg'"
+                    },
+                    {
+                        "schema": "org.gnome.desktop.background",
+                        "key": "primary-color",
+                        "value": "'#241f31'"
+                    },
+                    {
+                        "schema": "org.gnome.desktop.screensaver",
+                        "key": "picture-uri",
+                        "value": "'file:///usr/share/backgrounds/gnome/blobs-l.svg'"
+                    },
+                    {
+                        "schema": "org.gnome.desktop.screensaver",
+                        "key": "primary-color",
+                        "value": "'#241f31'"
+                    }
+                ]
             }
         ]
     },
@@ -123,17 +147,21 @@
         "description": "Applies the system dark theme",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.desktop.interface",
-                "key": "color-scheme",
-                "value": "'prefer-dark'"
-            },
-            {
-                "schema": "org.gnome.desktop.interface",
-                "key": "gtk-theme",
-                "value": "'Adwaita-dark'"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.desktop.interface",
+                        "key": "color-scheme",
+                        "value": "'prefer-dark'"
+                    },
+                    {
+                        "schema": "org.gnome.desktop.interface",
+                        "key": "gtk-theme",
+                        "value": "'Adwaita-dark'"
+                    }
+                ]
             }
         ]
     },
@@ -142,12 +170,16 @@
         "description": "Disables automatic opening of connected devices",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.desktop.media-handling",
-                "key": "autorun-never",
-                "value": "true"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.desktop.media-handling",
+                        "key": "autorun-never",
+                        "value": "true"
+                    }
+                ]
             }
         ]
     },
@@ -156,12 +188,16 @@
         "description": "Disables hot corners",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.desktop.interface",
-                "key": "enable-hot-corners",
-                "value": "false"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.desktop.interface",
+                        "key": "enable-hot-corners",
+                        "value": "false"
+                    }
+                ]
             }
         ]
     },
@@ -170,12 +206,16 @@
         "description": "Enables window titlebar minimize and maximize buttons",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.desktop.wm.preferences",
-                "key": "button-layout",
-                "value": "'appmenu:minimize,maximize,close'"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.desktop.wm.preferences",
+                        "key": "button-layout",
+                        "value": "'appmenu:minimize,maximize,close'"
+                    }
+                ]
             }
         ]
     },
@@ -184,12 +224,16 @@
         "description": "Disables location services",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.system.location",
-                "key": "enabled",
-                "value": "false"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.system.location",
+                        "key": "enabled",
+                        "value": "false"
+                    }
+                ]
             }
         ]
     },
@@ -198,12 +242,16 @@
         "description": "Disables automatically reporting crashes and other problems",
         "default_state": true,
         "category": "setting",
-        "operation_type": "gsettings_value",
-        "operation_args": [
+        "actions": [
             {
-                "schema": "org.gnome.desktop.privacy",
-                "key": "report-technical-problems",
-                "value": "false"
+                "operation_type": "gsettings_value",
+                "operation_args": [
+                    {
+                        "schema": "org.gnome.desktop.privacy",
+                        "key": "report-technical-problems",
+                        "value": "false"
+                    }
+                ]
             }
         ]
     }

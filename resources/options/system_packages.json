@@ -4,10 +4,14 @@
         "description": "Drivers for modern Nvidia GPUs",
         "default_state": false,
         "category": "system",
-        "operation_type": "package_install_rpmfusion",
-        "operation_args": [
-            "akmod-nvidia",
-            "xorg-x11-drv-nvidia-cuda"
+        "actions": [
+            {
+                "operation_type": "package_install_rpmfusion",
+                "operation_args": [
+                    "akmod-nvidia",
+                    "xorg-x11-drv-nvidia-cuda"
+                ]
+            }
         ]
     },
     {
@@ -15,9 +19,13 @@
         "description": "Enables extracting .rar archives",
         "default_state": true,
         "category": "system",
-        "operation_type": "package_install_rpmfusion",
-        "operation_args": [
-            "unrar"
+        "actions": [
+            {
+                "operation_type": "package_install_rpmfusion",
+                "operation_args": [
+                    "unrar"
+                ]
+            }
         ]
     }
 ]

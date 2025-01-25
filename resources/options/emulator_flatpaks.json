@@ -4,9 +4,13 @@
         "description": "Super Nintendo Entertainment System (SNES) emulator",
         "default_state": false,
         "category": "emulator",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "dev.bsnes.bsnes"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "dev.bsnes.bsnes"
+                ]
+            }
         ]
     },
     {
@@ -14,9 +18,13 @@
         "description": "Nintendo GameCube and Nintendo Wii emulator",
         "default_state": false,
         "category": "emulator",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.DolphinEmu.dolphin-emu"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.DolphinEmu.dolphin-emu"
+                ]
+            }
         ]
     },
     {
@@ -24,9 +32,13 @@
         "description": "Sony PlayStation (PS1) emulator",
         "default_state": false,
         "category": "emulator",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.duckstation.DuckStation"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.duckstation.DuckStation"
+                ]
+            }
         ]
     },
     {
@@ -34,9 +46,13 @@
         "description": "Nintendo GameBoy Advance emulator",
         "default_state": false,
         "category": "emulator",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "io.mgba.mGBA"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "io.mgba.mGBA"
+                ]
+            }
         ]
     },
     {
@@ -44,9 +60,13 @@
         "description": "Nintendo 64 emulator",
         "default_state": false,
         "category": "emulator",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "ca.parallel_launcher.ParallelLauncher"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "ca.parallel_launcher.ParallelLauncher"
+                ]
+            }
         ]
     },
     {
@@ -54,9 +74,13 @@
         "description": "Sony PlayStation 2 emulator",
         "default_state": false,
         "category": "emulator",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "net.pcsx2.PCSX2"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "net.pcsx2.PCSX2"
+                ]
+            }
         ]
     },
     {
@@ -64,9 +88,13 @@
         "description": "Sony PlayStation Portable (PSP) emulator",
         "default_state": false,
         "category": "emulator",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.ppsspp.PPSSPP"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.ppsspp.PPSSPP"
+                ]
+            }
         ]
     },
     {
@@ -74,9 +102,13 @@
         "description": "Nintendo Switch emulator",
         "default_state": false,
         "category": "emulator",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.ryujinx.Ryujinx"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.ryujinx.Ryujinx"
+                ]
+            }
         ]
     },
     {
@@ -84,9 +116,13 @@
         "description": "Microsoft Xbox emulator",
         "default_state": false,
         "category": "emulator",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "app.xemu.xemu"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "app.xemu.xemu"
+                ]
+            }
         ]
     }
 ]

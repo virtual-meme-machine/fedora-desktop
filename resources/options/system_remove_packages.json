@@ -4,23 +4,27 @@
         "description": "Uninstalls useless Gnome applications such as Gnome Clocks",
         "default_state": true,
         "category": "system",
-        "operation_type": "package_remove",
-        "operation_args": [
-            "gnome-boxes",
-            "gnome-calendar",
-            "gnome-characters",
-            "gnome-clocks",
-            "gnome-contacts",
-            "gnome-extensions-app",
-            "gnome-logs",
-            "gnome-maps",
-            "gnome-music",
-            "gnome-photos",
-            "gnome-tour",
-            "gnome-weather",
-            "rhythmbox",
-            "snapshot",
-            "totem"
+        "actions": [
+            {
+                "operation_type": "package_remove",
+                "operation_args": [
+                    "gnome-boxes",
+                    "gnome-calendar",
+                    "gnome-characters",
+                    "gnome-clocks",
+                    "gnome-contacts",
+                    "gnome-extensions-app",
+                    "gnome-logs",
+                    "gnome-maps",
+                    "gnome-music",
+                    "gnome-photos",
+                    "gnome-tour",
+                    "gnome-weather",
+                    "rhythmbox",
+                    "snapshot",
+                    "totem"
+                ]
+            }
         ]
     },
     {
@@ -29,9 +33,13 @@
         "documentation_link": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/libreoffice/libreoffice)",
         "default_state": true,
         "category": "system",
-        "operation_type": "package_remove",
-        "operation_args": [
-            "libreoffice*"
+        "actions": [
+            {
+                "operation_type": "package_remove",
+                "operation_args": [
+                    "libreoffice*"
+                ]
+            }
         ]
     }
 ]

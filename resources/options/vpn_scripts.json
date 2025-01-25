@@ -5,9 +5,13 @@
         "documentation_link": "[CryptoStorm Website](https://cryptostorm.is)",
         "default_state": false,
         "category": "vpn",
-        "operation_type": "script",
-        "operation_args": [
-            "vpn/cryptostorm"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "vpn/cryptostorm"
+                ]
+            }
         ]
     },
     {
@@ -16,9 +20,13 @@
         "documentation_link": "[Mullvad Website](https://mullvad.net)",
         "default_state": false,
         "category": "vpn",
-        "operation_type": "script",
-        "operation_args": [
-            "vpn/mullvad"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "vpn/mullvad"
+                ]
+            }
         ]
     }
 ]

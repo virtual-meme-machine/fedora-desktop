@@ -4,9 +4,13 @@
         "description": "Advanced archive manager",
         "default_state": true,
         "category": "application",
-        "operation_type": "package_install",
-        "operation_args": [
-            "file-roller"
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "file-roller"
+                ]
+            }
         ]
     },
     {
@@ -14,9 +18,13 @@
         "description": "GUI for viewing and modifying dconf, similar to Windows' regedit",
         "default_state": false,
         "category": "application",
-        "operation_type": "package_install",
-        "operation_args": [
-            "dconf-editor"
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "dconf-editor"
+                ]
+            }
         ]
     },
     {
@@ -24,9 +32,13 @@
         "description": "GUI for configuring advanced Gnome settings",
         "default_state": true,
         "category": "application",
-        "operation_type": "package_install",
-        "operation_args": [
-            "gnome-tweaks"
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "gnome-tweaks"
+                ]
+            }
         ]
     },
     {
@@ -35,10 +47,14 @@
         "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/MangoHud.md)",
         "default_state": true,
         "category": "application",
-        "operation_type": "package_install",
-        "operation_args": [
-            "goverlay",
-            "mangohud"
+        "actions": [
+            {
+                "operation_type": "package_install",
+                "operation_args": [
+                    "goverlay",
+                    "mangohud"
+                ]
+            }
         ]
     },
     {
@@ -47,10 +63,14 @@
         "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/Steam.md)",
         "default_state": true,
         "category": "application",
-        "operation_type": "package_install_rpmfusion",
-        "operation_args": [
-            "steam",
-            "steam-devices"
+        "actions": [
+            {
+                "operation_type": "package_install_rpmfusion",
+                "operation_args": [
+                    "steam",
+                    "steam-devices"
+                ]
+            }
         ]
     }
 ]

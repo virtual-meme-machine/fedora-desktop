@@ -4,9 +4,13 @@
         "description": "Popular free and open source password manager",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.bitwarden.desktop"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.bitwarden.desktop"
+                ]
+            }
         ]
     },
     {
@@ -14,9 +18,13 @@
         "description": "Open source 3D creation suite used for 3D modeling, animation, etc.",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.blender.Blender"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.blender.Blender"
+                ]
+            }
         ]
     },
     {
@@ -24,10 +32,14 @@
         "description": "Easy to use launcher for running Windows applications",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.usebottles.bottles",
-            "org.freedesktop.Platform.VulkanLayer.MangoHud"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.usebottles.bottles",
+                    "org.freedesktop.Platform.VulkanLayer.MangoHud"
+                ]
+            }
         ]
     },
     {
@@ -35,9 +47,13 @@
         "description": "FTP client",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.filezillaproject.Filezilla"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.filezillaproject.Filezilla"
+                ]
+            }
         ]
     },
     {
@@ -45,9 +61,13 @@
         "description": "Parametric 3D modeling software",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.freecadweb.FreeCAD"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.freecadweb.FreeCAD"
+                ]
+            }
         ]
     },
     {
@@ -55,9 +75,13 @@
         "description": "Privacy focused YouTube client",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "io.freetubeapp.FreeTube"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "io.freetubeapp.FreeTube"
+                ]
+            }
         ]
     },
     {
@@ -65,9 +89,13 @@
         "description": "Simple QEMU virtualization frontend",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.gnome.Boxes"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.gnome.Boxes"
+                ]
+            }
         ]
     },
     {
@@ -75,9 +103,13 @@
         "description": "Utility for browsing and installing GNOME Shell Extensions",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.mattjakeman.ExtensionManager"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.mattjakeman.ExtensionManager"
+                ]
+            }
         ]
     },
     {
@@ -85,9 +117,13 @@
         "description": "Photo editor with a variety of features, similar to Adobe Photoshop",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.gimp.GIMP"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.gimp.GIMP"
+                ]
+            }
         ]
     },
     {
@@ -95,9 +131,13 @@
         "description": "SVG editor",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.inkscape.Inkscape"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.inkscape.Inkscape"
+                ]
+            }
         ]
     },
     {
@@ -105,9 +145,13 @@
         "description": "Encrypted video conferencing application, similar to Skype or Zoom",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.jitsi.jitsi-meet"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.jitsi.jitsi-meet"
+                ]
+            }
         ]
     },
     {
@@ -115,9 +159,13 @@
         "description": "Non linear video editor, similar to Adobe Premier or Sony Vegas",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.kde.kdenlive"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.kde.kdenlive"
+                ]
+            }
         ]
     },
     {
@@ -125,9 +173,13 @@
         "description": "Firefox fork with enhanced privacy and security",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "io.gitlab.librewolf-community"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "io.gitlab.librewolf-community"
+                ]
+            }
         ]
     },
     {
@@ -135,9 +187,13 @@
         "description": "Scrubs metadata from files",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "fr.romainvigier.MetadataCleaner"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "fr.romainvigier.MetadataCleaner"
+                ]
+            }
         ]
     },
     {
@@ -145,9 +201,13 @@
         "description": "Recording and streaming workstation",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.obsproject.Studio"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.obsproject.Studio"
+                ]
+            }
         ]
     },
     {
@@ -155,9 +215,13 @@
         "description": "Office productivity suite, similar to Microsoft Office",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.onlyoffice.desktopeditors"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.onlyoffice.desktopeditors"
+                ]
+            }
         ]
     },
     {
@@ -165,9 +229,13 @@
         "description": "Simple video downloader that supports multiple services such as YouTube",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.nickvision.tubeconverter"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.nickvision.tubeconverter"
+                ]
+            }
         ]
     },
     {
@@ -175,9 +243,13 @@
         "description": "Proton (Windows application compatibility layer) version manager",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "net.davidotek.pupgui2"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "net.davidotek.pupgui2"
+                ]
+            }
         ]
     },
     {
@@ -185,9 +257,13 @@
         "description": "3D model slicer for use with 3D printers",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.prusa3d.PrusaSlicer"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.prusa3d.PrusaSlicer"
+                ]
+            }
         ]
     },
     {
@@ -195,9 +271,13 @@
         "description": "Modern BitTorrent client",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.qbittorrent.qBittorrent"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.qbittorrent.qBittorrent"
+                ]
+            }
         ]
     },
     {
@@ -205,9 +285,13 @@
         "description": "Sample mashing application designed by Aphex Twin",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.thentrythis.Samplebrain"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.thentrythis.Samplebrain"
+                ]
+            }
         ]
     },
     {
@@ -215,9 +299,13 @@
         "description": "Encrypted communication platform, similar to WhatsApp",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.signal.Signal"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.signal.Signal"
+                ]
+            }
         ]
     },
     {
@@ -225,9 +313,13 @@
         "description": "Official client for the Spotify music streaming platform",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.spotify.Client"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.spotify.Client"
+                ]
+            }
         ]
     },
     {
@@ -235,9 +327,13 @@
         "description": "Helps apply custom assets from SteamGridDB",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.steamgriddb.SGDBoop"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.steamgriddb.SGDBoop"
+                ]
+            }
         ]
     },
     {
@@ -245,9 +341,13 @@
         "description": "Utility for adding custom emulator shortcuts to Steam",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.steamgriddb.steam-rom-manager"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.steamgriddb.steam-rom-manager"
+                ]
+            }
         ]
     },
     {
@@ -255,9 +355,13 @@
         "description": "Chromium fork with Google dependencies removed",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "io.github.ungoogled_software.ungoogled_chromium"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "io.github.ungoogled_software.ungoogled_chromium"
+                ]
+            }
         ]
     },
     {
@@ -265,9 +369,13 @@
         "description": "Popular open-source media player that supports most formats",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.videolan.VLC"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.videolan.VLC"
+                ]
+            }
         ]
     },
     {
@@ -275,9 +383,13 @@
         "description": "Feature rich text editor based on Visual Studio Code",
         "default_state": true,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.vscodium.codium"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.vscodium.codium"
+                ]
+            }
         ]
     },
     {
@@ -285,9 +397,13 @@
         "description": "Manager for the Pine64 PineTime smart watch",
         "default_state": false,
         "category": "application",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "io.gitlab.azymohliad.WatchMate"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "io.gitlab.azymohliad.WatchMate"
+                ]
+            }
         ]
     }
 ]

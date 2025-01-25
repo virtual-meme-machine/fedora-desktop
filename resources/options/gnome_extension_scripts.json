@@ -5,9 +5,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/4269/alphabetical-app-grid)",
         "default_state": true,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/alphabetical_app_grid"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/alphabetical_app_grid"
+                ]
+            }
         ]
     },
     {
@@ -16,9 +20,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3628/arcmenu)",
         "default_state": false,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/arcmenu"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/arcmenu"
+                ]
+            }
         ]
     },
     {
@@ -27,9 +35,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/615/appindicator-support)",
         "default_state": true,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/tray_icons"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/tray_icons"
+                ]
+            }
         ]
     },
     {
@@ -38,9 +50,13 @@
         "documentation_link": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/gnome-shell-extension-background-logo/gnome-shell-extension-background-logo)",
         "default_state": true,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/background_logo"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/background_logo"
+                ]
+            }
         ]
     },
     {
@@ -49,9 +65,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/543/backslide)",
         "default_state": false,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/backslide"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/backslide"
+                ]
+            }
         ]
     },
     {
@@ -60,9 +80,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3193/blur-my-shell)",
         "default_state": true,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/blur_my_shell"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/blur_my_shell"
+                ]
+            }
         ]
     },
     {
@@ -71,9 +95,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/517/caffeine)",
         "default_state": true,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/caffeine"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/caffeine"
+                ]
+            }
         ]
     },
     {
@@ -82,9 +110,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/307/dash-to-dock)",
         "default_state": false,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/dash_to_dock"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/dash_to_dock"
+                ]
+            }
         ]
     },
     {
@@ -93,9 +125,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/1160/dash-to-panel)",
         "default_state": false,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/dash_to_panel"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/dash_to_panel"
+                ]
+            }
         ]
     },
     {
@@ -104,9 +140,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/3780/ddterm)",
         "default_state": false,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/ddterm"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/ddterm"
+                ]
+            }
         ]
     },
     {
@@ -115,9 +155,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding)",
         "default_state": false,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/ding"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/ding"
+                ]
+            }
         ]
     },
     {
@@ -126,9 +170,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/1319/gsconnect)",
         "default_state": false,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/gsconnect"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/gsconnect"
+                ]
+            }
         ]
     },
     {
@@ -137,9 +185,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/4442/gsnap)",
         "default_state": false,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/gsnap"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/gsnap"
+                ]
+            }
         ]
     },
     {
@@ -148,9 +200,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/6109/noannoyance-fork)",
         "default_state": false,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/no_annoyance"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/no_annoyance"
+                ]
+            }
         ]
     },
     {
@@ -159,10 +215,13 @@
         "documentation_link": "[View on Gnome Extensions](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel)",
         "default_state": true,
         "category": "gnome_extension",
-        "operation_type": "script",
-        "operation_args": [
-            "gnome_extension/audio_panel"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "gnome_extension/audio_panel"
+                ]
+            }
         ]
     }
-] 
-
+]

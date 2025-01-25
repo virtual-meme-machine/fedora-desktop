@@ -4,9 +4,13 @@
         "description": "Fan remake of Metroid II: Return of Samus",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "io.github.am2r_community_developers.AM2RLauncher"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "io.github.am2r_community_developers.AM2RLauncher"
+                ]
+            }
         ]
     },
     {
@@ -14,9 +18,13 @@
         "description": "Enhanced source port of Diablo 1",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.diasurgical.DevilutionX"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.diasurgical.DevilutionX"
+                ]
+            }
         ]
     },
     {
@@ -24,9 +32,13 @@
         "description": "Enhanced source port of Wolfenstein: Enemy Territory",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.etlegacy.ETLegacy"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.etlegacy.ETLegacy"
+                ]
+            }
         ]
     },
     {
@@ -34,9 +46,13 @@
         "description": "Sandbox tower-defense game",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.github.Anuken.Mindustry"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.github.Anuken.Mindustry"
+                ]
+            }
         ]
     },
     {
@@ -44,9 +60,13 @@
         "description": "Open-source re-implementation of The Elder Scrolls III: Morrowind",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.openmw.OpenMW"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.openmw.OpenMW"
+                ]
+            }
         ]
     },
     {
@@ -54,9 +74,13 @@
         "description": "Open-source re-implementation of Roller Coaster Tycoon 2",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "io.openrct2.OpenRCT2"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "io.openrct2.OpenRCT2"
+                ]
+            }
         ]
     },
     {
@@ -64,9 +88,13 @@
         "description": "Open-source re-implementation of Ace of Spades 0.75",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "jp.yvt.OpenSpades"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "jp.yvt.OpenSpades"
+                ]
+            }
         ]
     },
     {
@@ -74,9 +102,13 @@
         "description": "Configurable Java Minecraft launcher",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.polymc.PolyMC"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.polymc.PolyMC"
+                ]
+            }
         ]
     },
     {
@@ -84,9 +116,13 @@
         "description": "Basic Tetris clone",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.gnome.Quadrapassel"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.gnome.Quadrapassel"
+                ]
+            }
         ]
     },
     {
@@ -94,9 +130,13 @@
         "description": "Enhanced version of Sonic 3 & Knuckles",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.sonic3air.Sonic3AIR"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.sonic3air.Sonic3AIR"
+                ]
+            }
         ]
     },
     {
@@ -104,9 +144,13 @@
         "description": "Genesis era Sonic themed kart racer with online multiplayer",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "org.srb2.SRB2Kart"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "org.srb2.SRB2Kart"
+                ]
+            }
         ]
     },
     {
@@ -114,9 +158,13 @@
         "description": "Source port of 3D Pinball for Windows - Space Cadet",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "com.github.k4zmu2a.spacecadetpinball"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "com.github.k4zmu2a.spacecadetpinball"
+                ]
+            }
         ]
     },
     {
@@ -124,9 +172,13 @@
         "description": "Open-source remake of Civilization V",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "io.github.yairm210.unciv"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "io.github.yairm210.unciv"
+                ]
+            }
         ]
     },
     {
@@ -134,9 +186,13 @@
         "description": "Wilderness survival sandbox game inspired by lovecraftian horror themes",
         "default_state": false,
         "category": "game",
-        "operation_type": "flatpak",
-        "operation_args": [
-            "at.vintagestory.VintageStory"
+        "actions": [
+            {
+                "operation_type": "flatpak",
+                "operation_args": [
+                    "at.vintagestory.VintageStory"
+                ]
+            }
         ]
     }
 ]

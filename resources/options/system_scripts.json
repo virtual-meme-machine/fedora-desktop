@@ -5,9 +5,13 @@
         "documentation_link": "[View Documentation](https://github.com/virtual-meme-machine/fedora-desktop/blob/main/docs/options/MangoHud.md)",
         "default_state": true,
         "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "configure_mangohud"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "configure_mangohud"
+                ]
+            }
         ]
     },
     {
@@ -15,9 +19,13 @@
         "description": "Configures OpenRGB to automatically start and apply a default lighting profile on login",
         "default_state": true,
         "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "configure_openrgb_autostart"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "configure_openrgb_autostart"
+                ]
+            }
         ]
     },
     {
@@ -26,9 +34,13 @@
         "documentation_link": "[View on Dolphin Wiki](https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin#Linux)",
         "default_state": false,
         "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "enable_gc_adapter"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "enable_gc_adapter"
+                ]
+            }
         ]
     },
     {
@@ -36,9 +48,13 @@
         "description": "Applies various fixes to address known issues with SteamVR for Linux",
         "default_state": false,
         "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "fix_steamvr"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "fix_steamvr"
+                ]
+            }
         ]
     },
     {
@@ -46,9 +62,13 @@
         "description": "Installs available updates",
         "default_state": true,
         "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "install_updates"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "install_updates"
+                ]
+            }
         ]
     },
     {
@@ -57,9 +77,13 @@
         "documentation_link": "[View on Fedora Packages](https://packages.fedoraproject.org/pkgs/firefox/firefox)",
         "default_state": true,
         "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "remove_firefox"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "remove_firefox"
+                ]
+            }
         ]
     },
     {
@@ -67,9 +91,13 @@
         "description": "Arranges the app picker to a preconfigured layout",
         "default_state": true,
         "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "set_app_picker_layout"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "set_app_picker_layout"
+                ]
+            }
         ]
     },
     {
@@ -77,9 +105,13 @@
         "description": "Sets the applications pinned to the dash to a preconfigured layout",
         "default_state": true,
         "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "set_favorite_apps"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "set_favorite_apps"
+                ]
+            }
         ]
     },
     {
@@ -87,9 +119,13 @@
         "description": "Sets the default web browser to LibreWolf",
         "default_state": true,
         "category": "system",
-        "operation_type": "script",
-        "operation_args": [
-            "set_default_browser"
+        "actions": [
+            {
+                "operation_type": "script",
+                "operation_args": [
+                    "set_default_browser"
+                ]
+            }
         ]
     }
 ]
