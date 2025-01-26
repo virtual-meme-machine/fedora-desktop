@@ -79,6 +79,12 @@
         "category": "system",
         "actions": [
             {
+                "operation_type": "package_remove",
+                "operation_args": [
+                    "firefox"
+                ]
+            },
+            {
                 "operation_type": "script",
                 "operation_args": [
                     "remove_firefox"
